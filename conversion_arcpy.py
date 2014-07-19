@@ -17,6 +17,15 @@ def change_fn_z(fc, newname, newali):
 			arcpy.AlterField_management(fc, field.name, newname, newali)
 			print "Changing 'Z' to %s" % newname
 
+#check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NADV88m"
+def check_fieldnames(fc):
+	fieldList = arcpy.ListFields(fc)
+	reserved = ['MSL_m', 'Tidal_Range_m', 'NADV88_m']
+	for field in fieldList:
+		if field.name.upper() in reserved:
+			arcpy.AddError("Issue: fields already exist for feature. Delete problem fields and try again")
+			sys.exit()
+
 try:
 	arcpy.CheckOutExtension("3D")
 	# Set Local Variables
@@ -35,21 +44,17 @@ try:
 	for feature in fcList:
 		arcpy.AddMessage(feature) #adds feature name to output
 		
-		# change z field in feature to mllw
-		change_fn_z(feature, "MLLW_m", "MLLW_meters") 
-		arcpy.AddMessage("Changing FieldName")
+		check_fieldnames(feature)
 		
 		#field with MSL
-		arcpy.AddMessage("Adding Mean Sea Level Surface info")
+		arcpy.AddMessage("Adding Mean Sea Level Surface Field")
 		arcpy.AddSurfaceInformation_3d(feature, msl_surface, "Z", "LINEAR")
 		change_fn_z(feature, "MSL_m", "MSL_m")
-		arcpy.AddMessage("Changing Z to MSL_m")
 		
 		#field with MSL
-		arcpy.AddMessage("Adding Tidal Range info")
+		arcpy.AddMessage("Adding Tidal Range Field")
 		arcpy.AddSurfaceInformation_3d(feature, tidal_range_surface, "Z", "LINEAR")
 		change_fn_z(feature, "Tidal_Range_m", "Tidal_Range_m")
-		arcpy.AddMessage("Changing Z to Tidal_Range_m")
 		
 		#add field to calculate NAVD88 for mllw_m, tidal_range_m and MSL_m
 		arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
