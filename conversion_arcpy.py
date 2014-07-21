@@ -27,13 +27,12 @@ try:
 	msl_surface = arcpy.GetParameterAsText(1)
 	tidal_range_surface = arcpy.GetParameterAsText(2)
 	
+	
 	# get list of features
-	fcList = arcpy.ListFeatureClasses()
+	inString = arcpy.GetParameterAsText(0)
+	fcList = inString.split(";") #splits input string into a list of features
 
 	# interate over feature list and change field names 
-	# currently on works for points. 
-	# TODO: add if statement to deal with lines separately
-	# TODO: lines fishnet? or split by segment?
 	# use extract values to points instead of addsurfaceinformation_3d
 	for feature in fcList:
 		arcpy.AddMessage(feature) #adds feature name to output
