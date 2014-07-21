@@ -8,9 +8,10 @@
 import arcpy
 from arcpy import env
 
-test = r"U:\HDEM_v3_1\Inputs_MLLW.gdb\connect_pts"
+GDB = r"U:\HDEM_v3_1\TIN_inputs_v3_NADV88.gdb"
+env.workspace = GDB
 
-print test
+print GDB
 
 #alter field name from 'z' to another field name
 def change_fn_z(fc, newname, newali):
@@ -20,5 +21,12 @@ def change_fn_z(fc, newname, newali):
 			arcpy.AlterField_management(fc, field.name, newname, newali)
 			print "Changing 'Z' to %s" % newname
 			
-#example
-change_fn_z(test, 'MLLWZ', 'MLLW_Meters') 
+#change all the features in a geodatabase
+
+fclist = arcpy.ListFeatureClasses()
+
+for feature in fclist:
+	print feature
+	change_fn_z(feature, 'MLLW_m', 'MLLW_m')
+
+

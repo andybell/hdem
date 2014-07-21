@@ -9,22 +9,16 @@ import arcpy
 from arcpy import env
 import exceptions, sys, traceback
 
-#alter field name from 'z' to another field name
-def change_fn_z(fc, newname, newali):
-	fieldList = arcpy.ListFields(fc) #get list of fields for a fc
-	for field in fieldList: # loop through each field
-		if field.name.upper() == 'Z': # look for field name 
-			arcpy.AlterField_management(fc, field.name, newname, newali)
-			print "Changing 'Z' to %s" % newname
 
 #check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NADV88m"
 def check_fieldnames(fc):
 	fieldList = arcpy.ListFields(fc)
-	reserved = ['MSL_m', 'Tidal_Range_m', 'NADV88_m']
+	reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m']
 	for field in fieldList:
-		if field.name.upper() in reserved:
-			arcpy.AddError("Issue: fields already exist for feature. Delete problem fields and try again")
-			sys.exit()
+		if field.name in reserved:
+			return False
+		else:
+			return True
 
 try:
 	arcpy.CheckOutExtension("3D")
@@ -44,18 +38,45 @@ try:
 	for feature in fcList:
 		arcpy.AddMessage(feature) #adds feature name to output
 		
-		check_fieldnames(feature)
+		#checks if feature contains reserved field names
+		if check_fieldnames(feature) == False:
+			arcpy.AddError("Issue: fields already exist for feature. Delete problem fields and try again")
+			break
 		
-		#field with MSL
-		arcpy.AddMessage("Adding Mean Sea Level Surface Field")
-		arcpy.AddSurfaceInformation_3d(feature, msl_surface, "Z", "LINEAR")
-		change_fn_z(feature, "MSL_m", "MSL_m")
+		#feature type
+		desc = arcpy.Describe(feature)
+		fc_type = desc.shapeType
+		arcpy.AddMessage(fc_type)
 		
-		#field with MSL
-		arcpy.AddMessage("Adding Tidal Range Field")
-		arcpy.AddSurfaceInformation_3d(feature, tidal_range_surface, "Z", "LINEAR")
-		change_fn_z(feature, "Tidal_Range_m", "Tidal_Range_m")
+		#do stuff based on input type
+		if fc_type == 'Point':
+				
+			#field with MSL
+			arcpy.AddMessage("Adding Mean Sea Level Surface Field")
+			arcpy.AddSurfaceInformation_3d(feature, msl_surface, "Z", "LINEAR")
+			arcpy.AlterField_management(feature, "Z", "MSL_m", "MSL_m") # changes field name
+	
+			#field with MSL
+			arcpy.AddMessage("Adding Tidal Range Field")
+			arcpy.AddSurfaceInformation_3d(feature, tidal_range_surface, "Z", "LINEAR")
+			arcpy.AlterField_management(feature, "Z", "Tidal_Range_m", "Tidal_Range_m") # changes field name
+				
+		elif fc_type == 'Polyline':
 		
+			#field with MSL
+			arcpy.AddMessage("Adding Mean Sea Level Surface Field")
+			arcpy.AddSurfaceInformation_3d(feature, msl_surface, "Z_MEAN", "LINEAR")
+			arcpy.AlterField_management(feature, "Z_MEAN", "MSL_m", "MSL_m") # changes field name
+		
+			#field with MSL
+			arcpy.AddMessage("Adding Tidal Range Field")
+			arcpy.AddSurfaceInformation_3d(feature, tidal_range_surface, "Z_MEAN", "LINEAR")
+			arcpy.AlterField_management(feature, "Z_MEAN", "Tidal_Range_m", "Tidal_Range_m") # changes field name
+		
+		else:
+			arcpy.AddError("Issue: Feature type not supported. Only convert lines or points!")
+			break
+			
 		#add field to calculate NAVD88 for mllw_m, tidal_range_m and MSL_m
 		arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 		arcpy.CalculateField_management(feature, "NAVD88_m", "!MSL_m! + (!MLLW_m!+!Tidal_Range_m!/2)", "PYTHON_9.3")
