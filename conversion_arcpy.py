@@ -13,7 +13,7 @@ import exceptions, sys, traceback
 #check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NADV88m"
 def check_fieldnames(fc):
 	fieldList = arcpy.ListFields(fc)
-	reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m']
+	reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'Z', 'Z_MEAN']
 	for field in fieldList:
 		if field.name in reserved:
 			return False
@@ -33,19 +33,13 @@ try:
 	env.workspace = arcpy.GetParameterAsText(0)
 	msl_surface = arcpy.GetParameterAsText(1)
 	tidal_range_surface = arcpy.GetParameterAsText(2)
-	MLLW_name = arcpy.GetParameterAsText(3) # field name for column with MLLW
 	MLLW2MSL_NAVD88 = arcpy.GetParameterAsText(4) # option to calculate MLLW2MSL
-	MLLW2MHHW_NADV88 = arcpy.GetParameterAsText(5) # option to calculate MLLW2MHHW
-	
-	arcpy.AddMessage(MLLW_name)
-	arcpy.AddMessage(MLLW2MSL_NAVD88)
-	arcpy.AddMessage(MLLW2MHHW_NADV88)
-	
+			
 	# get list of features
 	inString = arcpy.GetParameterAsText(0)
 	fcList = inString.split(";") #splits input string into a list of features
 	
-	arcpy.AddMessage(fcList)
+	#arcpy.AddMessage(fcList)
 
 	# interate over feature list and change field names 
 	# use extract values to points instead of addsurfaceinformation_3d
@@ -106,15 +100,8 @@ try:
 		#add field to calculate NAVD88 for mllw_m, tidal_range_m and MSL_m
 		if str(MLLW2MSL_NAVD88) == 'true':
 			arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
-			arcpy.CalculateField_management(feature, "NAVD88_m", "!MSL_m! + (MLLW_name + !Tidal_Range_m!/2)", "PYTHON_9.3")
+			arcpy.CalculateField_management(feature, "NAVD88_m", "!MSL_m! + (!MLLW_m! + !Tidal_Range_m!/2)", "PYTHON_9.3")
 			arcpy.AddMessage("Calculating NAVD88 Elevation from 1/2 tidal range and mean sea level")
-		
-		#add field to calculate NAVD88 for mllw_m, tidal_range_m and MSL_m
-		if str(MLLW2MHHW_NADV88) == 'true':
-			arcpy.AddField_management(feature, "NAVD88_m_MHHW", "DOUBLE")
-			arcpy.CalculateField_management(feature, "NAVD88_m_MHHW", "!MSL_m! + '!' + MLLW_name + '!' + !Tidal_Range_m!", "PYTHON_9.3")
-			arcpy.AddMessage("Calculating Elevation from full tidal range and mean sea level")
-		
 		
 
 except arcpy.ExecuteError:
