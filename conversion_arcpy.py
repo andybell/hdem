@@ -33,7 +33,7 @@ try:
 	env.workspace = arcpy.GetParameterAsText(0)
 	msl_surface = arcpy.GetParameterAsText(1)
 	tidal_range_surface = arcpy.GetParameterAsText(2)
-	MLLW2MSL_NAVD88 = arcpy.GetParameterAsText(4) # option to calculate MLLW2MSL
+	MLLW2MSL_NAVD88 = arcpy.GetParameterAsText(3) # option to calculate MLLW2MSL
 			
 	# get list of features
 	inString = arcpy.GetParameterAsText(0)
