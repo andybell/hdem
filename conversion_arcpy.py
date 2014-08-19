@@ -100,7 +100,7 @@ try:
 		#add field to calculate NAVD88 for mllw_m, tidal_range_m and MSL_m
 		if str(MLLW2MSL_NAVD88) == 'true':
 			arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
-			arcpy.CalculateField_management(feature, "NAVD88_m", "!MSL_m! + (!MLLW_m! + !Tidal_Range_m!/2)", "PYTHON_9.3")
+			arcpy.CalculateField_management(feature, "NAVD88_m", "!MSL_m! + (!MLLW_m! - !Tidal_Range_m!/2)", "PYTHON_9.3") #check!!
 			arcpy.AddMessage("Calculating NAVD88 Elevation from 1/2 tidal range and mean sea level")
 		
 
