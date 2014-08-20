@@ -10,6 +10,7 @@
 
 import arcpy
 import exceptions, sys, traceback
+import os
 import arcpy.mapping
 from arcpy import env
 
@@ -18,6 +19,9 @@ try:
 
     #output from parameter
     output = arcpy.GetParameterAsText(0)
+
+    base = os.path.basename(output)
+    arcpy.AddMessage(base)
 
     # TIN inputs
     TINputs = "Bathymetry/channel_double NAVD88_m Mass_Points <None>;Bathymetry/H00935_t2r_10m NAVD88_m Mass_Points <None>;Bathymetry/manual_pts NAVD88_m Mass_Points <None>;Bathymetry/Small_parabolas_full NAVD88_m Mass_Points <None>;Bathymetry/Channel_edges_dice NAVD88_m Hard_Line <None>;Bathymetry/channel_lines_dice NAVD88_m Hard_Line <None>;Crests_NAVD88 Elevation_NAVD88_m Hard_Line <None>;Levee_Foots_erase_30m_dice Z_Mean Hard_Line <None>"
@@ -42,16 +46,6 @@ try:
     #Create TIN
     arcpy.CreateTin_3d(output, proj, TINputs, "DELAUNAY")
 
-
-    # Add output to map with correct symbology
-    try:
-        arcpy.env.addOutputsToMap(True)
-        arcpy.ApplySymbologyFromLayer_management(output, symb)
-    except:
-        arcpy.AddMessage("Unable to add in TIN automatically.")
-
 except arcpy.ExecuteError:
 	print arcpy.GetMessages()
-
-
 
