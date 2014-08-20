@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------
 # Name:        TIN_display.py
 # Purpose:      Creates a TIN from current display extent
-#
+# Notes:        Files are currently hard linked (mxd - HDEM_v3r2_land.mxd)
 # Author:     Andy Bell
 # Contact:    ambell@ucdavis.edu
 # Created:     08/19/2014
