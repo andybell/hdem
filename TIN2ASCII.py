@@ -25,7 +25,7 @@ try:
     rm_temp = arcpy.GetParameterAsText(2)
 
     sampling = "CELLSIZE 2"
-    ntiles = "2 3"  # tile dimensions
+    ntiles = "3 5"  # tile dimensions
 
     #calculation of total number of tiles desired
     spl = ntiles.split()
@@ -59,7 +59,7 @@ try:
 
     for raster in rastertiles_list:
         arcpy.AddMessage("Converting %s to ASCII....." %raster)
-        rbase = os.path.basename(raster)
+        rbase = os.path.basename(raster) # TODO: base name still includes the .tif from the raster file
         ascii_name = os.path.join(a_tiles, rbase + ".txt")
         arcpy.RasterToASCII_conversion(raster, ascii_name)
 
