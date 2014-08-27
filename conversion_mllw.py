@@ -13,7 +13,7 @@ import exceptions, sys, traceback
 #check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NADV88m"
 def check_fieldnames(fc):
 	fieldList = arcpy.ListFields(fc)
-	reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'Z', 'Z_MEAN', 'WS_MLLW_m']
+	reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'Z', 'Z_MEAN', 'WS_MLLW_m', 'Tidal_Datum_Source']
 	check = True
 	for field in fieldList:
 		if field.name in reserved:
@@ -32,7 +32,7 @@ try:
 	# Set Local Variables
 	inString = arcpy.GetParameterAsText(0)
 	mllw_surface = arcpy.GetParameterAsText(1)
-
+	
 	# get list of features
 	fcList = inString.split(";") #splits input string into a list of features
 
@@ -64,6 +64,12 @@ try:
 				arcpy.AlterField_management(feature, "Z", "WS_MLLW_m", "WS_MLLW_m") # changes field name
 			except: #if alterfield does not work. Slower then alter field method for compatibility
 				change_fieldname(feature, "Z", "WS_MLLW_m")
+				
+			#Add field with raster name for conversion surface
+			
+			arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
+			arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mllw_surface + '"', "PYTHON_9.3")
+				
 			#add field to calculate NAVD88 from sounding and mllw_m
 			arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 			arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MLLW_M! + !MLLW_m!", "PYTHON_9.3") #check!!
