@@ -11,6 +11,7 @@
 import arcpy
 import os
 import glob
+import shutil
 
 from arcpy import env
 import exceptions, sys, traceback
@@ -60,10 +61,16 @@ try:
     for raster in rastertiles_list:
         arcpy.AddMessage("Converting %s to ASCII....." %raster)
         rbase = os.path.basename(raster) # TODO: base name still includes the .tif from the raster file
-        ascii_name = os.path.join(a_tiles, rbase + ".txt")
+		rbaseName, rbaseExt = os.path.splitext(rbase)
+        ascii_name = os.path.join(a_tiles, rbaseName + ".txt")
         arcpy.RasterToASCII_conversion(raster, ascii_name)
 
     # delete temporary scratch folder
+	if rm_temp == "True":
+		arcpy.AddMessage("Removing Temporary Files....")
+		shutil.rmtree(r_tiles)
+		os.remove(TinAsRast)
+		
 
 except arcpy.ExecuteError:
 	print arcpy.GetMessages()
