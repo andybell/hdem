@@ -52,25 +52,26 @@ try:
     arcpy.TinRaster_3d(tin, TinAsRast, "FLOAT", "LINEAR", sampling)
 
     #split raster into chunks
-    arcpy.SplitRaster_management(TinAsRast, r_tiles, base + "_", "NUMBER_OF_TILES", "TIFF", "BILINEAR", ntiles)
+	arcpy.SplitRaster_management(TinAsRast, r_tiles, base + "_", "NUMBER_OF_TILES", "TIFF", "BILINEAR", ntiles, '#', "10", "METERS")
 
     #get list of split tiles
     rastertiles_list = glob.glob(r_tiles + "/*.TIF")
 
 
     for raster in rastertiles_list:
-        arcpy.AddMessage("Converting %s to ASCII....." %raster)
-        rbase = os.path.basename(raster) # TODO: base name still includes the .tif from the raster file
+		arcpy.AddMessage("Converting %s to ASCII....." %raster)
+		rbase = os.path.basename(raster)
 		rbaseName, rbaseExt = os.path.splitext(rbase)
-        ascii_name = os.path.join(a_tiles, rbaseName + ".txt")
-        arcpy.RasterToASCII_conversion(raster, ascii_name)
+		ascii_name = os.path.join(a_tiles, rbaseName + ".txt")
+		arcpy.RasterToASCII_conversion(raster, ascii_name)
 
     # delete temporary scratch folder
-	if rm_temp == "True":
+    arcpy.AddMessage(rm_temp)
+    if rm_temp == "true":
 		arcpy.AddMessage("Removing Temporary Files....")
-		shutil.rmtree(r_tiles)
-		os.remove(TinAsRast)
-		
+		shutil.rmtree(r_tiles) #removes folder
+		arcpy.Delete_management(TinAsRast) # removes file
+
 
 except arcpy.ExecuteError:
 	print arcpy.GetMessages()
