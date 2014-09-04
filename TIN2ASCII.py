@@ -57,7 +57,7 @@ try:
 
 	#get list of split tiles
 	rastertiles_list = glob.glob(r_tiles + "/*.TIF")
-	arcpy.AddMessage(rastertiles_list)
+	#arcpy.AddMessage(rastertiles_list)
 
 	for raster in rastertiles_list:
 		arcpy.AddMessage("Converting %s to ASCII....." % raster)
@@ -70,7 +70,7 @@ try:
 	if zip_ascii == 'true':
 		arcpy.AddMessage("Zipping ASCII files...")
 		zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
-		make_zip.zipfolder(a_tiles, zipped_output)
+		make_zip.zip_folder(a_tiles, zipped_output)
 		unzipped_size = file_size.get_size(a_tiles) * 0.000000001
 		zipped_size = file_size.get_size(zipped_output) * 0.000000001
 		arcpy.AddMessage("Original size: %s GB    Compressed size: %s GB" % (unzipped_size, zipped_size))
