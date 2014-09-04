@@ -12,7 +12,8 @@ import arcpy
 import os
 import glob
 import shutil
-import zipfile
+import make_zip
+import file_size
 
 try:
 	#check out arcpy extensions.... if needed
@@ -21,7 +22,8 @@ try:
 	#get parameters
 	tin = arcpy.GetParameterAsText(0)
 	output_folder = arcpy.GetParameterAsText(1)
-	rm_temp = arcpy.GetParameterAsText(2)
+	zip_ascii = arcpy.GetParameterAsText(2)
+	rm_temp = arcpy.GetParameterAsText(3)
 
 	sampling = "CELLSIZE 2"
 	ntiles = "3 5"  # tile dimensions
@@ -64,18 +66,21 @@ try:
 		ascii_name = os.path.join(a_tiles, rbaseName + '.txt')
 		arcpy.RasterToASCII_conversion(raster, ascii_name)
 
-	#TODO: add option to zip files
-	#try using python module zipfile
+	#zips files using make_zip.py and calculates amount of compression
 	if zip_ascii == 'true':
-		#get list of ascii tiles
-		for ascii in a_tiles:
-
+		arcpy.AddMessage("Zipping ASCII files...")
+		zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
+		make_zip.zipfolder(a_tiles, zipped_output)
+		unzipped_size = file_size.get_size(a_tiles) * 0.000000001
+		zipped_size = file_size.get_size(zipped_output) * 0.000000001
+		arcpy.AddMessage("Original size: %s GB    Compressed size: %s GB" % (unzipped_size, zipped_size))
 
 	# delete temporary scratch folder
 	#arcpy.AddMessage(rm_temp)
 	if rm_temp == 'true':
 		arcpy.AddMessage("Removing Temporary Files....")
 		shutil.rmtree(r_tiles)  # removes folder
+		shutil.rmtree(a_tiles)
 		arcpy.Delete_management(TinAsRast)  # removes file
 
 except arcpy.ExecuteError:
