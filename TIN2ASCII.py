@@ -12,6 +12,7 @@ import arcpy
 import os
 import glob
 import shutil
+import zipfile
 
 try:
 	#check out arcpy extensions.... if needed
@@ -37,19 +38,20 @@ try:
 		os.makedirs(output_folder + "\\ascii_tiles")
 		a_tiles = os.path.join(output_folder, "ascii_tiles")
 	except:
-		arcpy.AddError("Can't make folders")
+		arcpy.AddError("Can't make folders... try saving in different location")
 
 	#get tin basename
 	base = os.path.basename(tin)
 	arcpy.AddMessage("Saving %s as Raster..... " % base)
-	TinAsRast = os.path.join(output_folder, base + ".TIF")
+	TinAsRast = os.path.join(output_folder, base + '.TIF')
 
 	#tin to raster
-	arcpy.TinRaster_3d(tin, TinAsRast, "FLOAT", "LINEAR", sampling)
-	
+	arcpy.TinRaster_3d(tin, TinAsRast, 'FLOAT', 'LINEAR', sampling)
+
 	#split raster into chunks
 	arcpy.AddMessage("Breaking %s into %s raster tiles....." % (base, total_tiles))
-	arcpy.SplitRaster_management(TinAsRast, r_tiles, base + "_", "NUMBER_OF_TILES", "TIFF", "BILINEAR", ntiles, '#', "10", "METERS")
+	arcpy.SplitRaster_management(TinAsRast, r_tiles, base + '_',
+										'NUMBER_OF_TILES', 'TIFF', 'BILINEAR', ntiles, '#', '10', 'METERS')
 
 	#get list of split tiles
 	rastertiles_list = glob.glob(r_tiles + "/*.TIF")
@@ -59,19 +61,22 @@ try:
 		arcpy.AddMessage("Converting %s to ASCII....." % raster)
 		rbase = os.path.basename(raster)
 		rbaseName, rbaseExt = os.path.splitext(rbase)
-		ascii_name = os.path.join(r_tiles, rbaseName + ".txt")
+		ascii_name = os.path.join(a_tiles, rbaseName + '.txt')
 		arcpy.RasterToASCII_conversion(raster, ascii_name)
 
+	#TODO: add option to zip files
+	#try using python module zipfile
+	if zip_ascii == 'true':
+		#get list of ascii tiles
+		for ascii in a_tiles:
+
+
 	# delete temporary scratch folder
-	arcpy.AddMessage(rm_temp)
-	if rm_temp == "true":
+	#arcpy.AddMessage(rm_temp)
+	if rm_temp == 'true':
 		arcpy.AddMessage("Removing Temporary Files....")
 		shutil.rmtree(r_tiles)  # removes folder
 		arcpy.Delete_management(TinAsRast)  # removes file
-	
-	#TODO: add option to zip files
-	# try using python module zipfile
-
 
 except arcpy.ExecuteError:
 	print arcpy.GetMessages()
