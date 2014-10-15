@@ -9,7 +9,7 @@ import arcpy
 from arcpy import env
 
 #check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NAVD88m"
-reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source']
+reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source', 'WS_MHW_m']
 
 # get list of features
 inString = arcpy.GetParameterAsText(0)
