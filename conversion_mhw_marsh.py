@@ -72,7 +72,7 @@ try:
 				
 			#add field to calculate NAVD88 from sounding and mhw_m
 			arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
-			arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MLLW_m!", "PYTHON_9.3") #check!!
+			arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MHW_m!", "PYTHON_9.3") #check!!
 			arcpy.AddMessage("Calculating NAVD88 Elevation")
 		else:
 			arcpy.AddError("Issue: fields already exist for feature. Delete problem fields and try again")
