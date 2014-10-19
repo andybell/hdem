@@ -9,6 +9,7 @@ import arcpy
 from arcpy import env
 import exceptions, sys, traceback
 
+# TODO: delete this file? Pretty sure that it is been totally replaced by now
 
 #check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NADV88m"
 def check_fieldnames(fc):

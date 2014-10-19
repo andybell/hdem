@@ -32,6 +32,7 @@ try:
 	# Set Local Variables
 	inString = arcpy.GetParameterAsText(0)
 	mllw_surface = arcpy.GetParameterAsText(1)
+	#todo: add MHW_surface as a parameter, also need to add to tool interface
 	
 	# get list of features
 	fcList = inString.split(";") #splits input string into a list of features
@@ -45,35 +46,43 @@ try:
 			arcpy.AddMessage(feature) #adds feature name to output
 			desc = arcpy.Describe(feature) #feature type
 			fc_type = desc.shapeType
-			arcpy.AddMessage("Adding Mean Lower Low Water Field for water surface")
-		
-			#Add surface information by input type
-			if fc_type == 'Point':
-				arcpy.AddSurfaceInformation_3d(feature, mllw_surface, "Z", "LINEAR")
-			elif fc_type == 'Polyline':
-				arcpy.AddSurfaceInformation_3d(feature, mllw_surface, "Z_MEAN", "LINEAR")
-				try:
-					arcpy.AlterField_management(feature, "Z_MEAN", "Z", "Z") # change field name to "Z"
-				except:
-					change_fieldname(feature, "Z_MEAN", "Z")
-			else:
-				arcpy.AddError("Issue: Feature type not supported. Only convert lines or points!")
-		
-			#change surface info field name
-			try: #attempts to change field using alter_field (arcgis v10.2.1+)
-				arcpy.AlterField_management(feature, "Z", "WS_MLLW_m", "WS_MLLW_m") # changes field name
-			except: #if alterfield does not work. Slower then alter field method for compatibility
-				change_fieldname(feature, "Z", "WS_MLLW_m")
-				
-			#Add field with raster name for conversion surface
-			
-			arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
-			arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mllw_surface + '"', "PYTHON_9.3")
-				
-			#add field to calculate NAVD88 from sounding and mllw_m
-			arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
-			arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MLLW_M! + !MLLW_m!", "PYTHON_9.3") #check!!
-			arcpy.AddMessage("Calculating NAVD88 Elevation: subtracting MLLW bed elevation from MLLW water surface")
+			arcpy.AddMessage("Adding field for water surface")
+
+			#todo: insert if/esif statement to check if the feature has field with MLLW or MHW
+			if feature.fieldexists() == "MLLW_m":
+				#Add surface information by input type
+				if fc_type == 'Point':
+					arcpy.AddSurfaceInformation_3d(feature, mllw_surface, "Z", "LINEAR")
+				elif fc_type == 'Polyline':
+					arcpy.AddSurfaceInformation_3d(feature, mllw_surface, "Z_MEAN", "LINEAR")
+					try:
+						arcpy.AlterField_management(feature, "Z_MEAN", "Z", "Z") # change field name to "Z"
+					except:
+						change_fieldname(feature, "Z_MEAN", "Z")
+				else:
+					arcpy.AddError("Issue: Feature type not supported. Only convert lines or points!")
+
+				#change surface info field name
+				try: #attempts to change field using alter_field (arcgis v10.2.1+)
+					arcpy.AlterField_management(feature, "Z", "WS_MLLW_m", "WS_MLLW_m") # changes field name
+				except: #if alterfield does not work. Slower then alter field method for compatibility
+					change_fieldname(feature, "Z", "WS_MLLW_m")
+
+				#Add field with raster name for conversion surface
+
+				arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
+				arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mllw_surface + '"', "PYTHON_9.3")
+
+				#add field to calculate NAVD88 from sounding and mllw_m
+				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
+				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MLLW_M! + !MLLW_m!", "PYTHON_9.3") #check!!
+				arcpy.AddMessage("Calculating NAVD88 Elevation: subtracting MLLW bed elevation from MLLW water surface")
+
+			elif feature.fieldexists() == "MHW_m":
+				#todo: port over code from the conversion mhw to NAVD88 tool script as a elif statement block.
+				#There has got to be a better way to do this since the add/alter field is repetitive
+				# but it probably would require restructuring
+
 		else:
 			arcpy.AddError("Issue: fields already exist for feature. Delete problem fields and try again")
 			break

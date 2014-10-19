@@ -9,6 +9,9 @@ import arcpy
 from arcpy import env
 import exceptions, sys, traceback
 
+# TODO: move section of the code over to convertion_mllw so everything is able to run through one tool interface
+# TODO: then this script/tool can be deleted
+
 
 #check fieldnames for reserved names
 def check_fieldnames(fc):

@@ -22,7 +22,7 @@ try:
 	#get parameters
 	tin = arcpy.GetParameterAsText(0)
 	output_folder = arcpy.GetParameterAsText(1)
-	zip_ascii = arcpy.GetParameterAsText(2)
+	zip_ascii = arcpy.GetParameterAsText(2) #TODO: remove required from arcgis tool interface. it should be optional.
 	rm_temp = arcpy.GetParameterAsText(3)
 
 	sampling = "CELLSIZE 2"
@@ -72,7 +72,7 @@ try:
 		zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
 		make_zip.zip_folder(a_tiles, zipped_output)
 		unzipped_size = file_size.get_size(a_tiles) * 0.000000001
-		zipped_size = file_size.get_size(zipped_output) * 0.000000001
+		zipped_size = file_size.get_size(zipped_output) * 0.000000001 # TODO: this is not working. File size = 0
 		arcpy.AddMessage("Original size: %s GB    Compressed size: %s GB" % (unzipped_size, zipped_size))
 
 	# delete temporary scratch folder
