@@ -1,8 +1,8 @@
 # -------------------------------------------------------------------------------
-# Name: conversion_mllw.py
-# Purpose: converts points from MLLW to NAVD88 based on a MLLW tidal datum surface
+# Name: conversion_all.py
+# Purpose: converts points from either MLLW or MHW to NAVD88 based on a tidal datum surface
 # Author: Andy Bell (ambell@ucdavis.edu)
-# Created: 8/27/2014
+# Created: 10/20/2014
 #-------------------------------------------------------------------------------
 
 import arcpy
