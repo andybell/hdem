@@ -23,6 +23,7 @@ def addfields(target_table):
 # function to create the only the nearest feature -> should return a table that will be joined to the thalweg
 def join_nearest(target_feature, target_FID, near_features):
 	#need to create a temporary out_table?
+	near_table = "In_memory?"
 	arcpy.GenerateNearTable_analysis(target_feature, near_features, near_table, location="LOCATION",
 									angle="ANGLE", closest="CLOSEST")
 
@@ -48,7 +49,7 @@ def opposite_search_limits(near_angle):  # change name to search opposite limits
 
 
 def search_opposite():
-	#select features within limit
-	#then, within selection get the closest
+	#select features within limit (or delete rows that are outside of limits)?
+	#then, within selection get the closest (or delete others)
 	#return as opposite bank
 	pass
