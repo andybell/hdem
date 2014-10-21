@@ -23,7 +23,7 @@ def addfields(target_table):
 # function to create the only the nearest feature -> should return a table that will be joined to the thalweg
 def join_nearest(target_feature, target_FID, near_features):
 	#need to create a temporary out_table?
-	near_table = "In_memory?"
+	near_table = r"in_memory\temp" # TODO: double check that this works!!!
 	arcpy.GenerateNearTable_analysis(target_feature, near_features, near_table, location="LOCATION",
 									angle="ANGLE", closest="CLOSEST")
 
@@ -53,3 +53,8 @@ def search_opposite():
 	#then, within selection get the closest (or delete others)
 	#return as opposite bank
 	pass
+
+
+#creating line from two points
+for row in feature: #or something
+	arcpy.Array(pnt1, pnt2)## or something
