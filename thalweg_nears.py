@@ -4,8 +4,6 @@ __author__ = 'ambell'
 # import arcpy
 
 # purpose is to join the nearest channel and then the second nearest channel feature to the thalweg
-
-
 # 1. copy thalweg file to create a near bank
 #2. for near bank all we have to do is generate a near table and join the attribute to the original
 #4. copy thalweg file for far bank
@@ -48,13 +46,56 @@ def opposite_search_limits(near_angle):  # change name to search opposite limits
 	return limit1, limit2
 
 
-def search_opposite():
+def search_opposite(target_feature, near_features):
 	#select features within limit (or delete rows that are outside of limits)?
 	#then, within selection get the closest (or delete others)
 	#return as opposite bank
+	near_table = "in_memory" + "\\" + "near_temp" # TODO: double check that this works!!!
+	arcpy.GenerateNearTable_analysis(target_feature, near_features, near_table, "500 Meters", location="LOCATION",
+									angle="ANGLE", closest="ALL", closest_count = "100)
+	arcpy.Delete_management("in_memory")
 	pass
 
+	
 
+
+	
+	
+# get list of unique values in a table 
+def unique_values(table, field):
+    with arcpy.da.SearchCursor(table, [field]) as cursor:
+        return sorted({row[0] for row in cursor})
+	
+def cursor_angle_search(near_table):
+	FID_list = unique_values(near_table, "IN_FID")
+	for i in FID_list:
+		print i
+		# Create the search cursor
+		cursor = arcpy.SearchCursor(near_table, '"IN_FID"' + '=' +  str(i))
+		#closest feature angle
+		angle1 = [] 
+		# Iterate through the rows in the cursor
+		for row in cursor:
+			if angle1 is None:
+				angle1 = row.getValue("NEAR_ANGLE")
+			else:
+				pass
+			#print(row.NEAR_ANGLE)
+		del cursor, row
+		print angle1
+	
+	
+	
 #creating line from two points
 for row in feature: #or something
 	arcpy.Array(pnt1, pnt2)## or something
+	
+	
+	
+	
+near_table = 'near_table'
+i = 1
+cursor = arcpy.SearchCursor(near_table, '"IN_FID"' + '=' +  str(i))	
+
+for row in cursor:
+	print row.getValue("NEAR_ANGLE")
