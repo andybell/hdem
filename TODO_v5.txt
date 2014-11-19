@@ -1,0 +1,16 @@
+TODO list for HDEM v5 code base
+
+1. rm unnecessary/broken tools from repo v5
+
+2. convert tbx's to single python toolbox in order to have them under version control
+
+3. add relevant R script/functions to repo. Near180.R, spline?
+
+4. sys subprocess call to read near table to r to find nearest points on the banks
+
+5. Turn near points to polyline ZM, adding formula for depths OR generate points along line (parabola points)
+
+6. Interpolate conveyance between known cross sections to determine depths.
+
+7. Figure out how to deal with the junctions, stream network? or mesh? Need both physical junctions as well as the
+	figuring out how to add conveyance areas together.

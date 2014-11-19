@@ -5,9 +5,11 @@
       <w>arcpy</w>
       <w>bilinear</w>
       <w>cellsize</w>
+      <w>hdem</w>
       <w>ntiles</w>
       <w>rastertiles</w>
       <w>rbase</w>
+      <w>tbx's</w>
       <w>thalweg</w>
     </words>
   </dictionary>
