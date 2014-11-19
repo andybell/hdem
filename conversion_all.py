@@ -21,7 +21,7 @@ def check_fieldnames(fc):
 	return check
 
 
-# Checks if a fieldname exisits in a featureclass
+# Checks if a fieldname exisits in a featureclass #TODO: add to error message the feature name
 def fieldExists(inFeatureClass, inFieldName):
 	fieldList = arcpy.ListFields(inFeatureClass)
 	for iField in fieldList:

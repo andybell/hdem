@@ -1,7 +1,7 @@
 # some usefull python snippets for coping near feature to r
 
 # add double fields for items in the list
-def addfields(target_table, name_linst):
+def addfields(target_table, name_list):
 	for name in name_list:
 		arcpy.AddField_management(target_table, name, "DOUBLE")
 
@@ -16,7 +16,7 @@ def alter_fields(table, name_dict):
 def near_table(prime_feature, near_features, near_table):
 	#near_table = r"in_memory\temp" # TODO: double check that this works!!!
 	arcpy.GenerateNearTable_analysis(prime_feature, near_features, near_table, "500 Meters", location="LOCATION",
-									angle="ANGLE", closest="ALL", closest_count=50)
+									angle="ANGLE", closest="ALL", closest_count=150)
 	arcpy.JoinField_management(near_table, "IN_FID", prime_feature, "OBJECTID")
 
 
@@ -38,7 +38,7 @@ def keep_mandatory_fields(table):
 whiskey = ''
 channels = ''
 
-whiskey_dict = {"X1":"ET_X", "Y1":"ET_Y", "X2":"NEAR_X", "Y2":"NEAR_Y"}
+hog_dict = {"X1":"ET_X", "Y1":"ET_Y", "X2":"NEAR_X", "Y2":"NEAR_Y", "Z1":"MLLW_m"}
 
 alter_fields(whiskey, whiskey_dict)
 
