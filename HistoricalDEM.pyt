@@ -123,11 +123,30 @@ class TidalDatumConversion(object):
 
 	def isLicensed(self):
 		"""Set whether tool is licensed to execute."""
+		"""Checks if ArcGIS version > 10.2.1, which is required to run the AlterField_management tool"""
+		try:
+			info_dict = arcpy.GetInstallInfo()
+			version = info_dict['Version']
+			checked_versions = ['10.2.1', '10.2.2']
+			if version in checked_versions:
+				pass
+			else:
+				raise VersionError
+		except VersionError:
+			return False
 
-		#TODO add check to make sure that this is run in 10.2.1 or higher?
-		#Tool requires the Alter_field_management tool and the addsurfaceinformation_3d
+		"""The tool will only execute  if 3D analyst extension is available"""
+		try:
+			if arcpy.CheckExtension("3D") == "Available":
+				arcpy.CheckOutExtension("3D")
+			else:
+				raise LicenseError
+
+		except LicenseError:
+			return False
 
 		return True
+
 
 	def updateParameters(self, parameters):
 		"""Modify the values and properties of parameters before internal
@@ -151,8 +170,6 @@ class TidalDatumConversion(object):
 				if field.name in reserved:
 					check = False
 			return check
-
-
 		return
 
 	def execute(self, parameters, messages):
@@ -163,14 +180,59 @@ class TidalDatumConversion(object):
 		mllw_surface = parameters[1].value
 		mhw_surface = parameters[2].value
 
+		# Checks if a field name exists in a feature class
+		def fieldExists(inFeatureClass, inFieldName):
+			fieldList = arcpy.ListFields(inFeatureClass)
+			for iField in fieldList:
+				if iField.name.lower() == inFieldName.lower():
+					return True
+			return False
 
-		# loop
-
+		# loop through all features in feature class list and adds fields for either MHW or MLLW calcs
 		for feature in fcList:
 			arcpy.AddMessage(feature)
 			fc_type = arcpy.Describe(feature).shapeType
 
+			#MLLW calculations
+			if fieldExists(feature, "MLLW_m"):
+				#Add surface information by input type. Anything except points/lines will error.
+				if fc_type == 'Point':
+					arcpy.AddSurfaceInformation_3d(feature, mllw_surface, "Z", "LINEAR")
+					arcpy.AlterField_management(feature, "Z", "WS_MLLW_m", "WS_MLLW_m")  # changes field name to WS_mllw_m
+				elif fc_type == 'Polyline':
+					arcpy.AddSurfaceInformation_3d(feature, mllw_surface, "Z_MEAN", "LINEAR")
+					arcpy.AlterField_management(feature, "Z_MEAN", "WS_MLLW_m", "WS_MLLW_m")  # changes field name to WS_mllw_m
+				else:
+					arcpy.AddError("Issue: Feature type not supported. Only convert lines or points!")
 
+				#Add field with raster name for documenting source of conversion surface
+				arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
+				arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mllw_surface + '"', "PYTHON_9.3")
 
+				#add field to calculate NAVD88 from sounding/line value and mllw_m
+				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
+				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MLLW_M! + !MLLW_m!", "PYTHON_9.3")
+				arcpy.AddMessage("Calculating NAVD88 Elevation: subtracting MLLW bed elevation from MLLW water surface")
+
+			#MHW calculations
+			elif fieldExists(feature, "MHW_m"):
+				#TODO is there a better way to do this since the add/alter field is repetitive
+				if fc_type == 'Point':
+					arcpy.AddSurfaceInformation_3d(feature, mhw_surface, "Z", "LINEAR")
+					arcpy.AlterField_management(feature, "Z", "WS_MHW_m", "WS_MHW_m")  # changes z to WS_MHW_m
+				elif fc_type == 'Polyline':
+					arcpy.AddSurfaceInformation_3d(feature, mhw_surface, "Z_MEAN", "LINEAR")
+					arcpy.AlterField_management(feature, "Z_MEAN", "WS_MHW_m", "WS_MHW_m")  # changes Z_mean to WS_MHW_m
+				else:
+					arcpy.AddError("Issue: Feature type not supported. Only convert lines or points!")
+
+				#Add field with raster name for conversion surface
+				arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
+				arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mhw_surface + '"', "PYTHON_9.3")
+
+				#add field to calculate NAVD88 from sounding and mhw_m
+				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
+				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MHW_m!", "PYTHON_9.3")
+				arcpy.AddMessage("Calculating NAVD88 Elevation: adding value from MHW surface")
 
 		return
