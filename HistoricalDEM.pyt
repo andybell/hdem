@@ -177,8 +177,8 @@ class TidalDatumConversion(object):
 
 		param1 = parameters[0].value.exportToString()
 		fcList = param1.split(";")  # list of features to modify
-		mllw_surface = parameters[1].value
-		mhw_surface = parameters[2].value
+		mllw_surface = parameters[1].valueAsText
+		mhw_surface = parameters[2].valueAsText
 
 		# Checks if a field name exists in a feature class
 		def fieldExists(inFeatureClass, inFieldName):

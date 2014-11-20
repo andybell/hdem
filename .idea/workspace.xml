@@ -82,9 +82,11 @@
           <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.28192535" vertical-offset="1974" max-vertical-offset="3281">
-                  <caret line="183" column="53" selection-start-line="183" selection-start-column="53" selection-end-line="183" selection-end-column="53" />
+                <state vertical-scroll-proportion="0.39921337" vertical-offset="1566" max-vertical-offset="2652">
+                  <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
                   <folding>
+                    <element signature="e#39#337#0" expanded="false" />
+                    <element signature="e#361#1195#0" expanded="false" />
                     <element signature="e#1237#3410#0" expanded="false" />
                   </folding>
                 </state>
@@ -98,7 +100,7 @@
           <file leaf-file-name="conversion_all.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/conversion_all.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.87761194" vertical-offset="1273" max-vertical-offset="2278">
+                <state vertical-scroll-proportion="-0.87848604" vertical-offset="1273" max-vertical-offset="2278">
                   <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="29" selection-end-column="16" />
                   <folding>
                     <element signature="e#345#357#0" expanded="true" />
@@ -360,13 +362,18 @@
       <created>1416446626181</created>
       <updated>1416446626181</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="set up error check for version and extension checkouts">
+      <created>1416509729656</created>
+      <updated>1416509729656</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -381,7 +388,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -405,7 +411,8 @@
     <MESSAGE value="removed old add message statement, tool now runs successfully" />
     <MESSAGE value="added inline comments" />
     <MESSAGE value="added parts of tidal_datum conversion, parameters all set up." />
-    <option name="LAST_COMMIT_MESSAGE" value="added parts of tidal_datum conversion, parameters all set up." />
+    <MESSAGE value="set up error check for version and extension checkouts" />
+    <option name="LAST_COMMIT_MESSAGE" value="set up error check for version and extension checkouts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -462,6 +469,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1246" max-vertical-offset="2227">
           <caret line="169" column="37" selection-start-line="169" selection-start-column="37" selection-end-line="169" selection-end-column="37" />
           <folding>
+            <element signature="e#39#337#0" expanded="false" />
+            <element signature="e#361#1195#0" expanded="false" />
             <element signature="e#1237#3410#0" expanded="false" />
           </folding>
         </state>
@@ -517,9 +526,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28192535" vertical-offset="1974" max-vertical-offset="3281">
-          <caret line="183" column="53" selection-start-line="183" selection-start-column="53" selection-end-line="183" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.39921337" vertical-offset="1566" max-vertical-offset="2652">
+          <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
           <folding>
+            <element signature="e#39#337#0" expanded="false" />
+            <element signature="e#361#1195#0" expanded="false" />
             <element signature="e#1237#3410#0" expanded="false" />
           </folding>
         </state>
