@@ -160,7 +160,6 @@ class TidalDatumConversion(object):
 		validation is performed.  This method is called whenever a parameter
 		has been changed."""
 
-
 		return
 
 	def updateMessages(self, parameters):
@@ -253,6 +252,5 @@ class TidalDatumConversion(object):
 				#add field to calculate NAVD88 from sounding and mhw_m
 				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MHW_m!", "PYTHON_9.3")
-
 
 		return
