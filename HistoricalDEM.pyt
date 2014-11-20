@@ -17,7 +17,7 @@ class Toolbox(object):
 		self.alias = "Historical DEM Toolbox"
 
 		# List of tool classes associated with this toolbox
-		self.tools = [Tool, DeleteConversionFields, TidalDatumConversion]
+		self.tools = [Tool, DeleteConversionFields, TidalDatumConversion, TIN_Display_Group]
 
 
 class Tool(object):
@@ -265,30 +265,45 @@ class TIN_Display_Group(object):
 
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
-		fcList = arcpy.Parameter(displayName="Input Features", name="fcList", datatype="DEFeatureClass",
-								 parameterType="Required", multiValue=True)
+		tin_output = arcpy.Parameter(displayName="TIN Output", name="tin", datatype="DETin",
+								 parameterType="Required")
 
-		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", dataType="GPGroupLayer",
+
+		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", datatype="GPGroupLayer",
 		                            parameterType="Required", direction="Input")
 
-		height_field = arcpy.Parameter(displayName="Elevation Field (z)", name="height_field", datatype="Field",
+		height_field = arcpy.Parameter(displayName="Elevation Field (z)", name="height_field", datatype="GPString",
 		                               parameterType="Required")
 
-		height_field.filter.type = "ValueList"
-		height_field.filter.list = ['MHW_m', 'NAVD88_m', 'MLLW_m']
-
-
-		parameters = [fcList, tin_group, height_field]
+		parameters = [tin_group, height_field, tin_output]
 		return parameters
 
 	def isLicensed(self):
 		"""Set whether tool is licensed to execute."""
+
+		"""The tool will only execute  if 3D analyst extension is available"""
+		try:
+			if arcpy.CheckExtension("3D") == "Available":
+				arcpy.CheckOutExtension("3D")
+			else:
+				raise LicenseError
+
+		except LicenseError:
+			return False
+
 		return True
 
 	def updateParameters(self, parameters):
 		"""Modify the values and properties of parameters before internal
 		validation is performed.  This method is called whenever a parameter
 		has been changed."""
+
+		z_filter = parameters[1].filter
+		z_filter.list = ["NAVD88_m", "MLLW_m", "Z"]
+
+
+
+
 		return
 
 	def updateMessages(self, parameters):
