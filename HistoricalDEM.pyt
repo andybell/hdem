@@ -81,17 +81,25 @@ class DeleteConversionFields(object):
 
 	def execute(self, parameters, messages):
 		"""The source code of the tool."""
-		inString = arcpy.GetParameterAsText(0)
-		fcList = inString.split(";")
+		param1 = parameters[0].value.exportToString()
+		fcList = param1.split(";")
+
+		param2 = parameters[1].value.exportToString()
+		fields_to_remove = param2.split(';')
+
+		# interate over feature list and change field names
+		for field in fields:
+			arcpy.AddMessage("name: %s" %field) #adds field name to output
+
+
+
 		# interate over feature list and change field names
 		for feature in fcList:
 			arcpy.AddMessage(feature) #adds feature name to output
-
-
-		field_parameter = arcpy.GetParameterAsText(1)
-		arcpy.AddMessage(field_parameter)
-		fields = field_parameter.split(';')
-		# interate over feature list and change field names
-		for field in fields:
-			arcpy.AddMessage("name: %s" %field) #adds feature name to output
+			fieldList = arcpy.ListFields(feature)
+			for field in fieldList:
+				if field.name in fields_to_remove:
+					arcpy.AddMessage("Deleting Reserved Fieldname: %s" %(field.name))
+					arcpy.DeleteField_management(feature, field.name)
+			
 		return
