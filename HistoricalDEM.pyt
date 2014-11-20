@@ -1,3 +1,10 @@
+# ---------------------------------------------------------------------------------------------------
+# Name: HistoricalDEM.pyt
+# Purpose: ArcGIS python toolbox containing geoprocessing tools for the Delta Historical DEM project
+# Author: Andy Bell (ambell@ucdavis.edu)
+# Created: 11/20/2014
+# ---------------------------------------------------------------------------------------------------
+
 import arcpy
 
 
@@ -177,8 +184,8 @@ class TidalDatumConversion(object):
 
 		param1 = parameters[0].value.exportToString()
 		fcList = param1.split(";")  # list of features to modify
-		mllw_surface = parameters[1].valueAsText
-		mhw_surface = parameters[2].valueAsText
+		mllw_surface = parameters[1].valueAsText.replace('\\', '\\\\')
+		mhw_surface = parameters[2].valueAsText.replace('\\', '\\\\')
 
 		# Checks if a field name exists in a feature class
 		def fieldExists(inFeatureClass, inFieldName):
@@ -205,6 +212,8 @@ class TidalDatumConversion(object):
 				else:
 					arcpy.AddError("Issue: Feature type not supported. Only convert lines or points!")
 
+				arcpy.AddMessage("Calculating NAVD88 Elevation: subtracting MLLW bed elevation from MLLW water surface")
+
 				#Add field with raster name for documenting source of conversion surface
 				arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
 				arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mllw_surface + '"', "PYTHON_9.3")
@@ -212,7 +221,6 @@ class TidalDatumConversion(object):
 				#add field to calculate NAVD88 from sounding/line value and mllw_m
 				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MLLW_M! + !MLLW_m!", "PYTHON_9.3")
-				arcpy.AddMessage("Calculating NAVD88 Elevation: subtracting MLLW bed elevation from MLLW water surface")
 
 			#MHW calculations
 			elif fieldExists(feature, "MHW_m"):
@@ -226,6 +234,8 @@ class TidalDatumConversion(object):
 				else:
 					arcpy.AddError("Issue: Feature type not supported. Only convert lines or points!")
 
+				arcpy.AddMessage("Calculating NAVD88 Elevation: adding value from MHW surface")
+
 				#Add field with raster name for conversion surface
 				arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
 				arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mhw_surface + '"', "PYTHON_9.3")
@@ -233,6 +243,6 @@ class TidalDatumConversion(object):
 				#add field to calculate NAVD88 from sounding and mhw_m
 				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MHW_m!", "PYTHON_9.3")
-				arcpy.AddMessage("Calculating NAVD88 Elevation: adding value from MHW surface")
+
 
 		return
