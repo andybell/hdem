@@ -6,6 +6,8 @@
       <w>bilinear</w>
       <w>cellsize</w>
       <w>hdem</w>
+      <w>mllw</w>
+      <w>navd</w>
       <w>ntiles</w>
       <w>rastertiles</w>
       <w>rbase</w>
