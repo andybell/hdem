@@ -159,15 +159,16 @@ class TidalDatumConversion(object):
 		"""Modify the values and properties of parameters before internal
 		validation is performed.  This method is called whenever a parameter
 		has been changed."""
+
+
 		return
 
 	def updateMessages(self, parameters):
 		"""Modify the messages created by internal validation for each tool
 		parameter.  This method is called after internal validation."""
 
-		#TODO add message if a feature class has a field in the reserved list of fieldnames
+		#add message if a feature class has a field in the reserved list of fieldnames
 
-		#needs to be something like....
 		#check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NADV88m"
 		def check_fieldnames(fc):
 			fieldList = arcpy.ListFields(fc)
@@ -177,6 +178,15 @@ class TidalDatumConversion(object):
 				if field.name in reserved:
 					check = False
 			return check
+
+		if parameters[0].value:
+			fcs = parameters[0].value.exportToString()
+			fcList = fcs.split(";")  # list of features to modify
+
+			for feature in fcList:
+				if check_fieldnames(feature) == False:
+					parameters[0].setErrorMessage("Reserved fields already exist for %s. Please use "
+					                              "DeleteConversionFields tool first" %feature)
 		return
 
 	def execute(self, parameters, messages):
