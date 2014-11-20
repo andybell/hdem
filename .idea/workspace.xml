@@ -82,8 +82,8 @@
           <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.39921337" vertical-offset="1566" max-vertical-offset="2652">
-                  <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+                <state vertical-scroll-proportion="2.0196657" vertical-offset="513" max-vertical-offset="2703">
+                  <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
                   <folding>
                     <element signature="e#39#337#0" expanded="false" />
                     <element signature="e#361#1195#0" expanded="false" />
@@ -366,7 +366,11 @@
       <created>1416509729656</created>
       <updated>1416509729656</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="tidal datum conversion works">
+      <created>1416511194035</created>
+      <updated>1416511194035</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -405,6 +409,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
@@ -412,7 +417,8 @@
     <MESSAGE value="added inline comments" />
     <MESSAGE value="added parts of tidal_datum conversion, parameters all set up." />
     <MESSAGE value="set up error check for version and extension checkouts" />
-    <option name="LAST_COMMIT_MESSAGE" value="set up error check for version and extension checkouts" />
+    <MESSAGE value="tidal datum conversion works" />
+    <option name="LAST_COMMIT_MESSAGE" value="tidal datum conversion works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -422,13 +428,8 @@
           <line>7</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/HistoricalDEM.pyt</url>
-          <line>209</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -526,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39921337" vertical-offset="1566" max-vertical-offset="2652">
-          <caret line="203" column="0" selection-start-line="203" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+        <state vertical-scroll-proportion="2.0196657" vertical-offset="513" max-vertical-offset="2703">
+          <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
           <folding>
             <element signature="e#39#337#0" expanded="false" />
             <element signature="e#361#1195#0" expanded="false" />
