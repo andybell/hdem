@@ -4,6 +4,7 @@
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" afterPath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricalDEM.pyt" afterPath="$PROJECT_DIR$/HistoricalDEM.pyt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TIN_Display_Group.py" afterPath="$PROJECT_DIR$/TIN_Display_Group.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
@@ -26,7 +27,7 @@
     <favorites_list name="hdem" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.61366314">
+    <splitter split-orientation="horizontal" split-proportion="0.54122496">
       <split-first>
         <leaf>
           <file leaf-file-name="calc_field.py" pinned="false" current="false" current-in-tab="false">
@@ -49,16 +50,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="conversion_all.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/conversion_all.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2278">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="file_size.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/file_size.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -72,7 +63,7 @@
           <file leaf-file-name="TODO_v5.txt" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/TODO_v5.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="357">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
                   <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
                   <folding />
                 </state>
@@ -82,12 +73,11 @@
           <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5004916" vertical-offset="1106" max-vertical-offset="2992">
-                  <caret line="182" column="12" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="12" />
+                <state vertical-scroll-proportion="0.5597609" vertical-offset="4062" max-vertical-offset="5066">
+                  <caret line="280" column="54" selection-start-line="280" selection-start-column="54" selection-end-line="280" selection-end-column="54" />
                   <folding>
-                    <element signature="e#434#732#0" expanded="false" />
-                    <element signature="e#756#1590#0" expanded="false" />
-                    <element signature="e#1632#3805#0" expanded="false" />
+                    <element signature="e#395#407#0" expanded="true" />
+                    <element signature="e#444#742#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -97,13 +87,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="conversion_all.py" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/conversion_all.py">
+          <file leaf-file-name="TIN_Display_Group.py" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/TIN_Display_Group.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2278">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="80" />
+                <state vertical-scroll-proportion="0.2878486" vertical-offset="510" max-vertical-offset="1615">
+                  <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
                   <folding>
-                    <element signature="e#345#357#0" expanded="true" />
+                    <element signature="e#440#452#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -126,6 +116,7 @@
       <list>
         <option value="$PROJECT_DIR$/TODO_v5.txt" />
         <option value="$PROJECT_DIR$/delete_conversion_fields.py" />
+        <option value="$PROJECT_DIR$/TIN_Display_Group.py" />
         <option value="$PROJECT_DIR$/HistoricalDEM.pyt" />
       </list>
     </option>
@@ -378,7 +369,11 @@
       <created>1416514064254</created>
       <updated>1416514064254</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updated parameter validation, tool checks if feature class already has any of the reserved field name">
+      <created>1416515461190</created>
+      <updated>1416515461190</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -428,17 +423,11 @@
     <MESSAGE value="tidal datum conversion works" />
     <MESSAGE value="fixed issue #3 of file paths" />
     <MESSAGE value="added file header" />
-    <option name="LAST_COMMIT_MESSAGE" value="added file header" />
+    <MESSAGE value="updated parameter validation, tool checks if feature class already has any of the reserved field name" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated parameter validation, tool checks if feature class already has any of the reserved field name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/conversion_all.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="8" />
     </breakpoint-manager>
   </component>
@@ -480,26 +469,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1246" max-vertical-offset="2227">
           <caret line="169" column="37" selection-start-line="169" selection-start-column="37" selection-end-line="169" selection-end-column="37" />
           <folding>
-            <element signature="e#434#732#0" expanded="false" />
-            <element signature="e#756#1590#0" expanded="false" />
-            <element signature="e#1632#3805#0" expanded="false" />
+            <element signature="e#395#407#0" expanded="true" />
+            <element signature="e#444#742#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conversion_all.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2278">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calc_field.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,9 +499,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conversion_all.py">
+    <entry file="file://$PROJECT_DIR$/TIN_Display_Group.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2278">
+        <state vertical-scroll-proportion="0.2878486" vertical-offset="510" max-vertical-offset="1615">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#440#452#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calc_field.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -537,12 +519,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5004916" vertical-offset="1106" max-vertical-offset="2992">
-          <caret line="182" column="12" selection-start-line="182" selection-start-column="12" selection-end-line="182" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.5597609" vertical-offset="4062" max-vertical-offset="5066">
+          <caret line="280" column="54" selection-start-line="280" selection-start-column="54" selection-end-line="280" selection-end-column="54" />
           <folding>
-            <element signature="e#434#732#0" expanded="false" />
-            <element signature="e#756#1590#0" expanded="false" />
-            <element signature="e#1632#3805#0" expanded="false" />
+            <element signature="e#395#407#0" expanded="true" />
+            <element signature="e#444#742#0" expanded="false" />
           </folding>
         </state>
       </provider>

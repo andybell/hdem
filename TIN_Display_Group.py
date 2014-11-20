@@ -54,8 +54,8 @@ try:
     #Get list of TIN input layers
     tinputs = {} # create empty data dictionary
 
-    for layer in arcpy.mapping.ListLayers(IMXD):
-        if layer.name == tin_in_group:
+    for layer in arcpy.mapping.ListLayers(IMXD): #not needed
+        if layer.name == tin_in_group: # change this to for layer in tin_in_group
             arcpy.AddMessage("TIN inputs: ")
             for subLayer in layer:
                 arcpy.AddMessage(subLayer)

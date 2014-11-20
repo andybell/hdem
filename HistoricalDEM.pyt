@@ -6,6 +6,7 @@
 # ---------------------------------------------------------------------------------------------------
 
 import arcpy
+import os
 
 
 class Toolbox(object):
@@ -56,18 +57,18 @@ class DeleteConversionFields(object):
 		"""Define the tool (tool name is the name of the class)."""
 		self.label = "DeleteConversionFields"
 		self.description = "Delete Conversion fields from all the features. Uses a reserved " \
-						   "list ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source'"
+						   "list ['Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source'"
 		self.canRunInBackground = False
 
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
 		fcList = arcpy.Parameter(displayName="Input Features", name="fcList", datatype="DEFeatureClass",
-								 parameterType="Required",multiValue=True)
+								 parameterType="Required", multiValue=True)
 
 		fields = arcpy.Parameter(displayName="Fields to Delete", name="fields", datatype="GPString",
 								 parameterType="Optional", multiValue=True)
 		fields.filter.type = "ValueList"
-		fields.filter.list = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source', 'WS_MHW_m']
+		fields.filter.list = ['Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source', 'WS_MHW_m']
 
 
 		parameters = [fcList, fields]
@@ -168,10 +169,10 @@ class TidalDatumConversion(object):
 
 		#add message if a feature class has a field in the reserved list of fieldnames
 
-		#check fieldnames for reserved names: "MSL_m" "Tidal_range_m" "NADV88m"
+		#check fieldnames for reserved names
 		def check_fieldnames(fc):
 			fieldList = arcpy.ListFields(fc)
-			reserved = ['MSL_m', 'Tidal_Range_m', 'NAVD88_m', 'Z', 'Z_MEAN', 'WS_MLLW_m', 'Tidal_Datum_Source']
+			reserved = ['Tidal_Range_m', 'NAVD88_m', 'Z', 'Z_MEAN', 'WS_MLLW_m', 'Tidal_Datum_Source']
 			check = True
 			for field in fieldList:
 				if field.name in reserved:
@@ -253,4 +254,48 @@ class TidalDatumConversion(object):
 				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MHW_m!", "PYTHON_9.3")
 
+		return
+
+class TIN_Display_Group(object):
+	def __init__(self):
+		"""Define the tool (tool name is the name of the class)."""
+		self.label = "TIN_Display_group"
+		self.description = "Create a TIN from all the layers in a group for the current map extent"
+		self.canRunInBackground = False
+
+	def getParameterInfo(self):
+		"""Define parameter definitions"""
+		fcList = arcpy.Parameter(displayName="Input Features", name="fcList", datatype="DEFeatureClass",
+								 parameterType="Required", multiValue=True)
+
+		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", dataType="GPGroupLayer",
+		                            parameterType="Required", direction="Input")
+
+		height_field = arcpy.Parameter(displayName="Elevation Field (z)", name="height_field", datatype="Field",
+		                               parameterType="Required")
+
+		height_field.filter.type = "ValueList"
+		height_field.filter.list = ['MHW_m', 'NAVD88_m', 'MLLW_m']
+
+
+		parameters = [fcList, tin_group, height_field]
+		return parameters
+
+	def isLicensed(self):
+		"""Set whether tool is licensed to execute."""
+		return True
+
+	def updateParameters(self, parameters):
+		"""Modify the values and properties of parameters before internal
+		validation is performed.  This method is called whenever a parameter
+		has been changed."""
+		return
+
+	def updateMessages(self, parameters):
+		"""Modify the messages created by internal validation for each tool
+		parameter.  This method is called after internal validation."""
+		return
+
+	def execute(self, parameters, messages):
+		"""The source code of the tool."""
 		return
