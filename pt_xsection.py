@@ -4,22 +4,31 @@ __author__ = 'ambell'
 # need to get the two closes banks
 # xsection not necessary perpendicular to thalweg
 # based on Near180.R
-
-
-#Asssume we have a near table that contains the nearest points on each of the two banks
-
-#point 1 is the point that has the shortest distance
-
-#make system call to R? and use the same functions? use subproccess?
-
 #Do depths matter???? if we just join depths from points latter it would be much much easier since the fields would
 # all be consistent
 
-
-
 import arcpy
-import subproccess
+import subprocess
+import tempfile
+import shutils
+import os
 
-# convert near table to dbf? or txt file since R can't read the gdb table (stupid esri)
 
-n
+#make temp directory to store all interim data steps
+dirpath = tempfile.mkdtemp()
+print dirpath
+
+# convert near table to dbf since R can't read the gdb table (stupid esri)
+arcpy.TableToTable_conversion(table, dirpath, "Near_table.dbf")
+
+#location of R output dbf file
+output_dbf = os.path.join(dirpath, "Near180_table.dbf")
+
+#Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
+
+subprocess.call("R --vanilla --args ")
+
+
+
+# remove the temporary directory
+# shutil.rmtree(dirpath)

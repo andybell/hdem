@@ -6,6 +6,7 @@
 options(scipen=100, digits=18)
 require(dplyr)
 require(plyr)
+require(foreign)
 
 # change arc's angles  with 0 = due east
 neg_angle<-function(angle){
@@ -34,9 +35,10 @@ nearest_opposite <- function(df){
 ####################################################################################
 
 #read in near table from command arguments as near_file
-near_file<-"C:\\Users\\ambell.AD3\\Documents\\hdem\\Near_Table_Example_comma.txt"
-location<-"C:\\Users\\ambell.AD3\\Documents\\hdem\\export_test.txt"
-near_table<-read.csv(near_file, header=TRUE, sep=",")
+args <- commandArgs(trailingOnly=TRUE)
+near_file<-args[1]
+out_location<-args[2]
+near_table<-read.dbf(near_file, as.is = FALSE)
 
 ### use ddply to apply function(s) by IN_FID groups
 nearest_vertex<-ddply(near_table, "IN_FID", nearest)
@@ -48,6 +50,6 @@ opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
 # append files to modifications file
 export_bin <-rbind(nearest_vertex, opposite_vertex) # then just append using rbind
 
-#write table out to csv so that python can read it???
-write.table(export_bin, location, sep = ",", quote = FALSE, row.names=F)
+#write table out to dbf so that python can read it???
+write.dbf(export_bin, Out_location)
 
