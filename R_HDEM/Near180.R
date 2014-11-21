@@ -4,9 +4,10 @@
 
 #need to change number of digits so XY coordinates don't get cut off
 options(scipen=100, digits=18)
-require(plyr)
-require(dplyr)
-require(foreign)
+library('plyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('dplyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('foreign', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('lazyeval', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
 
 # change arc's angles  with 0 = due east
 neg_angle<-function(angle){
@@ -37,13 +38,19 @@ nearest_opposite <- function(df){
 #read in near table from command arguments as near_file
 args <- commandArgs(trailingOnly=TRUE)
 near_file<-args[2]
-print(near_file)
 out_location<-args[3]
 near_table<-read.dbf(near_file, as.is = FALSE)
 
+print(near_file)
+print(out_location)
+#write.dbf(near_file, out_location)
+
 ### use ddply to apply function(s) by IN_FID groups
 nearest_vertex<-ddply(near_table, "IN_FID", nearest)
+print("Nearest Finished")
+
 opposite_vertex<-ddply(near_table, "IN_FID", nearest_opposite)
+print("opposite Finished")
 
 # rm NAs from opposites (no points within the 180 degree search area)
 opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
@@ -51,8 +58,6 @@ opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
 # append files to modifications file
 export_bin <-rbind(nearest_vertex, opposite_vertex) # then just append using rbind
 
-print(out_location)
-
 #write table out to dbf so that python can read it???
-write.dbf(nearest_vertex, out_location)
+write.dbf(export_bin, out_location)
 
