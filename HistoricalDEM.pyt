@@ -256,6 +256,7 @@ class TidalDatumConversion(object):
 
 		return
 
+
 class TIN_Display_Group(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
@@ -266,7 +267,11 @@ class TIN_Display_Group(object):
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
 		tin_output = arcpy.Parameter(displayName="TIN Output", name="tin", datatype="DETin",
-								 parameterType="Required")
+								 parameterType="Required", direction="Output")
+
+		#todo add default symbology to tin output parameter
+
+		#todo create new default symbology layer and add it to the repo
 
 
 		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", datatype="GPGroupLayer",
@@ -275,11 +280,16 @@ class TIN_Display_Group(object):
 		height_field = arcpy.Parameter(displayName="Elevation Field (z)", name="height_field", datatype="GPString",
 		                               parameterType="Required")
 
+
+		#TODO: add projection parameter????
+
 		parameters = [tin_group, height_field, tin_output]
 		return parameters
 
 	def isLicensed(self):
 		"""Set whether tool is licensed to execute."""
+
+		#TODO check that tool is run in arcmap ONLY!!!
 
 		"""The tool will only execute  if 3D analyst extension is available"""
 		try:
@@ -301,16 +311,58 @@ class TIN_Display_Group(object):
 		z_filter = parameters[1].filter
 		z_filter.list = ["NAVD88_m", "MLLW_m", "Z"]
 
-
-
-
 		return
 
 	def updateMessages(self, parameters):
 		"""Modify the messages created by internal validation for each tool
 		parameter.  This method is called after internal validation."""
+
+		#TODO: run check that parameter value for height exists for each feature in the group
+
+		#TODO: run check that features in group only contain Points or Polylines
+
 		return
 
 	def execute(self, parameters, messages):
 		"""The source code of the tool."""
+		tin_in_group = parameters[0].valueAsText
+		z_field = parameters[1].valueAsText
+		output = parameters[2].valueAsText
+
+
+		base = os.path.basename(output)
+		arcpy.AddMessage(base)
+
+		#projection info
+		proj = "PROJCS['NAD_1983_UTM_Zone_10N',GEOGCS['GCS_North_American_1983',DATUM['D_North_American_1983',SPHEROID['GRS_1980',6378137.0,298.257222101]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]],PROJECTION['Transverse_Mercator'],PARAMETER['False_Easting',500000.0],PARAMETER['False_Northing',0.0],PARAMETER['Central_Meridian',-123.0],PARAMETER['Scale_Factor',0.9996],PARAMETER['Latitude_Of_Origin',0.0],UNIT['Meter',1.0]]"
+
+		#Get display extent from layout view (not sure if there is a better way since data view extent
+		# depends on the size of arcmap window)
+		imxd = arcpy.mapping.MapDocument("Current")  # set current mxd
+		df = arcpy.mapping.ListDataFrames(imxd)[0]  # set first dataframe in current map document
+		arcpy.env.extent = df.extent  # set's the env extent to match the display extent
+
+		#Data dictionary to store tin inputs and feature type
+		tinputs = {}
+
+		for layer in arcpy.mapping.ListLayers(imxd):  # needed to figure out TOC groups
+			if layer.name == tin_in_group:  # TOC layer/group that matches the tin group parameter
+				arcpy.AddMessage("TIN inputs: ")
+				for subLayer in layer:
+					arcpy.AddMessage(subLayer)
+					if arcpy.Describe(subLayer).shapeType == "Point":
+						tinputs[subLayer.name] = "Mass_Points"
+					elif arcpy.Describe(subLayer).shapeType == "Polyline":
+						tinputs[subLayer.name] = "Hard_Line"
+		# build Tin input format ("Group_Name/file_name z_field Type <None>;")
+		Tin_input_strings = []
+		for feature in tinputs:
+			feature_str = tin_in_group + "/" + feature + " " + z_field + " " + tinputs[feature] + " " + "<None>"
+			Tin_input_strings.append(feature_str)
+		Tin_input_str = ";".join(Tin_input_strings)  # joins all individual strings together separated by semicolon
+
+		#Create TIN
+		arcpy.CreateTin_3d(output, proj, Tin_input_str, "DELAUNAY")
+
+
 		return
