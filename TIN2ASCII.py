@@ -13,7 +13,7 @@ import os
 import glob
 import shutil
 import make_zip
-import file_size
+#import file_size #removed all code that requires module
 
 try:
 	#check out arcpy extensions.... if needed
@@ -71,9 +71,11 @@ try:
 		arcpy.AddMessage("Zipping ASCII files...")
 		zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
 		make_zip.zip_folder(a_tiles, zipped_output)
-		unzipped_size = file_size.get_size(a_tiles) * 0.000000001
-		zipped_size = file_size.get_size(zipped_output) * 0.000000001 # TODO: this is not working. File size = 0
-		arcpy.AddMessage("Original size: %s GB    Compressed size: %s GB" % (unzipped_size, zipped_size))
+
+		#get size not working and it is not needed
+		#unzipped_size = file_size.get_size(a_tiles) * 0.000000001
+		#zipped_size = file_size.get_size(zipped_output) * 0.000000001 # TODO: this is not working. File size = 0
+		#arcpy.AddMessage("Original size: %s GB    Compressed size: %s GB" % (unzipped_size, zipped_size))
 
 	# delete temporary scratch folder
 	#arcpy.AddMessage(rm_temp)

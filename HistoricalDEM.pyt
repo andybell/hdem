@@ -366,3 +366,8 @@ class TIN_Display_Group(object):
 
 
 		return
+
+
+
+#TODO: convert TIN 2 ASCII over to pyt
+
