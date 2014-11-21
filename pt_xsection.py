@@ -12,4 +12,14 @@ __author__ = 'ambell'
 
 #make system call to R? and use the same functions? use subproccess?
 
-#need to convert
+#Do depths matter???? if we just join depths from points latter it would be much much easier since the fields would
+# all be consistent
+
+
+
+import arcpy
+import subproccess
+
+# convert near table to dbf? or txt file since R can't read the gdb table (stupid esri)
+
+n

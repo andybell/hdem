@@ -2,7 +2,9 @@
 # using ArcGIS create near table tool. This script should be set up to run using a python
 # subproccess module.
 
-require(foreign)
+#need to change number of digits so XY coordinates don't get cut off
+options(digits=16)
+
 require(dplyr)
 require(plyr)
 
@@ -49,6 +51,18 @@ drop_fields <- function(df){
   fields = c("OBJECTID", "X1", "Y1", "Z1", "X2", "Y2", "Z2")
   df <- subset(df, select = fields)
 }
+
+######
+######
+######
+######
+######
+
+
+near_file<-"C:\\Users\\ambell.AD3\\Documents\\hdem\\Near_Table_Example_comma.txt"
+
+near_table<-read.csv(near_file, header=TRUE, sep=",")
+
 
 
 # read dbf file in list of files
