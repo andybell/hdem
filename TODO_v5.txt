@@ -9,10 +9,26 @@ TODO list for HDEM v5 code base
 
 3. add relevant R script/functions to repo. Near180.R, spline?
 
+	Added near 180 to repo. Not sure how yet to interpolate the conveyance.
+
 4. sys subprocess call to read near table to r to find nearest points on the banks
+	
+	Finished. python now calls near180 r script to gerenerate non - perfect cross sections. Check with steve about how this is going 
+	to impact the conveyance. 
 
 5. Turn near points to polyline ZM, adding formula for depths OR generate points along line (parabola points)
 
+	Important!!!! 
+	
+	1. python? or R? 
+	
+	2. create general formulata for parabola shape/depth
+	
+	3. calculate x-section area for historical soundings
+	
+	4. figure out how to create point/vertices along cross section
+	
+	
 6. Interpolate conveyance between known cross sections to determine depths.
 
 7. Figure out how to deal with the junctions, stream network? or mesh? Need both physical junctions as well as the
