@@ -2,7 +2,7 @@ __author__ = 'ambell'
 
 import math
 
-#python parabola formulas for cross section area
+#python parabola formulas for cross section area, points need to be in the format of [x, y, z]
 
 
 def cross_section_area(parabola1, parabola2):
@@ -66,21 +66,23 @@ def parabola_area(point1, point2):
 	print "bank: %s" %bank_z
 	print "thalweg: %s" %thalweg_z
 
+	#parabola x section area equal to 2/3 * change in height * distance
 	area = float(2) / 3 * (bank_z - thalweg_z) * TwoD_distance(point1, point2)
 
 	return area
 
 
-#example points
-test1 = [624377.695892, 4212225.53683, -5.0292]
-test2 = [624491.335396, 4212201.91912, 0.0]
+def depth_from_xsection(bank1, bank2, thalweg, x_section):
+	# bank1, bank2 are the closest points on the bank with [x, y, 0]'s. X_section is the cross area in m^2
+	# want to set thalweg_z which is unknown from using the x-section area and parabola formula's
+
+	total_distance = TwoD_distance(bank1, thalweg) + TwoD_distance(bank2, thalweg)
+
+	#parabola x section area equal to 2/3 * change in height * distance
+	#x_section = float(2)/3 * (bank_z - thalweg_z) * total_distance
+
+	thalweg_z = -1 * x_section / total_distance * float(3) / 2
+
+	return thalweg_z
 
 
-dist2d = TwoD_distance(test1,test2)
-dist3d = ThreeD_distance(test1,test2)
-
-print dist2d, dist3d
-
-test_area = parabola_area(test1, test2)
-
-print test_area
