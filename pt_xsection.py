@@ -4,7 +4,7 @@ __author__ = 'ambell'
 # need to get the two closes banks
 # xsection not necessary perpendicular to thalweg
 # based on Near180.R
-#Do depths matter???? if we just join depths from points latter it would be much much easier since the fields would
+# Do depths matter???? if we just join depths from points latter it would be much much easier since the fields would
 # all be consistent
 
 import arcpy
