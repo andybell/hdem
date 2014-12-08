@@ -26,7 +26,7 @@ try:
 	rm_temp = arcpy.GetParameterAsText(3)
 
 	sampling = "CELLSIZE 2"
-	ntiles = "3 5"  # tile dimensions
+	ntiles = "3 5"  # tile dimensions # TODO: increase the number of tiles to that Suisun is included
 
 	#calculation of total number of tiles desired
 	spl = ntiles.split()
