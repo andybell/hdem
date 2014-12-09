@@ -176,29 +176,3 @@ def gen_pts(thalweg, bank):
 	return new_points
 
 
-#output to csv?
-
-
-#create points using arcpy.geometry???
-point1 = (624736.115492, 4207721.8967, -20)
-point2 = (624751.649937, 4207720.7978, 0)
-point3 = (624377.695892, 4212225.53683, -10)
-point4 = (624491.335396, 4212201.91912, 0)
-
-
-test1 = gen_pts(point1, point2)
-
-print test1
-
-"""
-cursor = arcpy.da.InsertCursor(pointFC, ['SHAPE@X', 'SHAPE@Y', 'Z'])
-for item in test1:
-	row = [item[0], item[1], item[2]]
-	print row
-	cursor.insertRow(row)
-
-
-del cursor
-
-pointFC
-"""
