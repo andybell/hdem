@@ -56,6 +56,7 @@ def half_parabola_depth(thalweg_pt, bank_pt, distance_between_pts):
 	:param distance_between_pts: the distance between the two input points were a new point will be created
 	:return: Depth (meters) of the parabola function at the location between the two points + XY
 	"""
+
 	x1, y1, z1, x2, y2, z2 = thalweg_pt[0], thalweg_pt[1], thalweg_pt[2], bank_pt[0], bank_pt[1], bank_pt[2]
 
 	depth_at_location = (z2 - z1) / (ThreeD_distance(thalweg_pt, bank_pt)) ** 2 * distance_between_pts ** 2 + z1
@@ -69,7 +70,7 @@ def half_parabola_depth(thalweg_pt, bank_pt, distance_between_pts):
 	plus_y = distance_between_pts * math.sin(angle_between_points)
 
 	x_new = x1 + plus_x
-	y_new = x2 + plus_y
+	y_new = y1 + plus_y
 	z_new = depth_at_location
 
 	new_point = (x_new, y_new, z_new)

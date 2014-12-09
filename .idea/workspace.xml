@@ -54,15 +54,14 @@
           <file leaf-file-name="parabola.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/parabola.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="2.2186787" vertical-offset="675" max-vertical-offset="2040">
-                  <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.4044586" vertical-offset="579" max-vertical-offset="2499">
+                  <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
                   <folding>
                     <element signature="e#171#436#0" expanded="false" />
                     <element signature="e#475#699#0" expanded="false" />
-                    <element signature="e#1642#2763#0" expanded="false" />
-                    <element signature="e#2802#3268#0" expanded="false" />
-                    <element signature="e#3331#4160#0" expanded="false" />
-                    <element signature="e#4706#5036#0" expanded="false" />
+                    <element signature="e#2803#3269#0" expanded="false" />
+                    <element signature="e#3332#4161#0" expanded="false" />
+                    <element signature="e#4707#5037#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -430,13 +429,18 @@
       <created>1418081264963</created>
       <updated>1418081264963</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="basic funcationaly to use arcpy.cursors to create new features">
+      <created>1418088326558</created>
+      <updated>1418088326558</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1616" height="916" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2153558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -444,14 +448,13 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4220297" sideWeight="0.15375" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4220297" sideWeight="0.84625" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18811882" sideWeight="0.15375" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18811882" sideWeight="0.84625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -488,7 +491,8 @@
     <MESSAGE value="defs   for calculating conveyance from points" />
     <MESSAGE value="added comments about defs in parabola.py" />
     <MESSAGE value=" script able to generate xyz between two points using a parabola function" />
-    <option name="LAST_COMMIT_MESSAGE" value=" script able to generate xyz between two points using a parabola function" />
+    <MESSAGE value="basic funcationaly to use arcpy.cursors to create new features" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic funcationaly to use arcpy.cursors to create new features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -519,10 +523,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -550,10 +553,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -581,10 +583,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -604,10 +605,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -635,10 +635,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -666,10 +665,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -697,10 +695,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -728,10 +725,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -759,10 +755,9 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -902,15 +897,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parabola.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2186787" vertical-offset="675" max-vertical-offset="2040">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4044586" vertical-offset="579" max-vertical-offset="2499">
+          <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#1642#2763#0" expanded="false" />
-            <element signature="e#2802#3268#0" expanded="false" />
-            <element signature="e#3331#4160#0" expanded="false" />
-            <element signature="e#4706#5036#0" expanded="false" />
+            <element signature="e#2803#3269#0" expanded="false" />
+            <element signature="e#3332#4161#0" expanded="false" />
+            <element signature="e#4707#5037#0" expanded="false" />
           </folding>
         </state>
       </provider>
