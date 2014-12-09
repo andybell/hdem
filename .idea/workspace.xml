@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TIN2ASCII.py" afterPath="$PROJECT_DIR$/TIN2ASCII.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parabola.py" afterPath="$PROJECT_DIR$/parabola.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,17 +28,15 @@
     <favorites_list name="hdem" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.7570208">
       <split-first>
         <leaf>
           <file leaf-file-name="pt_xsection.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pt_xsection.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+                <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="697">
                   <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#311#323#0" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -47,7 +44,7 @@
           <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="4354" max-vertical-offset="6426">
+                <state vertical-scroll-proportion="0.0" vertical-offset="5440" max-vertical-offset="6443">
                   <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
                   <folding />
                 </state>
@@ -57,14 +54,15 @@
           <file leaf-file-name="parabola.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/parabola.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.8146068" vertical-offset="0" max-vertical-offset="1751">
-                  <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+                <state vertical-scroll-proportion="2.2186787" vertical-offset="675" max-vertical-offset="2040">
+                  <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
                   <folding>
                     <element signature="e#171#436#0" expanded="false" />
                     <element signature="e#475#699#0" expanded="false" />
-                    <element signature="e#735#1570#0" expanded="false" />
+                    <element signature="e#1642#2763#0" expanded="false" />
                     <element signature="e#2802#3268#0" expanded="false" />
                     <element signature="e#3331#4160#0" expanded="false" />
+                    <element signature="e#4706#5036#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -77,7 +75,7 @@
           <file leaf-file-name="batch_parabola_2points.pro" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/batch_parabola_2points.pro">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.886236" vertical-offset="1785" max-vertical-offset="3485">
+                <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="3485">
                   <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
                   <folding />
                 </state>
@@ -111,10 +109,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="width" value="1616" />
+    <option name="height" value="916" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -428,31 +426,35 @@
       <created>1417556325475</created>
       <updated>1417556325475</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary=" script able to generate xyz between two points using a parabola function">
+      <created>1418081264963</created>
+      <updated>1418081264963</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="1912" y="-8" width="1616" height="916" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2153558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16145833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2949438" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2949438" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4220297" sideWeight="0.15375" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4220297" sideWeight="0.84625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -485,7 +487,8 @@
     <MESSAGE value="basic functionality for calculating conveyence from points" />
     <MESSAGE value="defs   for calculating conveyance from points" />
     <MESSAGE value="added comments about defs in parabola.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments about defs in parabola.py" />
+    <MESSAGE value=" script able to generate xyz between two points using a parabola function" />
+    <option name="LAST_COMMIT_MESSAGE" value=" script able to generate xyz between two points using a parabola function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -495,11 +498,48 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pt_xsection.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5440" max-vertical-offset="6443">
+          <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parabola.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1056" max-vertical-offset="1768">
+          <caret line="159" column="99" selection-start-line="159" selection-start-column="99" selection-end-line="159" selection-end-column="99" />
+          <folding>
+            <element signature="e#171#436#0" expanded="false" />
+            <element signature="e#475#699#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
+            <element signature="e#2802#3268#0" expanded="false" />
+            <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/batch_parabola_2points.pro">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="3485">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pt_xsection.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="697">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -510,9 +550,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -529,9 +570,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="697">
           <caret line="8" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -542,9 +581,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -553,9 +593,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="629">
           <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -566,9 +604,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -585,9 +624,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -598,9 +635,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -617,9 +655,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -630,9 +666,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,9 +686,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -662,9 +697,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -681,9 +717,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="697">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -694,9 +728,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -713,9 +748,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -726,9 +759,10 @@
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -745,9 +779,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="697">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -835,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16790123" vertical-offset="0" max-vertical-offset="810">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,7 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10493827" vertical-offset="0" max-vertical-offset="969">
           <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,9 +881,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#311#323#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -861,13 +889,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5037037" vertical-offset="0" max-vertical-offset="1547">
           <caret line="28" column="101" selection-start-line="28" selection-start-column="101" selection-end-line="28" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/batch_parabola_2points.pro">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.886236" vertical-offset="1785" max-vertical-offset="3485">
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="3485">
           <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
           <folding />
         </state>
@@ -875,14 +902,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parabola.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8146068" vertical-offset="0" max-vertical-offset="1751">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state vertical-scroll-proportion="2.2186787" vertical-offset="675" max-vertical-offset="2040">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding>
             <element signature="e#171#436#0" expanded="false" />
             <element signature="e#475#699#0" expanded="false" />
-            <element signature="e#735#1570#0" expanded="false" />
+            <element signature="e#1642#2763#0" expanded="false" />
             <element signature="e#2802#3268#0" expanded="false" />
             <element signature="e#3331#4160#0" expanded="false" />
+            <element signature="e#4706#5036#0" expanded="false" />
           </folding>
         </state>
       </provider>

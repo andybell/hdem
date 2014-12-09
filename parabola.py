@@ -132,11 +132,19 @@ def pts_2_tuple(x_field, y_field, z_field):
 
 
 def thalweg_or_bank(point1, point2):
-	#  checks which point has a lower Z value
-	pass
+	#  checks which point has a lower Z value, returns it as thalweg pt, other is bank
+	x1, y1, z1, x2, y2, z2 = point1[0], point1[1], point1[2], point2[0], point2[1], point2[2]
+	if z2 < z1:
+		thalweg = (x2, y2, z2)
+		bank = (x1, y1, z1)
+	else:
+		thalweg = (x1, y1, z1)
+		bank = (x2, y2, z2)
+	return thalweg, bank
 
 
 def point_interval(point1, point2):
+	"""Interval  to create points based on the distance between the two input points"""
 	distance = TwoD_distance(point1, point2)
 	if distance < 50:
 		increment = 5
@@ -151,12 +159,8 @@ def point_interval(point1, point2):
 	return increment, distance
 
 
-point_1 = (624377.7, 4212225.5, -10)
-point_2 = (624491.3, 4212201.9, 0)
-
-
 def gen_pts(thalweg, bank):
-
+	"""Generates points (as tuples) from two input points using the half_parabola_depth function"""
 	interval = point_interval(thalweg, bank)
 	increment = interval[0]
 	distance = interval[1]
@@ -170,5 +174,30 @@ def gen_pts(thalweg, bank):
 
 	return new_points
 
-test = gen_pts(point_1, point_2)
-print test
+
+#output to csv?
+
+
+#create points using arcpy.geometry???
+point1 = (624736.115492, 4207721.8967, -20)
+point2 = (624751.649937, 4207720.7978, 0)
+point3 = (624377.695892, 4212225.53683, -10)
+point4 = (624491.335396, 4212201.91912, 0)
+
+
+test1 = gen_pts(point1, point2)
+
+print test1
+
+"""
+cursor = arcpy.da.InsertCursor(pointFC, ['SHAPE@X', 'SHAPE@Y', 'Z'])
+for item in test1:
+	row = [item[0], item[1], item[2]]
+	print row
+	cursor.insertRow(row)
+
+
+del cursor
+
+pointFC
+"""
