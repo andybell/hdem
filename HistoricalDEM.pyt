@@ -62,7 +62,7 @@ class DeleteConversionFields(object):
 
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
-		fcList = arcpy.Parameter(displayName="Input Features", name="fcList", datatype="DEFeatureClass",
+		fcList = arcpy.Parameter(displayName="Input Features", name="fcList", datatype="GPFeatureLayer",
 								 parameterType="Required", multiValue=True)
 
 		fields = arcpy.Parameter(displayName="Fields to Delete", name="fields", datatype="GPString",
@@ -117,7 +117,7 @@ class TidalDatumConversion(object):
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
 
-		inputs = arcpy.Parameter(displayName="Input Features", name="inputs", datatype="DEFeatureClass",
+		inputs = arcpy.Parameter(displayName="Input Features", name="inputs", datatype="GPFeatureLayer",
 								 parameterType="Required",multiValue=True)
 
 		mllw_surface = arcpy.Parameter(displayName="MLLW Surface Raster", name="mllw_surface",
