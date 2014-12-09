@@ -2,6 +2,7 @@ __author__ = 'ambell'
 
 import arcpy
 import parabola
+import csv
 
 # input near table with values for x sections with thalweg and bank Z's joined
 inNearTable = r"X:\delta_dem\HDEM_v5r1\NearTable_sounds_channel.gdb\Near180_xsections_500features"
@@ -9,6 +10,8 @@ inNearTable = r"X:\delta_dem\HDEM_v5r1\NearTable_sounds_channel.gdb\Near180_xsec
 # Destination Feature Class for the points
 # Feature MUST have a field called "MLLW_m" as double
 pointFC = r"U:\HDEM_v5r1\tester.gdb\Sounding_XS"  # should this be run as a tool or a stand alone script?
+
+out_txt = r"U:\HDEM_v5r1\test.txt"
 
 
 #parse fields
@@ -29,9 +32,7 @@ counter = 1
 
 #TODO insert TIMEIT or datetime to profile how long functions take
 
-
-
-for point in end_pt_list:
+"""for point in end_pt_list:
 	print "Working on X section: %s" %counter
 	parabola_points = parabola.gen_pts(point[0], point[1])
 
@@ -40,10 +41,21 @@ for point in end_pt_list:
 		row = [new_point[0], new_point[1], new_point[2]]
 		cursor.insertRow(row)
 	del cursor
-	counter = counter + 1
+	counter = counter + 1"""
 
 #TODO backup plan remove cursor and export to csv/txt and then add points via arc xy to points tool
+txtfile = open(out_txt, 'w')
+writer = csv.writer(txtfile)
 
 
+for point in end_pt_list:
+	print "Working on X section: %s" %counter
+	parabola_points = parabola.gen_pts(point[0], point[1])
+
+	for new_point in parabola_points:
+		row = [new_point[0], new_point[1], new_point[2]]
+		writer.writerows(row)
+
+textfile.close()
 
 print "Finished!!!!!"
