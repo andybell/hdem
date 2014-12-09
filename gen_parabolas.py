@@ -27,6 +27,10 @@ del cursor
 
 counter = 1
 
+#TODO insert TIMEIT or datetime to profile how long functions take
+
+#TODO backup plan remove cursor and export to csv/txt and then add points via arc xy to points tool
+
 for point in end_pt_list:
 	print "Working on X section: %s" %counter
 	parabola_points = parabola.gen_pts(point[0], point[1])
