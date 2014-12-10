@@ -5,17 +5,17 @@ import parabola
 import csv
 
 # input near table with values for x sections with thalweg and bank Z's joined
-inNearTable = r"X:\delta_dem\HDEM_v5r1\NearTable_sounds_channel.gdb\Near180_xsections_500features"
+inNearTable = r"X:\delta_dem\HDEM_v5r1\SJ_con_example.gdb\Far_parabola"
 
 # Destination Feature Class for the points
 # Feature MUST have a field called "MLLW_m" as double
-pointFC = r"U:\HDEM_v5r1\tester.gdb\Sounding_XS"  # should this be run as a tool or a stand alone script?
+#pointFC = r"U:\HDEM_v5r1\tester.gdb\Sounding_XS"  # should this be run as a tool or a stand alone script?
 
-out_txt = r"U:\HDEM_v5r1\test.txt"
+out_txt = r"U:\HDEM_v5r1\SJ_convey_far_pts.txt"
 
 
 #parse fields
-fields = ['FROM_X', 'FROM_Y', 'Thalweg_Z', 'NEAR_X', 'NEAR_Y', 'Bank_Z']
+fields = ['FROM_X', 'FROM_Y', 'THALWEG_Z', 'NEAR_X', 'NEAR_Y', 'BANK_Z']
 
 end_pt_list = []
 
@@ -47,15 +47,18 @@ counter = 1
 txtfile = open(out_txt, 'w')
 writer = csv.writer(txtfile)
 
+rows = []
 
 for point in end_pt_list:
 	print "Working on X section: %s" %counter
 	parabola_points = parabola.gen_pts(point[0], point[1])
+	counter += 1
 
 	for new_point in parabola_points:
 		row = [new_point[0], new_point[1], new_point[2]]
-		writer.writerows(row)
+		rows.append(row)
 
-textfile.close()
+writer.writerows(rows)
+txtfile.close()
 
 print "Finished!!!!!"

@@ -30,6 +30,7 @@ print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, outp
 #Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
 subprocess.call([rscript_path, near180, "--args", input_dbf, output_dbf])
 
+#TODO add field for join (THALWEG_Z and BANK_Z as doubles)
 
 # remove the temporary directory
 # shutil.rmtree(dirpath)
