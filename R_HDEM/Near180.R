@@ -43,7 +43,6 @@ near_table<-read.dbf(near_file, as.is = FALSE)
 
 print(near_file)
 print(out_location)
-#write.dbf(near_file, out_location)
 
 ### use ddply to apply function(s) by IN_FID groups
 nearest_vertex<-ddply(near_table, "IN_FID", nearest)
@@ -55,9 +54,8 @@ print("opposite Finished")
 # rm NAs from opposites (no points within the 180 degree search area)
 opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
 
-# append files to modifications file
-export_bin <-rbind(nearest_vertex, opposite_vertex) # then just append using rbind
 
-#write table out to dbf so that python can read it???
-write.dbf(export_bin, out_location)
-
+#write tables out to dbf so that python can read it
+print("Saving near points as a DBFs in temp directory")
+write.dbf(nearest_vertex, paste(out_location, "nearest_bank.dbf", sep="\\"))
+write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))

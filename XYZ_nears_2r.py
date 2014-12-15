@@ -1,4 +1,4 @@
-# some usefull python snippets for coping near feature to r
+# some useful python snippets for coping near feature to r
 
 # add double fields for items in the list
 def addfields(target_table, name_list):
