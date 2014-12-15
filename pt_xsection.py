@@ -13,7 +13,7 @@ import tempfile
 import shutil
 import os
 
-#make temp directory to store all interim data steps
+"""#make temp directory to store all interim data steps
 dirpath = tempfile.mkdtemp()
 
 # convert near table to dbf since R can't read the gdb table (stupid esri)
@@ -42,3 +42,6 @@ addfields(os.path.join(dirpath, "opposite_bank.dbf"), new_fields)
 
 # remove the temporary directory
 # shutil.rmtree(dirpath)
+"""
+
+# TODO delete file, code has been migrated to gen_parabolas.py

@@ -13,8 +13,8 @@ def addfields(target_table, name_list):
 		arcpy.AddField_management(target_table, name, "DOUBLE")
 
 
-def nearTable(thalweg_pts, channel_pts):
-	target_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
+def nearTable(thalweg_pts, channel_pts, target_dbf):
+	#target_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
 	arcpy.GenerateNearTable_analysis(thalweg_pts, channel_pts, target_dbf, "#",
 	                                 "LOCATION", "ANGLE", "ALL", 200)
 
@@ -49,11 +49,12 @@ def near180_subprocess(dirpath):
 	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
 	near180 = r"C:\Users\ambell.AD3\Documents\hdem\R_HDEM\Near180.R" # TODO change to be universal?
 	rscript_path = r"C:\Users\ambell.AD3\Documents\R\R-3.1.2\bin\rscript.exe" # TODO universal?
+	bind = "TRUE"
 
 
 	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)
 	#Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
-	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath])
+	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind])
 
 
 def gen_pts_nears(inNearTable_withZ, out_directory):
@@ -92,33 +93,49 @@ def gen_pts_nears(inNearTable_withZ, out_directory):
 	txtfile.close()
 
 
-def xy_to_pts(xy_txt, output):
-	arcpy.MakeXYEventLayer_management(xy_txt)
-	pass
+def xy_to_pts(xy_txt, output_gdb, output_name):
+	sp_ref = r"Coordinate Systems\Projected Coordinate Systems\Utm\Nad 1983\NAD 1983 UTM Zone 10N.prj"
+	arcpy.MakeXYEventLayer_management(xy_txt, 'Field1', 'Field2', 'outlyr', sp_ref)
+	arcpy.FeatureClassToFeatureClass_conversion('outlyr', output_gdb, output_name)
+
+
+def alt_fields(feature):
+	arcpy.AlterField_management(feature, 'Field1', 'X', 'X')
+	arcpy.AlterField_management(feature, 'Field2', 'Y', 'Y')
+	arcpy.AlterField_management(feature, 'Field3', 'MLLW_m', 'MLLW_m')
+
+
+def make_points(thalweg_points, banks_as_points, output_gdb, name):
+	dirpath = tempfile.mkdtemp()
+
+	print "Finding lots of nearest features....."
+	nearTable(thalweg_points, banks_as_points, os.path.join(dirpath, "Input_Near_Table.dbf"))
+
+	print "Finding two closest features on opposite banks (Near180.r)..."
+	near180_subprocess(dirpath)
+
+	print "Joining thalweg depths...."
+	join_z_neartable(os.path.join(dirpath, "both_banks.dbf"), thalweg_points, "MLLW_m")
+
+	print "Generating parabola POINTS!!!"
+	gen_pts_nears(os.path.join(dirpath, "both_banks.dbf"), dirpath)
+
+	print "Saving to gdb"
+	xy_to_pts(os.path.join(dirpath, "parabola_points.txt"), output_gdb, name)
+	print "Changing field names"
+	alt_fields(os.path.join(output_gdb, name))
+	print "Removing duplicate points"
+	arcpy.DeleteIdentical_management(os.path.join(output_gdb, name), ["X", "Y", "MLLW_m"])
+
+	print "Removing Temporary Files"
+	# remove the temporary directory
+	shutil.rmtree(dirpath)
+
 
 
 #Tester files
 thalweg_pts = r"U:\HDEM_v5r1_120914\Suisun_working_v5r1.gdb\Suisun_small_channel_soundings_h00948"
 banks_as_pts = r"U:\HDEM_v5r1_120914\Channel_pts_5m_GME_no_dups.shp"
+output = r"U:\HDEM_v5r2\tester.gdb"
 
-
-
-#make temp directory to store all interim data steps
-dirpath = tempfile.mkdtemp()
-
-
-
-print "Finding lots of nearest features....."
-nearTable(thalweg_pts, banks_as_pts)
-
-print "Finding two closest features on opposite banks (Near180.r)..."
-near180_subprocess(dirpath)
-
-print "Joining thalweg depths...."
-join_z_neartable(os.path.join(dirpath, "nearest_bank.dbf"), thalweg_pts, "MLLW_m")
-join_z_neartable(os.path.join(dirpath, "opposite_bank.dbf"), thalweg_pts, "MLLW_m")
-
-print "Generating parabola POINTS!!!"
-gen_pts_nears(os.path.join(dirpath, "nearest_bank.dbf"), dirpath)
-
-print "Temporary Directory: %s" % dirpath
+make_points(thalweg_pts, banks_as_pts, output, "make_points_2")

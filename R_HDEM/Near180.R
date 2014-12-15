@@ -39,6 +39,7 @@ nearest_opposite <- function(df){
 args <- commandArgs(trailingOnly=TRUE)
 near_file<-args[2]
 out_location<-args[3]
+bind<-args[4]
 near_table<-read.dbf(near_file, as.is = FALSE)
 
 print(near_file)
@@ -57,5 +58,14 @@ opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
 
 #write tables out to dbf so that python can read it
 print("Saving near points as a DBFs in temp directory")
+
+if(bind==TRUE){
+# append files to modifications file
+export_bin <-rbind(nearest_vertex, opposite_vertex) # then just append using rbind
+
+#write table out to dbf so that python can read it???
+write.dbf(export_bin, paste(out_location, "both_banks.dbf", sep="\\"))
+
+}else{
 write.dbf(nearest_vertex, paste(out_location, "nearest_bank.dbf", sep="\\"))
-write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))
+write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))}
