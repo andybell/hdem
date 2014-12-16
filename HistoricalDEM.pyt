@@ -7,6 +7,8 @@
 
 import arcpy
 import os
+import glob
+import make_zip  # imports make_zip.py as module
 
 
 class Toolbox(object):
@@ -17,7 +19,7 @@ class Toolbox(object):
 		self.alias = "Historical DEM Toolbox"
 
 		# List of tool classes associated with this toolbox
-		self.tools = [Tool, DeleteConversionFields, TidalDatumConversion, TIN_Display_Group]
+		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display_Group, TIN2ASCII]
 
 
 class Tool(object):
@@ -375,11 +377,11 @@ class TIN2ASCII(object):
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
 
-		tin = arcpy.Parameter(displayName="TIN", name="tin", datatype="DETool",
-								 parameterType="Required")
+		tin = arcpy.Parameter(displayName="TIN", name="tin", datatype="DETin",
+								 parameterType="Required", direction="Input")
 
 		output_folder = arcpy.Parameter(displayName="Output Folder", name="output_folder",
-		                               datatype="DEFolder", parameterType="Required")
+		                               datatype="DEFolder", parameterType="Required", direction="Output")
 
 		zip_ascii = arcpy.Parameter(displayName="Zip Files?", name="zip_ascii",
 		                            datatype="GPBoolean", parameterType="Optional")
@@ -467,15 +469,6 @@ class TIN2ASCII(object):
 			arcpy.AddMessage("Zipping ASCII files...")
 			zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
 			make_zip.zip_folder(a_tiles, zipped_output)
-
-		"""# delete temporary scratch folder
-		#arcpy.AddMessage(rm_temp)
-		if rm_temp == 'true':
-			arcpy.AddMessage("Removing Temporary Files....")
-			shutil.rmtree(r_tiles)  # removes folder
-			shutil.rmtree(a_tiles)
-			arcpy.Delete_management(TinAsRast)  # removes file"""
-
 		return
-#TODO: convert TIN 2 ASCII over to pyt
+
 
