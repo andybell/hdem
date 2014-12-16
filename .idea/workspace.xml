@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\ambell.AD3\Documents\hdem\TODO_v5.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\ambell.AD3\Documents\hdem\XYZ_nears_2r.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
@@ -484,7 +482,11 @@
       <created>1418691602074</created>
       <updated>1418691602074</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="remove unneccessary files">
+      <created>1418692051561</created>
+      <updated>1418692051561</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -527,7 +529,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added inline comments" />
     <MESSAGE value="added parts of tidal_datum conversion, parameters all set up." />
     <MESSAGE value="set up error check for version and extension checkouts" />
     <MESSAGE value="tidal datum conversion works" />
@@ -552,7 +553,8 @@
     <MESSAGE value="gen_parabolas streamline batch make points from known thalweg and near banks" />
     <MESSAGE value="batch all functions to generate points" />
     <MESSAGE value="comments added to gen_parabola functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments added to gen_parabola functions" />
+    <MESSAGE value="remove unneccessary files" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unneccessary files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
