@@ -58,6 +58,7 @@ def join_z_neartable(near_dbf, target_features, depth_field):
 		else:
 			arcpy.DeleteField_management(near_dbf, field.name)
 
+
 def gen_pts_nears(inNearTable_withZ, out_directory):
 	"""generates points from the near table with values for the thalweg and banks using parabola calcs"""
 	fields = ['FROM_X', 'FROM_Y', 'THALWEG_Z', 'NEAR_X', 'NEAR_Y', 'BANK_Z']
@@ -151,3 +152,10 @@ banks_as_pts = r"U:\HDEM_v5r1_120914\Channel_pts_5m_GME_no_dups.shp"
 output = r"U:\HDEM_v5r2\tester.gdb"
 
 make_points(thalweg_pts, banks_as_pts, output, "make_points_2")
+
+
+#TODO add boilerplate to run script from cmd, or arcpy interface? or arcpy tool?
+#TODO adjust interval of points at certain size class?
+#TODO add errors if it doesn't work
+#TODO test speed for larger sample?
+#TODO number of samples to search table?
