@@ -269,9 +269,8 @@ class TIN_Display_Group(object):
 		tin_output = arcpy.Parameter(displayName="TIN Output", name="tin", datatype="DETin",
 								 parameterType="Required", direction="Output")
 
-		#todo add default symbology to tin output parameter
-
-		#todo create new default symbology layer and add it to the repo
+		#  default symbology for the tin output parameter
+		tin_output.symbology = os.path.join(os.path.dirname(__file__), 'TIN_symbology.lyr')
 
 
 		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", datatype="GPGroupLayer",

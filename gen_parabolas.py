@@ -159,3 +159,4 @@ make_points(thalweg_pts, banks_as_pts, output, "make_points_2")
 #TODO add errors if it doesn't work
 #TODO test speed for larger sample?
 #TODO number of samples to search table?
+#TODO fix subprocess to make R independent of libraries/user paths.
