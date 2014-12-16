@@ -362,11 +362,120 @@ class TIN_Display_Group(object):
 
 		#Create TIN
 		arcpy.CreateTin_3d(output, proj, Tin_input_str, "DELAUNAY")
-
-
 		return
 
 
+class TIN2ASCII(object):
+	def __init__(self):
+		"""Define the tool (tool name is the name of the class)."""
+		self.label = "TIN2ASCII"
+		self.description = "Converts a TIN to a bunch of ASCII files and zips them up"
+		self.canRunInBackground = False
 
+	def getParameterInfo(self):
+		"""Define parameter definitions"""
+
+		tin = arcpy.Parameter(displayName="TIN", name="tin", datatype="DETool",
+								 parameterType="Required")
+
+		output_folder = arcpy.Parameter(displayName="Output Folder", name="output_folder",
+		                               datatype="DEFolder", parameterType="Required")
+
+		zip_ascii = arcpy.Parameter(displayName="Zip Files?", name="zip_ascii",
+		                            datatype="GPBoolean", parameterType="Optional")
+
+		params = [tin, output_folder, zip_ascii]
+
+		return params
+
+	def isLicensed(self):
+		"""Set whether tool is licensed to execute."""
+		try:
+			if arcpy.CheckExtension("3D") == "Available":
+				arcpy.CheckOutExtension("3D")
+			else:
+				raise LicenseError
+
+		except LicenseError:
+			return False
+
+		return True
+
+	def updateParameters(self, parameters):
+		"""Modify the values and properties of parameters before internal
+		validation is performed.  This method is called whenever a parameter
+		has been changed."""
+		return
+
+	def updateMessages(self, parameters):
+		"""Modify the messages created by internal validation for each tool
+		parameter.  This method is called after internal validation."""
+		return
+
+	def execute(self, parameters, messages):
+		"""The source code of the tool."""
+
+		# Parameters
+		tin = parameters[0].valueAsText
+		output_folder = parameters[1].valueAsText
+		zip_ascii = parameters[2].valueAsText
+
+
+		# Raster size settings
+		sampling = "CELLSIZE 2"
+		ntiles = "5 5"  # tile dimensions
+
+		# Calculation of total number of tiles desired
+		spl = ntiles.split()
+		total_tiles = int(float(spl[0])) * int(float(spl[1]))
+
+		# Create folder for output folder
+		arcpy.AddMessage("Creating an export folder in %s" % output_folder)
+		try:
+			os.makedirs(output_folder + "\\raster_tiles")
+			r_tiles = os.path.join(output_folder, "raster_tiles")
+			os.makedirs(output_folder + "\\ascii_tiles")
+			a_tiles = os.path.join(output_folder, "ascii_tiles")
+		except:
+			arcpy.AddError("Can't make folders..... try saving in a different location.")
+
+		# Get TIN basename
+		base = os.path.basename(tin)
+		arcpy.AddMessage("Saving %s as Raster......" % base)
+		TinAsRast = os.path.join(output_folder, base + '.TIF')
+
+		# TIN to raster
+		arcpy.TinRaster_3d(tin, TinAsRast, 'FLOAT', 'LINEAR', sampling)
+
+		# Split raster into chunks
+		arcpy.AddMessage("Breaking %s into %s raster tiles...." % (base, total_tiles))
+		arcpy.SplitRaster_management(TinAsRast, r_tiles, base + '_', 'NUMBER_OF_TILES', 'TIFF', 'BILINEAR', ntiles,
+		                             '#', '10', 'METERS')
+
+		# Get list of split tiles
+		rastertiles_list = glob.glob(r_tiles + '/*.TIF')
+
+		for raster in rastertiles_list:
+			arcpy.AddMessage("Converting %s to ASCII....." % raster)
+			rbase = os.path.basename(raster)
+			rbaseName, rbaseExt = os.path.splitext(rbase)
+			ascii_name = os.path.join(a_tiles, rbaseName + '.txt')
+			arcpy.RasterToASCII_conversion(raster, ascii_name)
+
+		#zips files using make_zip.py and calculates amount of compression
+		if zip_ascii == 'true':
+			arcpy.AddMessage("Zipping ASCII files...")
+			zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
+			make_zip.zip_folder(a_tiles, zipped_output)
+
+		"""# delete temporary scratch folder
+		#arcpy.AddMessage(rm_temp)
+		if rm_temp == 'true':
+			arcpy.AddMessage("Removing Temporary Files....")
+			shutil.rmtree(r_tiles)  # removes folder
+			shutil.rmtree(a_tiles)
+			arcpy.Delete_management(TinAsRast)  # removes file"""
+
+		return
 #TODO: convert TIN 2 ASCII over to pyt
 
