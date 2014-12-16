@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" afterPath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricalDEM.pyt" afterPath="$PROJECT_DIR$/HistoricalDEM.pyt" />
+      <change type="DELETED" beforePath="C:\Users\ambell.AD3\Documents\hdem\TIN2ASCII.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
@@ -77,14 +76,12 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="TIN2ASCII.py" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/TIN2ASCII.py">
+          <file leaf-file-name="Near180.R" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.2191235" vertical-offset="0" max-vertical-offset="1615">
-                  <caret line="72" column="16" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#380#392#0" expanded="true" />
-                  </folding>
+                <state vertical-scroll-proportion="0.7121514" vertical-offset="305" max-vertical-offset="1309">
+                  <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -510,19 +507,23 @@
       <created>1418758491195</created>
       <updated>1418758491195</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="TIN2ASCII conversion successful">
+      <created>1418760906568</created>
+      <updated>1418760906568</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2153558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06638567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14541623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884902" sideWeight="0.15375" order="7" side_tool="true" content_ui="tabs" />
@@ -553,7 +554,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="tidal datum conversion works" />
     <MESSAGE value="fixed issue #3 of file paths" />
     <MESSAGE value="added file header" />
     <MESSAGE value="updated parameter validation, tool checks if feature class already has any of the reserved field name" />
@@ -578,7 +578,8 @@
     <MESSAGE value="remove unneccessary files" />
     <MESSAGE value="added TODOs to gen_parabolas.py" />
     <MESSAGE value="basic structure for TIN2ASCII in pyt (untested)" />
-    <option name="LAST_COMMIT_MESSAGE" value="basic structure for TIN2ASCII in pyt (untested)" />
+    <MESSAGE value="TIN2ASCII conversion successful" />
+    <option name="LAST_COMMIT_MESSAGE" value="TIN2ASCII conversion successful" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -891,14 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="1309">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parabola.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="3128">
@@ -915,13 +908,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TIN2ASCII.py">
+    <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2191235" vertical-offset="0" max-vertical-offset="1615">
-          <caret line="72" column="16" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="16" />
-          <folding>
-            <element signature="e#380#392#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="1309">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
