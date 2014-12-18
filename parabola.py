@@ -175,4 +175,3 @@ def gen_pts(thalweg, bank):
 
 	return new_points
 
-

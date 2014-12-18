@@ -26,8 +26,8 @@ def near180_subprocess(dirpath):
 	"""subprocess call to R to run Near180.py to find two closest points (one on each bank)"""
 	#location of R output dbf file
 	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
-	near180 = r"C:\Users\ambell.AD3\Documents\hdem\R_HDEM\Near180.R" # TODO change to be universal?
-	rscript_path = r"C:\Users\ambell.AD3\Documents\R\R-3.1.2\bin\rscript.exe" # TODO universal?
+	near180 = r"C:\Users\ambell.AD3\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
+	rscript_path = r"C:\Program Files\R\R-3.1.1\bin\rscript.exe"  # TODO universal?
 	bind = "TRUE"
 
 	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)
@@ -42,13 +42,14 @@ def join_z_neartable(near_dbf, target_features, depth_field):
 	addfields(near_dbf, new_fields)
 
 	#join on thalweg_pts unique IDs
-	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID")
+	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID_1")
 
 	#Calculate fields
 	arcpy.CalculateField_management(near_dbf, "THALWEG_Z", '!' + depth_field + '!', "PYTHON_9.3")
 
 	#remove join by dropping unwanted fields
-	fields2keep = ["OID", "THALWEG_Z", "BANK_Z", "IN_FID", "NEAR_FID", "NEAR_DIST", "NEAR_RANK", "FROM_X", "FROM_Y", "NEAR_X", "NEAR_Y", "NEAR_ANGLE"]
+	fields2keep = ["OID", "THALWEG_Z", "BANK_Z", "IN_FID", "NEAR_FID", "NEAR_DIST", "NEAR_RANK", "FROM_X", "FROM_Y",
+	               "NEAR_X", "NEAR_Y", "NEAR_ANGLE"]
 
 	fields = arcpy.ListFields(near_dbf)
 
@@ -75,7 +76,7 @@ def gen_pts_nears(inNearTable_withZ, out_directory):
 	del cursor
 
 	#export to csv/txt and then add points via arc xy to points tool
-	out_txt = os.path.join(out_directory, "parabola_points.txt") # TODO: need separate files for near + opposite?
+	out_txt = os.path.join(out_directory, "parabola_points.txt")  # TODO: need separate files for near + opposite?
 	txtfile = open(out_txt, 'w')
 	writer = csv.writer(txtfile)
 
@@ -145,18 +146,16 @@ def make_points(thalweg_points, banks_as_points, output_gdb, name):
 	shutil.rmtree(dirpath)
 
 
-
+"""
 #Tester files
 thalweg_pts = r"U:\HDEM_v5r1_120914\Suisun_working_v5r1.gdb\Suisun_small_channel_soundings_h00948"
 banks_as_pts = r"U:\HDEM_v5r1_120914\Channel_pts_5m_GME_no_dups.shp"
 output = r"U:\HDEM_v5r2\tester.gdb"
 
-make_points(thalweg_pts, banks_as_pts, output, "make_points_2")
+#make_points(thalweg_pts, banks_as_pts, output, "make_points_3")
+"""
 
-
-#TODO add boilerplate to run script from cmd, or arcpy interface? or arcpy tool?
 #TODO adjust interval of points at certain size class?
 #TODO add errors if it doesn't work
-#TODO test speed for larger sample?
 #TODO number of samples to search table?
 #TODO fix subprocess to make R independent of libraries/user paths.

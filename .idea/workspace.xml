@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\ambell.AD3\Documents\hdem\TIN2ASCII.py" afterPath="" />
+    <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="rm TIN2ASCII.py from directory">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HistoricalDEM.TIN2ASCII.pyt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HistoricalDEM.TIN_Display.pyt.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/code_snippets/set_wd.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" afterPath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricalDEM.pyt" afterPath="$PROJECT_DIR$/HistoricalDEM.pyt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/R_HDEM/Near180.R" afterPath="$PROJECT_DIR$/R_HDEM/Near180.R" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/ambell.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/ambell.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen_parabolas.py" afterPath="$PROJECT_DIR$/gen_parabolas.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parabola.py" afterPath="$PROJECT_DIR$/parabola.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
@@ -25,48 +33,44 @@
     <favorites_list name="hdem" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.520316">
+    <splitter split-orientation="horizontal" split-proportion="0.4919852">
       <split-first>
         <leaf>
+          <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="7778" max-vertical-offset="8636">
+                  <caret line="505" column="60" selection-start-line="505" selection-start-column="60" selection-end-line="505" selection-end-column="60" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Near180.R" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="1309">
-                  <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="800" max-vertical-offset="1530">
+                  <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="80" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8476096" vertical-offset="6119" max-vertical-offset="7123">
-                  <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#395#407#0" expanded="true" />
-                    <element signature="e#1727#3883#0" expanded="false" />
-                    <element signature="e#15171#15394#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="parabola.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/parabola.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="3128">
-                  <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="gen_parabolas.py" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="gen_parabolas.py" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2374" max-vertical-offset="2839">
-                  <caret line="161" column="67" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
+                <state vertical-scroll-proportion="1.2558528" vertical-offset="1782" max-vertical-offset="2737">
+                  <caret line="155" column="3" selection-start-line="155" selection-start-column="3" selection-end-line="155" selection-end-column="3" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="set_wd.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+                  <caret line="5" column="155" selection-start-line="5" selection-start-column="155" selection-end-line="5" selection-end-column="155" />
                   <folding />
                 </state>
               </provider>
@@ -76,11 +80,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Near180.R" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
+          <file leaf-file-name="parabola.py" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/parabola.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7121514" vertical-offset="305" max-vertical-offset="1309">
-                  <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+                <state vertical-scroll-proportion="1.1137124" vertical-offset="1289" max-vertical-offset="3111">
+                  <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -105,21 +109,22 @@
         <option value="$PROJECT_DIR$/TIN_Display_Group.py" />
         <option value="$PROJECT_DIR$/calc_field.py" />
         <option value="$PROJECT_DIR$/TIN2ASCII.py" />
-        <option value="$PROJECT_DIR$/parabola.py" />
         <option value="$PROJECT_DIR$/XYZ_nears_2r.py" />
-        <option value="$PROJECT_DIR$/R_HDEM/Near180.R" />
         <option value="$PROJECT_DIR$/pt_xsection.py" />
         <option value="$PROJECT_DIR$/TODO_v5.txt" />
-        <option value="$PROJECT_DIR$/gen_parabolas.py" />
         <option value="$PROJECT_DIR$/HistoricalDEM.pyt" />
+        <option value="$PROJECT_DIR$/code_snippets/set_wd.py" />
+        <option value="$PROJECT_DIR$/parabola.py" />
+        <option value="$PROJECT_DIR$/R_HDEM/Near180.R" />
+        <option value="$PROJECT_DIR$/gen_parabolas.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1912" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="width" value="1616" />
+    <option name="height" value="916" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -511,31 +516,35 @@
       <created>1418760906568</created>
       <updated>1418760906568</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="rm TIN2ASCII.py from directory">
+      <created>1418761061324</created>
+      <updated>1418761061324</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="false" />
+    <frame x="1912" y="-8" width="1616" height="916" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2153558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21501273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14541623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17490494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884902" sideWeight="0.15375" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18811882" sideWeight="0.84625" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1870229" sideWeight="0.84625" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32951653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -554,7 +563,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fixed issue #3 of file paths" />
     <MESSAGE value="added file header" />
     <MESSAGE value="updated parameter validation, tool checks if feature class already has any of the reserved field name" />
     <MESSAGE value="rm msl_m from reserved field list" />
@@ -579,7 +587,8 @@
     <MESSAGE value="added TODOs to gen_parabolas.py" />
     <MESSAGE value="basic structure for TIN2ASCII in pyt (untested)" />
     <MESSAGE value="TIN2ASCII conversion successful" />
-    <option name="LAST_COMMIT_MESSAGE" value="TIN2ASCII conversion successful" />
+    <MESSAGE value="rm TIN2ASCII.py from directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="rm TIN2ASCII.py from directory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -594,6 +603,54 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="8585" max-vertical-offset="8687">
+          <caret line="505" column="60" selection-start-line="505" selection-start-column="60" selection-end-line="505" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parabola.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="3128">
+          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="2737">
+          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
+          <caret line="5" column="155" selection-start-line="5" selection-start-column="155" selection-end-line="5" selection-end-column="155" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="259" max-vertical-offset="1309">
+          <caret line="7" column="77" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/make_zip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309">
@@ -606,11 +663,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4317" max-vertical-offset="6409">
           <caret line="272" column="91" selection-start-line="272" selection-start-column="91" selection-end-line="272" selection-end-column="91" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -634,11 +687,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5440" max-vertical-offset="6443">
           <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -662,11 +711,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5440" max-vertical-offset="6443">
           <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -690,11 +735,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -718,11 +759,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -738,11 +775,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -758,11 +791,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -778,11 +807,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="6426">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -798,11 +823,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -818,11 +839,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -844,11 +861,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1122">
           <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -870,11 +883,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1246" max-vertical-offset="2227">
           <caret line="169" column="37" selection-start-line="169" selection-start-column="37" selection-end-line="169" selection-end-column="37" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -892,39 +901,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parabola.py">
+    <entry file="file://$PROJECT_DIR$/make_zip.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="3128">
-          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1017">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
+    <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2374" max-vertical-offset="2839">
-          <caret line="161" column="67" selection-start-line="161" selection-start-column="67" selection-end-line="161" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="1309">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <caret line="5" column="155" selection-start-line="5" selection-start-column="155" selection-end-line="5" selection-end-column="155" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8476096" vertical-offset="6119" max-vertical-offset="7123">
-          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-            <element signature="e#1727#3883#0" expanded="false" />
-            <element signature="e#15171#15394#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="7863" max-vertical-offset="8636">
+          <caret line="505" column="60" selection-start-line="505" selection-start-column="60" selection-end-line="505" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="800" max-vertical-offset="1530">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="80" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parabola.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1137124" vertical-offset="1289" max-vertical-offset="3111">
+          <caret line="115" column="7" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2558528" vertical-offset="1782" max-vertical-offset="2737">
+          <caret line="155" column="3" selection-start-line="155" selection-start-column="3" selection-end-line="155" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>

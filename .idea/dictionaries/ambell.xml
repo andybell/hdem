@@ -5,6 +5,7 @@
       <w>arcpy</w>
       <w>bilinear</w>
       <w>cellsize</w>
+      <w>geodatabase</w>
       <w>geoprocessing</w>
       <w>hdem</w>
       <w>mbell</w>

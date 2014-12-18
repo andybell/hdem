@@ -19,7 +19,7 @@ class Toolbox(object):
 		self.alias = "Historical DEM Toolbox"
 
 		# List of tool classes associated with this toolbox
-		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display_Group, TIN2ASCII]
+		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII]
 
 
 class Tool(object):
@@ -259,10 +259,10 @@ class TidalDatumConversion(object):
 		return
 
 
-class TIN_Display_Group(object):
+class TIN_Display(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
-		self.label = "TIN_Display_group"
+		self.label = "TIN_Display"
 		self.description = "Create a TIN from all the layers in a group for the current map extent"
 		self.canRunInBackground = False
 
@@ -472,3 +472,35 @@ class TIN2ASCII(object):
 		return
 
 
+class Parabolas(object):
+	def __init__(self):
+		"""Define the tool (tool name is the name of the class)."""
+		self.label = "Parabolas"
+		self.description = "Create parabola from thalweg points"
+		self.canRunInBackground = False
+
+	def getParameterInfo(self):
+		"""Define parameter definitions"""
+		params = None
+		return params
+
+	def isLicensed(self):
+		"""Set whether tool is licensed to execute."""
+		return True
+
+	def updateParameters(self, parameters):
+		"""Modify the values and properties of parameters before internal
+		validation is performed.  This method is called whenever a parameter
+		has been changed."""
+		return
+
+	def updateMessages(self, parameters):
+		"""Modify the messages created by internal validation for each tool
+		parameter.  This method is called after internal validation."""
+		return
+
+	def execute(self, parameters, messages):
+		"""The source code of the tool."""
+		return
+
+	#TODO run parabola from txb interface (gen_parabolas.py)

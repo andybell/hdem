@@ -68,4 +68,17 @@ write.dbf(export_bin, paste(out_location, "both_banks.dbf", sep="\\"))
 
 }else{
 write.dbf(nearest_vertex, paste(out_location, "nearest_bank.dbf", sep="\\"))
-write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))}
+write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))
+
+#TODO instead of writing both dbfs just join on IN_FID and export as dbf
+
+# use merged<-merge(nearest_vertex, opposite_nearest_vertex, by = "IN_FID")
+
+#only really want IN_FID, B1_X, B1_Y, B1_Z, T1_X, T1_Y, T1_Z, B2_X, B2_Y, B2_Z
+
+# plyr
+
+# rename(merged, c())
+
+
+}
