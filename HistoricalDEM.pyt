@@ -381,7 +381,7 @@ class TIN2ASCII(object):
 								 parameterType="Required", direction="Input")
 
 		output_folder = arcpy.Parameter(displayName="Output Folder", name="output_folder",
-		                               datatype="DEFolder", parameterType="Required", direction="Output")
+		                               datatype="DEFolder", parameterType="Required", direction="Input")
 
 		zip_ascii = arcpy.Parameter(displayName="Zip Files?", name="zip_ascii",
 		                            datatype="GPBoolean", parameterType="Optional")

@@ -42,7 +42,7 @@ def join_z_neartable(near_dbf, target_features, depth_field):
 	addfields(near_dbf, new_fields)
 
 	#join on thalweg_pts unique IDs
-	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID_1")
+	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID")
 
 	#Calculate fields
 	arcpy.CalculateField_management(near_dbf, "THALWEG_Z", '!' + depth_field + '!', "PYTHON_9.3")
@@ -146,14 +146,14 @@ def make_points(thalweg_points, banks_as_points, output_gdb, name):
 	shutil.rmtree(dirpath)
 
 
-"""
-#Tester files
-thalweg_pts = r"U:\HDEM_v5r1_120914\Suisun_working_v5r1.gdb\Suisun_small_channel_soundings_h00948"
-banks_as_pts = r"U:\HDEM_v5r1_120914\Channel_pts_5m_GME_no_dups.shp"
-output = r"U:\HDEM_v5r2\tester.gdb"
 
-#make_points(thalweg_pts, banks_as_pts, output, "make_points_3")
-"""
+#Tester files
+thalweg_pts = r"U:\HDEM_v5r1_120914\Steamboat\steamboat_con.gdb\Steamboat_xarea"
+banks_as_pts = r"U:\HDEM_v5r1_120914\Channel_pts_5m_GME_no_dups.shp"
+output = r"U:\HDEM_v5r1_120914\Steamboat\steamboat_con.gdb"
+
+make_points(thalweg_pts, banks_as_pts, output, "Steamboat_Conveyance_Parabolas")
+
 
 #TODO adjust interval of points at certain size class?
 #TODO add errors if it doesn't work
