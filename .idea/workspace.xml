@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/R_HDEM/Near180.R" afterPath="$PROJECT_DIR$/R_HDEM/Near180.R" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen_parabolas.py" afterPath="$PROJECT_DIR$/gen_parabolas.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
@@ -60,8 +59,8 @@
       <file leaf-file-name="Near180.R" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.86543536" vertical-offset="823" max-vertical-offset="1581">
-              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.5624143" vertical-offset="801" max-vertical-offset="1530">
+              <caret line="23" column="80" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="80" />
               <folding />
             </state>
           </provider>
@@ -519,13 +518,18 @@
       <created>1418864935166</created>
       <updated>1418864935166</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="near180.R and gen_parabolas.py subproccess restructured to take a bind parameter to specify type of results (MERGE or APPEND).">
+      <created>1419036634774</created>
+      <updated>1419036634774</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1616" height="916" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21501273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -540,7 +544,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -562,7 +565,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="updated parameter validation, tool checks if feature class already has any of the reserved field name" />
     <MESSAGE value="rm msl_m from reserved field list" />
     <MESSAGE value="tin group parameters and license" />
     <MESSAGE value="dist 3d function takes two points (xyz's) and returns 3D distance" />
@@ -587,7 +589,8 @@
     <MESSAGE value="TIN2ASCII conversion successful" />
     <MESSAGE value="rm TIN2ASCII.py from directory" />
     <MESSAGE value="need to resturcture r results" />
-    <option name="LAST_COMMIT_MESSAGE" value="need to resturcture r results" />
+    <MESSAGE value="near180.R and gen_parabolas.py subproccess restructured to take a bind parameter to specify type of results (MERGE or APPEND)." />
+    <option name="LAST_COMMIT_MESSAGE" value="near180.R and gen_parabolas.py subproccess restructured to take a bind parameter to specify type of results (MERGE or APPEND)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -997,8 +1000,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86543536" vertical-offset="823" max-vertical-offset="1581">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.5624143" vertical-offset="801" max-vertical-offset="1530">
+          <caret line="23" column="80" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="80" />
           <folding />
         </state>
       </provider>

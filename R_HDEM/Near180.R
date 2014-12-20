@@ -44,35 +44,32 @@ near_table<-read.dbf(near_file, as.is = FALSE)
 
 
 ### use ddply to apply function(s) by IN_FID groups
-nearest_vertex<-ddply(near_table, "IN_FID", nearest)
+nearest_point<-ddply(near_table, "IN_FID", nearest)
 print("Nearest Finished")
 
-opposite_vertex<-ddply(near_table, "IN_FID", nearest_opposite)
+opposite_point<-ddply(near_table, "IN_FID", nearest_opposite)
 print("Opposite Finished")
 
 # rm NAs from opposites (no points within the 180 degree search area)
-opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
+opposite_point <-opposite_point[complete.cases(opposite_point),]
 
 
 #write tables out to dbf so that python can read it
 print("Saving near points as a DBFs in temp directory")
 
+
+#bind parameter for output. Opposite bank are either appended or merged/joined to nearest bank points
 if(bind=="APPEND"){
 # append files to modifications file
-export_bin <-rbind(nearest_vertex, opposite_vertex) # then just append using rbind
+export_bin <-rbind(nearest_point, opposite_point) # then just append using rbind
 
 #write table out to dbf so that python can read it???
 write.dbf(export_bin, paste(out_location, "both_banks.dbf", sep="\\"))
 
 }else if (bind=="MERGE"){
 
-#write.dbf(nearest_vertex, paste(out_location, "nearest_bank.dbf", sep="\\"))
-#write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))
-
-#TODO instead of writing both dbfs just join on IN_FID and export as dbf
-
 # join/merge nearest and opposite banks on unique FID
-merged<-merge(nearest_vertex, opposite_vertex, by = "IN_FID")
+merged<-merge(nearest_point, opposite_point, by = "IN_FID")
 
 #fields to keep from the join
 keeps<-c("IN_FID", "FROM_X.x", "FROM_Y.x", "NEAR_X.x", "NEAR_Y.x", "NEAR_X.y", "NEAR_Y.y")
