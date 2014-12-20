@@ -42,15 +42,13 @@ out_location<-args[3]
 bind<-args[4]
 near_table<-read.dbf(near_file, as.is = FALSE)
 
-print(near_file)
-print(out_location)
 
 ### use ddply to apply function(s) by IN_FID groups
 nearest_vertex<-ddply(near_table, "IN_FID", nearest)
 print("Nearest Finished")
 
 opposite_vertex<-ddply(near_table, "IN_FID", nearest_opposite)
-print("opposite Finished")
+print("Opposite Finished")
 
 # rm NAs from opposites (no points within the 180 degree search area)
 opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
@@ -59,26 +57,31 @@ opposite_vertex <-opposite_vertex[complete.cases(opposite_vertex),]
 #write tables out to dbf so that python can read it
 print("Saving near points as a DBFs in temp directory")
 
-if(bind==TRUE){
+if(bind=="APPEND"){
 # append files to modifications file
 export_bin <-rbind(nearest_vertex, opposite_vertex) # then just append using rbind
 
 #write table out to dbf so that python can read it???
 write.dbf(export_bin, paste(out_location, "both_banks.dbf", sep="\\"))
 
-}else{
-write.dbf(nearest_vertex, paste(out_location, "nearest_bank.dbf", sep="\\"))
-write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))
+}else if (bind=="MERGE"){
+
+#write.dbf(nearest_vertex, paste(out_location, "nearest_bank.dbf", sep="\\"))
+#write.dbf(opposite_vertex, paste(out_location, "opposite_bank.dbf", sep = "\\"))
 
 #TODO instead of writing both dbfs just join on IN_FID and export as dbf
 
-# use merged<-merge(nearest_vertex, opposite_nearest_vertex, by = "IN_FID")
+# join/merge nearest and opposite banks on unique FID
+merged<-merge(nearest_vertex, opposite_vertex, by = "IN_FID")
 
-#only really want IN_FID, B1_X, B1_Y, B1_Z, T1_X, T1_Y, T1_Z, B2_X, B2_Y, B2_Z
+#fields to keep from the join
+keeps<-c("IN_FID", "FROM_X.x", "FROM_Y.x", "NEAR_X.x", "NEAR_Y.x", "NEAR_X.y", "NEAR_Y.y")
+banks<-merged[keeps]
 
-# plyr
+#rename columns
+new_names <-c("IN_FID", "T_X", "T_Y", "B1_X", "B1_Y", "B2_X", "B2_Y")
+colnames(banks)<-new_names
 
-# rename(merged, c())
-
-
+#write out result to dbf file
+write.dbf(banks, paste(out_location, "both_banks_join.dbf", sep="\\"))
 }

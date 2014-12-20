@@ -22,13 +22,13 @@ def nearTable(thalweg_pts, channel_pts, target_dbf):
 	                                 "LOCATION", "ANGLE", "ALL", 200)
 
 
-def near180_subprocess(dirpath):
+def near180_subprocess(dirpath, bind):
 	"""subprocess call to R to run Near180.py to find two closest points (one on each bank)"""
+	"""bind can either be 'APPEND' or 'MERGE'"""
 	#location of R output dbf file
 	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
 	near180 = r"C:\Users\ambell.AD3\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
 	rscript_path = r"C:\Program Files\R\R-3.1.1\bin\rscript.exe"  # TODO universal?
-	bind = "TRUE"
 
 	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)
 	#Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
@@ -126,7 +126,7 @@ def make_points(thalweg_points, banks_as_points, output_gdb, name):
 	nearTable(thalweg_points, banks_as_points, os.path.join(dirpath, "Input_Near_Table.dbf"))
 
 	print "Finding two closest features on opposite banks (Near180.r)..."
-	near180_subprocess(dirpath)
+	near180_subprocess(dirpath, "APPEND")
 
 	print "Joining thalweg depths...."
 	join_z_neartable(os.path.join(dirpath, "both_banks.dbf"), thalweg_points, "MLLW_m")
