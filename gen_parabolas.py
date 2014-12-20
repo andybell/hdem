@@ -154,8 +154,33 @@ output = r"U:\HDEM_v5r1_120914\Steamboat\steamboat_con.gdb"
 
 make_points(thalweg_pts, banks_as_pts, output, "Steamboat_Conveyance_Parabolas")
 
-
-#TODO adjust interval of points at certain size class?
-#TODO add errors if it doesn't work
 #TODO number of samples to search table?
 #TODO fix subprocess to make R independent of libraries/user paths.
+
+
+#TODO FUNCTIONS to calculate x-section area -> depths. May need to just move to another script.
+def join_near_table(input_points, dbf_xyz):
+	"""joins the results from the NEAR180.R script with bind parameter 'MERGE' back to the original inputs"""
+
+	pass
+
+
+def calc_xsection_area(feature_with_xyz):
+	"""feature class must have XYZ for bank1, bank2, and the thalweg. The XY for each of the points can be
+		the result of join_near_table function but the elevations especially for the thalweg must be specified.
+		Note: we are assuming that the elevation (z) for both banks is equal to the waterline (ie MLLW_m = 0)"""
+
+	pass
+
+def depth_from_area(feature_with_xy_and_xarea):
+	"""input feature should have attributes with xy's for bank1, bank2, and thalweg point. Not necessarry to have depths
+	for the points. The function should use the function parabola.depth_from_xsection(bank1, bank2, thalweg, x_section)
+	to add estimated depths for each x-section triple""""
+
+	pass
+
+def spline_interp():
+	"""figure out a way to include the spline interpolation using python. Look into the SciPy package (need to install
+	since it is not a part of the python base package"""
+
+	pass
