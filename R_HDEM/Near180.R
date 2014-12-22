@@ -4,10 +4,12 @@
 
 #need to change number of digits so XY coordinates don't get cut off
 options(scipen=100, digits=18)
-library('plyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
-library('dplyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
-library('foreign', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
-library('lazyeval', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+#library('plyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+#library('dplyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+#library('foreign', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+
+#where did this package come from? not needed to run Near180.R
+#library('lazyeval', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
 
 # change arc's angles  with 0 = due east
 neg_angle<-function(angle){
