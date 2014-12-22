@@ -9,6 +9,7 @@ import arcpy
 import os
 import glob
 import make_zip  # imports make_zip.py as module
+import gen_parabolas
 
 
 class Toolbox(object):
@@ -19,7 +20,7 @@ class Toolbox(object):
 		self.alias = "Historical DEM Toolbox"
 
 		# List of tool classes associated with this toolbox
-		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII]
+		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII, Parabolas]
 
 
 class Tool(object):
@@ -120,7 +121,7 @@ class TidalDatumConversion(object):
 		"""Define parameter definitions"""
 
 		inputs = arcpy.Parameter(displayName="Input Features", name="inputs", datatype="GPFeatureLayer",
-								 parameterType="Required",multiValue=True)
+								 parameterType="Required", multiValue=True)
 
 		mllw_surface = arcpy.Parameter(displayName="MLLW Surface Raster", name="mllw_surface",
 		                               datatype="GPRasterLayer", parameterType="Required")
@@ -481,7 +482,18 @@ class Parabolas(object):
 
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
-		params = None
+
+		thalweg = arcpy.Parameter(displayName="Thalweg Points", name="thalweg", datatype="GPFeatureLayer",
+								 parameterType="Required", direction="Input")
+
+		near_banks = arcpy.Parameter(displayName="Bank Points", name="near_banks",
+		                            datatype="GPFeatureLayer", parameterType="Required", direction="Input")
+
+		output = arcpy.Parameter(displayName="Location for points?", name="output",
+		                        datatype="GPFeatureLayer", parameterType="Required", direction="Output")
+
+		params = [thalweg, near_banks, output]
+
 		return params
 
 	def isLicensed(self):
@@ -497,10 +509,20 @@ class Parabolas(object):
 	def updateMessages(self, parameters):
 		"""Modify the messages created by internal validation for each tool
 		parameter.  This method is called after internal validation."""
+
+		#TODO check that inputs to tool is points with required field!!!
+
 		return
 
 	def execute(self, parameters, messages):
 		"""The source code of the tool."""
+		thalweg_pts = parameters[0].valueAsText
+		banks_as_pts = parameters[1].valueAsText
+		output = parameters[2].valueAsText
+
+		arcpy.AddMessage("Generating Parabola Points.... be patient!")
+
+		gen_parabolas.make_points(thalweg_pts, banks_as_pts, output)
 		return
 
 	#TODO run parabola from txb interface (gen_parabolas.py)
