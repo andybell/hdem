@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/code_snippets/arcpy_sys.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" afterPath="$PROJECT_DIR$/HistoricalDEM.pyt.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen_parabolas.py" afterPath="$PROJECT_DIR$/gen_parabolas.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parabola.py" afterPath="$PROJECT_DIR$/parabola.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
@@ -32,8 +29,8 @@
       <file leaf-file-name="parabola.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parabola.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2564" max-vertical-offset="3111">
-              <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1646" max-vertical-offset="3111">
+              <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -84,9 +81,11 @@
       <file leaf-file-name="gen_parabolas.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68164796" vertical-offset="2628" max-vertical-offset="3349">
-              <caret line="182" column="66" selection-start-line="182" selection-start-column="66" selection-end-line="182" selection-end-column="66" />
-              <folding />
+            <state vertical-scroll-proportion="0.3207547" vertical-offset="3009" max-vertical-offset="3570">
+              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="197" selection-end-column="33" />
+              <folding>
+                <element signature="e#23#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +93,7 @@
       <file leaf-file-name="set_wd.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
               <caret line="5" column="155" selection-start-line="5" selection-start-column="155" selection-end-line="5" selection-end-column="155" />
               <folding />
             </state>
@@ -550,7 +549,11 @@
       <created>1419284956812</created>
       <updated>1419284956812</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="calc_xsection_area using a update cursor">
+      <created>1419295940914</created>
+      <updated>1419295940914</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -593,7 +596,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="basic functionality for calculating conveyence from points" />
     <MESSAGE value="defs   for calculating conveyance from points" />
     <MESSAGE value="added comments about defs in parabola.py" />
     <MESSAGE value=" script able to generate xyz between two points using a parabola function" />
@@ -618,7 +620,8 @@
     <MESSAGE value="Near180 all instances of &quot;_vertex&quot; changed &quot;_point&quot;" />
     <MESSAGE value="TODO's functions for batching conveyance calcs" />
     <MESSAGE value="added parabola generator to pyt toolbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="added parabola generator to pyt toolbox" />
+    <MESSAGE value="calc_xsection_area using a update cursor" />
+    <option name="LAST_COMMIT_MESSAGE" value="calc_xsection_area using a update cursor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -663,7 +666,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1782" max-vertical-offset="2737">
           <caret line="155" column="3" selection-start-line="155" selection-start-column="3" selection-end-line="155" selection-end-column="3" />
-          <folding />
+          <folding>
+            <element signature="e#23#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -705,7 +710,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="2737">
           <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#23#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -762,7 +769,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2839">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#23#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -788,7 +797,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="799">
           <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="e#23#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1006,14 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-          <caret line="5" column="155" selection-start-line="5" selection-start-column="155" selection-end-line="5" selection-end-column="155" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code_snippets/calc_field.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
@@ -1048,19 +1051,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <caret line="5" column="155" selection-start-line="5" selection-start-column="155" selection-end-line="5" selection-end-column="155" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/parabola.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2564" max-vertical-offset="3111">
-          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1646" max-vertical-offset="3111">
+          <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68164796" vertical-offset="2628" max-vertical-offset="3349">
-          <caret line="182" column="66" selection-start-line="182" selection-start-column="66" selection-end-line="182" selection-end-column="66" />
-          <folding />
+        <state vertical-scroll-proportion="0.3207547" vertical-offset="3009" max-vertical-offset="3570">
+          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="197" selection-end-column="33" />
+          <folding>
+            <element signature="e#23#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

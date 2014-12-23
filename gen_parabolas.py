@@ -189,7 +189,14 @@ def depth_from_area(feature_with_xy_and_xarea):
 	"""input feature should have attributes with xy's for bank1, bank2, and thalweg point. Not necessarry to have depths
 	for the points. The function should use the function parabola.depth_from_xsection(bank1, bank2, thalweg, x_section)
 	to add estimated depths for each x-section triple"""
-	pass
+	
+	fields = ('SPLINE_AREA', 'B1_X', 'B1_Y', 'B2_X', 'B2_Y', 'T_X', 'T_Y', 'MLLW_m')
+
+	with arcpy.da.UpdateCursor(feature_with_xy_and_xarea, fields) as cursor:
+		for row in cursor:
+			row[7] = parabola.depth_from_xsection((row[1], row[2]), (row[3], row[4]), (row[5], row[6]), row[0]) 
+			cursor.updateRow(row)
+
 
 def spline_interp():
 	"""figure out a way to include the spline interpolation using python. Look into the SciPy package (need to install
