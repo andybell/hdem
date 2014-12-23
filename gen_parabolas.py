@@ -171,7 +171,19 @@ def calc_xsection_area(feature_with_xyz):
 		the result of join_near_table function but the elevations especially for the thalweg must be specified.
 		Note: we are assuming that the elevation (z) for both banks is equal to the waterline (ie MLLW_m = 0)"""
 
-	pass
+	#expression = parabola.parabola_area(('!B1_X!', '!B1_Y!', 0), ('!T_X!', '!T_Y!', '!MLLW_m!')) + \
+	            #parabola.parabola_area(('!B2_X!', '!B2_Y!', 0), ('!T_X!', '!T_Y!', '!MLLW_m!'))
+
+	#arcpy.AddField_management(feature_with_xyz, "AREA", "DOUBLE")
+
+	fields = ('AREA', 'B1_X', 'B1_Y', 'B2_X', 'B2_Y', 'T_X', 'T_Y', 'MLLW_m')
+
+	with arcpy.da.UpdateCursor(feature_with_xyz, fields) as cursor:
+		for row in cursor:
+			row[0] = parabola.parabola_area((row[1], row[2], 0), (row[5], row[6], row[7])) + parabola.parabola_area((row[3], row[4], 0), (row[5], row[6], row[7]))
+			cursor.updateRow(row)
+
+
 
 def depth_from_area(feature_with_xy_and_xarea):
 	"""input feature should have attributes with xy's for bank1, bank2, and thalweg point. Not necessarry to have depths

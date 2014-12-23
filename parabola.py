@@ -99,7 +99,7 @@ def parabola_area(point1, point2):
 	print "thalweg: %s" %thalweg_z
 
 	#parabola x section area equal to 2/3 * change in height * distance
-	area = float(2) / 3 * (bank_z - thalweg_z) * TwoD_distance(point1, point2)
+	area = float(2) / 3 * (int(bank_z) - int(thalweg_z)) * TwoD_distance(point1, point2)
 
 	return area
 
