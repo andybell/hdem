@@ -17,7 +17,7 @@ def addfields(target_table, name_list):
 
 def nearTable(thalweg_pts, channel_pts, target_dbf):
 	"""Creates a near table to find the all near points on the bank from the thalweg including loc and angle"""
-	#target_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
+	# target_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
 	arcpy.GenerateNearTable_analysis(thalweg_pts, channel_pts, target_dbf, "#",
 	                                 "LOCATION", "ANGLE", "ALL", 200)
 
@@ -25,29 +25,31 @@ def nearTable(thalweg_pts, channel_pts, target_dbf):
 def near180_subprocess(dirpath, bind):
 	"""subprocess call to R to run Near180.py to find two closest points (one on each bank)"""
 	"""bind can either be 'APPEND' or 'MERGE'"""
-	#location of R output dbf file
+	# location of R output dbf file
 	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
 	near180 = r"C:\Users\ambell.AD3\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
 	rscript_path = r"C:\Program Files\R\R-3.1.1\bin\rscript.exe"  # TODO universal?
 
+	# TODO make script not dependent on hard paths to r sys path or add a user config file?
+
 	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)
-	#Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
+	# Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
 	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind])
 
 
 def join_z_neartable(near_dbf, target_features, depth_field):
 	"""Joins depth field to the near table"""
-	#Add field for join (THALWEG_Z and BANK_Z as doubles)
+	# Add field for join (THALWEG_Z and BANK_Z as doubles)
 	new_fields = ["THALWEG_Z", "BANK_Z"]
 	addfields(near_dbf, new_fields)
 
-	#join on thalweg_pts unique IDs
+	# join on thalweg_pts unique IDs
 	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID")
 
-	#Calculate fields
+	# Calculate fields
 	arcpy.CalculateField_management(near_dbf, "THALWEG_Z", '!' + depth_field + '!', "PYTHON_9.3")
 
-	#remove join by dropping unwanted fields
+	# remove join by dropping unwanted fields
 	fields2keep = ["OID", "THALWEG_Z", "BANK_Z", "IN_FID", "NEAR_FID", "NEAR_DIST", "NEAR_RANK", "FROM_X", "FROM_Y",
 	               "NEAR_X", "NEAR_Y", "NEAR_ANGLE"]
 
@@ -64,7 +66,7 @@ def gen_pts_nears(inNearTable_withZ, out_directory):
 	"""generates points from the near table with values for the thalweg and banks using parabola calcs"""
 	fields = ['FROM_X', 'FROM_Y', 'THALWEG_Z', 'NEAR_X', 'NEAR_Y', 'BANK_Z']
 
-	end_pt_list = []  # empty list to store points
+	end_pt_list = []  #   empty list to store points
 
 	print "Reading rows from the Near Table....."
 	with arcpy.da.SearchCursor(inNearTable_withZ, fields) as cursor:
@@ -75,7 +77,7 @@ def gen_pts_nears(inNearTable_withZ, out_directory):
 			end_pt_list.append(pair)
 	del cursor
 
-	#export to csv/txt and then add points via arc xy to points tool
+	# export to csv/txt and then add points via arc xy to points tool
 	out_txt = os.path.join(out_directory, "parabola_points.txt")  # TODO: need separate files for near + opposite?
 	txtfile = open(out_txt, 'w')
 	writer = csv.writer(txtfile)
@@ -143,23 +145,23 @@ def make_points(thalweg_points, banks_as_points, output):
 	arcpy.DeleteIdentical_management(output, ["X", "Y", "MLLW_m"])
 
 	print "Removing Temporary Files"
-	# remove the temporary directory
+	#   remove the temporary directory
 	shutil.rmtree(dirpath)
 
 
 """
-#Tester files
+#  Tester files
 thalweg_pts = r"U:\HDEM_v5r1_120914\Steamboat\steamboat_con.gdb\Steamboat_xarea"
 banks_as_pts = r"U:\HDEM_v5r1_120914\Channel_pts_5m_GME_no_dups.shp"
 output = r"U:\HDEM_v5r1_120914\Steamboat\steamboat_con.gdb"
 
 make_points(thalweg_pts, banks_as_pts, output, "Steamboat_Conveyance_Parabolas")
 """
-#TODO number of samples to search table?
-#TODO fix subprocess to make R independent of libraries/user paths.
+#  TODO number of samples to search table?
+#  TODO fix subprocess to make R independent of libraries/user paths.
 
 
-#TODO FUNCTIONS to calculate x-section area -> depths. May need to just move to another script.
+#  TODO FUNCTIONS to calculate x-section area -> depths. May need to just move to another script.
 def join_near_table(input_points, dbf_xyz):
 	"""joins the results from the NEAR180.R script with bind parameter 'MERGE' back to the original inputs"""
 
@@ -171,10 +173,10 @@ def calc_xsection_area(feature_with_xyz):
 		the result of join_near_table function but the elevations especially for the thalweg must be specified.
 		Note: we are assuming that the elevation (z) for both banks is equal to the waterline (ie MLLW_m = 0)"""
 
-	#expression = parabola.parabola_area(('!B1_X!', '!B1_Y!', 0), ('!T_X!', '!T_Y!', '!MLLW_m!')) + \
-	            #parabola.parabola_area(('!B2_X!', '!B2_Y!', 0), ('!T_X!', '!T_Y!', '!MLLW_m!'))
+	# expression = parabola.parabola_area(('!B1_X!', '!B1_Y!', 0), ('!T_X!', '!T_Y!', '!MLLW_m!')) + \
+	            # parabola.parabola_area(('!B2_X!', '!B2_Y!', 0), ('!T_X!', '!T_Y!', '!MLLW_m!'))
 
-	#arcpy.AddField_management(feature_with_xyz, "AREA", "DOUBLE")
+	# arcpy.AddField_management(feature_with_xyz, "AREA", "DOUBLE")
 
 	fields = ('AREA', 'B1_X', 'B1_Y', 'B2_X', 'B2_Y', 'T_X', 'T_Y', 'MLLW_m')
 

@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/HDEMpy.iml" afterPath="$PROJECT_DIR$/.idea/HDEMpy.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen_parabolas.py" afterPath="$PROJECT_DIR$/gen_parabolas.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
     <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,27 +31,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="parabola.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="parabola.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parabola.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1646" max-vertical-offset="3111">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3111">
               <caret line="106" column="4" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arcpy_sys.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="arcpy_sys.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code_snippets/arcpy_sys.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
+            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="170">
               <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calc_field.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="calc_field.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code_snippets/calc_field.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="238">
@@ -56,46 +61,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="HistoricalDEM.pyt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.142857" vertical-offset="4458" max-vertical-offset="9061">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4658" max-vertical-offset="9061">
               <caret line="274" column="21" selection-start-line="274" selection-start-column="19" selection-end-line="274" selection-end-column="21" />
-              <folding>
-                <element signature="e#395#407#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Near180.R" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Near180.R" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/R_HDEM/Near180.R">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="996" max-vertical-offset="1530">
+            <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1564">
               <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gen_parabolas.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gen_parabolas.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3207547" vertical-offset="3009" max-vertical-offset="3570">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="197" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.38835979" vertical-offset="2659" max-vertical-offset="3604">
+              <caret line="178" column="6" selection-start-line="178" selection-start-column="6" selection-end-line="178" selection-end-column="6" />
               <folding>
                 <element signature="e#23#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="set_wd.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-              <caret line="5" column="155" selection-start-line="5" selection-start-column="155" selection-end-line="5" selection-end-column="155" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -111,29 +104,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/delete_conversion_fields.py" />
-        <option value="$PROJECT_DIR$/TIN_Display_Group.py" />
-        <option value="$PROJECT_DIR$/calc_field.py" />
-        <option value="$PROJECT_DIR$/TIN2ASCII.py" />
-        <option value="$PROJECT_DIR$/XYZ_nears_2r.py" />
-        <option value="$PROJECT_DIR$/pt_xsection.py" />
-        <option value="$PROJECT_DIR$/TODO_v5.txt" />
-        <option value="$PROJECT_DIR$/code_snippets/set_wd.py" />
-        <option value="$PROJECT_DIR$/R_HDEM/Near180.R" />
-        <option value="$PROJECT_DIR$/HistoricalDEM.pyt" />
-        <option value="$PROJECT_DIR$/code_snippets/arcpy_sys.py" />
-        <option value="$PROJECT_DIR$/parabola.py" />
         <option value="$PROJECT_DIR$/gen_parabolas.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2065" />
-    <option name="y" value="8" />
-    <option name="width" value="1152" />
-    <option name="height" value="800" />
+    <option name="x" value="-9" />
+    <option name="y" value="-1209" />
+    <option name="width" value="1938" />
+    <option name="height" value="1170" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -180,7 +161,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -229,16 +209,17 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.lastSelected" value="preferences.sourceCode" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/parabola.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -252,51 +233,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.parabola">
-    <configuration default="true" type="tests" factoryName="py.test">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="HDEMpy" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="testToRun" value="" />
-      <option name="keywords" value="" />
-      <option name="params" value="" />
-      <option name="USE_PARAM" value="false" />
-      <option name="USE_KEYWORD" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Nosetests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="HDEMpy" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -311,6 +247,7 @@
       <module name="HDEMpy" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -335,7 +272,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
+    <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -352,6 +289,11 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -373,6 +315,46 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HDEMpy" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HDEMpy" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <configuration default="false" name="parabola" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -387,6 +369,7 @@
       <module name="HDEMpy" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/parabola.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -403,181 +386,258 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="" />
       <created>1416425666826</created>
+      <option name="number" value="Default" />
       <updated>1416425666826</updated>
     </task>
     <task id="LOCAL-00001" summary="removed old add message statement, tool now runs successfully">
       <created>1416442317825</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
       <updated>1416442317825</updated>
     </task>
     <task id="LOCAL-00002" summary="added inline comments">
       <created>1416442565030</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
       <updated>1416442565030</updated>
     </task>
     <task id="LOCAL-00003" summary="added parts of tidal_datum conversion, parameters all set up.">
       <created>1416446626181</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
       <updated>1416446626181</updated>
     </task>
     <task id="LOCAL-00004" summary="set up error check for version and extension checkouts">
       <created>1416509729656</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
       <updated>1416509729656</updated>
     </task>
     <task id="LOCAL-00005" summary="tidal datum conversion works">
       <created>1416511194035</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
       <updated>1416511194035</updated>
     </task>
     <task id="LOCAL-00006" summary="fixed issue #3 of file paths">
       <created>1416513694833</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
       <updated>1416513694833</updated>
     </task>
     <task id="LOCAL-00007" summary="added file header">
       <created>1416514064254</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
       <updated>1416514064254</updated>
     </task>
     <task id="LOCAL-00008" summary="updated parameter validation, tool checks if feature class already has any of the reserved field name">
       <created>1416515461190</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
       <updated>1416515461190</updated>
     </task>
     <task id="LOCAL-00009" summary="rm msl_m from reserved field list">
       <created>1416517335471</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
       <updated>1416517335471</updated>
     </task>
     <task id="LOCAL-00010" summary="tin group parameters and license">
       <created>1416521219668</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
       <updated>1416521219668</updated>
     </task>
     <task id="LOCAL-00011" summary="dist 3d function takes two points (xyz's) and returns 3D distance">
       <created>1417392509876</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
       <updated>1417392509876</updated>
     </task>
     <task id="LOCAL-00012" summary="basic functionality for calculating conveyence from points">
       <created>1417552887425</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
       <updated>1417552887425</updated>
     </task>
     <task id="LOCAL-00013" summary="defs   for calculating conveyance from points">
       <created>1417554717062</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
       <updated>1417554717062</updated>
     </task>
     <task id="LOCAL-00014" summary="added comments about defs in parabola.py">
       <created>1417556325475</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
       <updated>1417556325475</updated>
     </task>
     <task id="LOCAL-00015" summary=" script able to generate xyz between two points using a parabola function">
       <created>1418081264963</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
       <updated>1418081264963</updated>
     </task>
     <task id="LOCAL-00016" summary="basic funcationaly to use arcpy.cursors to create new features">
       <created>1418088326558</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
       <updated>1418088326558</updated>
     </task>
     <task id="LOCAL-00017" summary="fixed bug in y_new calculation">
       <created>1418088591226</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
       <updated>1418088591226</updated>
     </task>
     <task id="LOCAL-00018" summary="batch generate parabola works from cmd! just a bit slow due to da.cursors">
       <created>1418091335893</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
       <updated>1418091335893</updated>
     </task>
     <task id="LOCAL-00019" summary="new todo's to speed up code&#10;">
       <created>1418145126729</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
       <updated>1418145126729</updated>
     </task>
     <task id="LOCAL-00020" summary="GPFeatureLayer instead of GPFeatureClass">
       <created>1418163240563</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
       <updated>1418163240563</updated>
     </task>
     <task id="LOCAL-00021" summary="txt file output instead of cursors writer">
       <created>1418163936271</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
       <updated>1418163936271</updated>
     </task>
     <task id="LOCAL-00022" summary="success (messy) to use conveyance to calc xs depths">
       <created>1418177665319</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
       <updated>1418177665319</updated>
     </task>
     <task id="LOCAL-00023" summary="near180.r returns two dbfs (nearest bank and opposite bank)">
       <created>1418671997291</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
       <updated>1418671997291</updated>
     </task>
     <task id="LOCAL-00024" summary="gen_parabolas streamline batch make points from known thalweg and near banks">
       <created>1418682995761</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
       <updated>1418682995761</updated>
     </task>
     <task id="LOCAL-00025" summary="batch all functions to generate points">
       <created>1418687460472</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
       <updated>1418687460472</updated>
     </task>
     <task id="LOCAL-00026" summary="comments added to gen_parabola functions">
       <created>1418691602074</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
       <updated>1418691602074</updated>
     </task>
     <task id="LOCAL-00027" summary="remove unneccessary files">
       <created>1418692051561</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
       <updated>1418692051561</updated>
     </task>
     <task id="LOCAL-00028" summary="added TODOs to gen_parabolas.py">
       <created>1418692456045</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
       <updated>1418692456045</updated>
     </task>
     <task id="LOCAL-00029" summary="basic structure for TIN2ASCII in pyt (untested)">
       <created>1418758491195</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
       <updated>1418758491195</updated>
     </task>
     <task id="LOCAL-00030" summary="TIN2ASCII conversion successful">
       <created>1418760906568</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
       <updated>1418760906568</updated>
     </task>
     <task id="LOCAL-00031" summary="rm TIN2ASCII.py from directory">
       <created>1418761061324</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
       <updated>1418761061324</updated>
     </task>
     <task id="LOCAL-00032" summary="need to resturcture r results">
       <created>1418864935166</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
       <updated>1418864935166</updated>
     </task>
     <task id="LOCAL-00033" summary="near180.R and gen_parabolas.py subproccess restructured to take a bind parameter to specify type of results (MERGE or APPEND).">
       <created>1419036634774</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
       <updated>1419036634774</updated>
     </task>
     <task id="LOCAL-00034" summary="Near180 all instances of &quot;_vertex&quot; changed &quot;_point&quot;">
       <created>1419036849235</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
       <updated>1419036849235</updated>
     </task>
     <task id="LOCAL-00035" summary="TODO's functions for batching conveyance calcs">
       <created>1419037552718</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
       <updated>1419037552718</updated>
     </task>
     <task id="LOCAL-00036" summary="added parabola generator to pyt toolbox">
       <created>1419284956812</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
       <updated>1419284956812</updated>
     </task>
     <task id="LOCAL-00037" summary="calc_xsection_area using a update cursor">
       <created>1419295940914</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
       <updated>1419295940914</updated>
     </task>
     <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2065" y="8" width="1152" height="800" extended-state="0" />
+    <frame x="-9" y="-1209" width="1938" height="1170" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21501273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10208333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17324956" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884902" sideWeight="0.15375" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14050822" sideWeight="0.84625" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32951653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13971291" sideWeight="0.84625" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21501273" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291866" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -631,9 +691,20 @@
           <line>7</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/gen_parabolas.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/gen_parabolas.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="18" />
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/code_snippets/set_wd.py">
@@ -648,9 +719,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8687">
           <caret line="505" column="60" selection-start-line="505" selection-start-column="60" selection-end-line="505" selection-end-column="60" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -692,9 +761,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="8585" max-vertical-offset="8687">
           <caret line="505" column="60" selection-start-line="505" selection-start-column="60" selection-end-line="505" selection-end-column="60" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -751,9 +818,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4317" max-vertical-offset="6409">
           <caret line="272" column="91" selection-start-line="272" selection-start-column="91" selection-end-line="272" selection-end-column="91" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -779,9 +844,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5440" max-vertical-offset="6443">
           <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -807,9 +870,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="5440" max-vertical-offset="6443">
           <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -833,9 +894,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -859,9 +918,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -877,9 +934,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -895,9 +950,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -913,9 +966,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="6426">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -931,9 +982,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -949,9 +998,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6443">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -973,9 +1020,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="1122">
           <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -997,9 +1042,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1246" max-vertical-offset="2227">
           <caret line="169" column="37" selection-start-line="169" selection-start-column="37" selection-end-line="169" selection-end-column="37" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1027,11 +1070,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HistoricalDEM.pyt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.142857" vertical-offset="4458" max-vertical-offset="9061">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4658" max-vertical-offset="9061">
           <caret line="274" column="21" selection-start-line="274" selection-start-column="19" selection-end-line="274" selection-end-column="21" />
-          <folding>
-            <element signature="e#395#407#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,8 +1110,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3207547" vertical-offset="3009" max-vertical-offset="3570">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="197" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.38835979" vertical-offset="2659" max-vertical-offset="3604">
+          <caret line="178" column="6" selection-start-line="178" selection-start-column="6" selection-end-line="178" selection-end-column="6" />
           <folding>
             <element signature="e#23#35#0" expanded="true" />
           </folding>
@@ -1094,4 +1135,3 @@
     </states>
   </component>
 </project>
-
