@@ -4,12 +4,17 @@
 
 #need to change number of digits so XY coordinates don't get cut off
 options(scipen=100, digits=18)
-library('plyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
-library('dplyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
-library('foreign', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+
+#user name must be set for lib.loc file path. On servers: ambell.AD3, CWS-Trinity: Andy
+
+#TODO: figure out good way to make the libraries not path dependant.
+
+library('plyr', lib.loc = "C:/Users/Andy/Documents/R/win-library/3.1")
+library('dplyr', lib.loc = "C:/Users/Andy/Documents/R/win-library/3.1")
+library('foreign', lib.loc = "C:/Users/Andy/Documents/R/win-library/3.1")
 
 #where did this package come from? not needed to run Near180.R
-library('lazyeval', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('lazyeval', lib.loc = "C:/Users/Andy/Documents/R/win-library/3.1")
 
 # change arc's angles  with 0 = due east
 neg_angle<-function(angle){
