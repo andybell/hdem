@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30d1dd79-614f-4c96-95fc-5584b09ef335" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/R_HDEM/Near180.R" afterPath="$PROJECT_DIR$/R_HDEM/Near180.R" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen_parabolas.py" afterPath="$PROJECT_DIR$/gen_parabolas.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parabola.py" afterPath="$PROJECT_DIR$/parabola.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hdem.iws" />
@@ -31,7 +28,7 @@
       <file leaf-file-name="parabola.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parabola.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3196">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3026" max-vertical-offset="3196">
               <caret line="178" column="0" selection-start-line="178" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
               <folding />
             </state>
@@ -81,7 +78,7 @@
       <file leaf-file-name="gen_parabolas.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.830303" vertical-offset="1934" max-vertical-offset="3485">
+            <state vertical-scroll-proportion="0.8629921" vertical-offset="1934" max-vertical-offset="3485">
               <caret line="152" column="54" selection-start-line="152" selection-start-column="54" selection-end-line="152" selection-end-column="54" />
               <folding />
             </state>
@@ -177,6 +174,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -225,7 +223,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -554,7 +551,11 @@
       <created>1419300112794</created>
       <updated>1419300112794</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="modifications from CWS-Albion to force inclusion of Suisun">
+      <created>1421884978681</created>
+      <updated>1421884978681</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -597,7 +598,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added comments about defs in parabola.py" />
     <MESSAGE value=" script able to generate xyz between two points using a parabola function" />
     <MESSAGE value="basic funcationaly to use arcpy.cursors to create new features" />
     <MESSAGE value="fixed bug in y_new calculation" />
@@ -622,7 +622,8 @@
     <MESSAGE value="added parabola generator to pyt toolbox" />
     <MESSAGE value="calc_xsection_area using a update cursor" />
     <MESSAGE value="depth_from_xarea using a update cursor" />
-    <option name="LAST_COMMIT_MESSAGE" value="depth_from_xarea using a update cursor" />
+    <MESSAGE value="modifications from CWS-Albion to force inclusion of Suisun" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifications from CWS-Albion to force inclusion of Suisun" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1032,7 +1033,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gen_parabolas.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.830303" vertical-offset="1934" max-vertical-offset="3485">
+        <state vertical-scroll-proportion="0.8629921" vertical-offset="1934" max-vertical-offset="3485">
           <caret line="152" column="54" selection-start-line="152" selection-start-column="54" selection-end-line="152" selection-end-column="54" />
           <folding />
         </state>
