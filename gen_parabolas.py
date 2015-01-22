@@ -147,14 +147,14 @@ def make_points(thalweg_points, banks_as_points, output):
 	shutil.rmtree(dirpath)
 
 
-
+"""
 #Tester files
 thalweg_pts = r"U:\HDEM_v5r3\suisun_transfer.gdb\suisun_centerlines_25m_no_nulls"
 banks_as_pts = r"U:\HDEM_v5r3\Suisun_wateredge_densify.shp"
 output = r"U:\HDEM_v5r3\suisun_transfer.gdb\Suisun_channels_parabolas"
 
 make_points(thalweg_pts, banks_as_pts, output)
-
+"""
 
 #TODO number of samples to search table?
 #TODO fix subprocess to make R independent of libraries/user paths.
@@ -203,3 +203,16 @@ def spline_interp():
 	"""figure out a way to include the spline interpolation using python. Look into the SciPy package (need to install
 	since it is not a part of the python base package"""
 	pass
+
+
+def calc_xsection_area(feature_with_xyz):
+	fields = ('AREA', 'B1_X', 'B1_Y', 'B2_X', 'B2_Y', 'T_X', 'T_Y', 'MLLW_m')
+
+	with arcpy.da.UpdateCursor(feature_with_xyz, fields) as cursor:
+		for row in cursor:
+			row[0] = parabola.parabola_area((row[1], row[2], 0), (row[5], row[6], row[7])) + parabola.parabola_area((row[3], row[4], 0), (row[5], row[6], row[7]))
+			cursor.updateRow(row)
+
+
+in_feature = r"U:\HDEM_v5r3\Moke_xarea\Moke_pts_w_rivermile.shp"
+calc_xsection_area(in_feature)
