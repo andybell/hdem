@@ -27,8 +27,8 @@ def near180_subprocess(dirpath, bind):
 	"""bind can either be 'APPEND' or 'MERGE'"""
 	#location of R output dbf file
 	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
-	near180 = r"C:\Users\ambell.AD3\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
-	rscript_path = r"C:\Program Files\R\R-3.1.1\bin\rscript.exe"  # TODO universal?
+	near180 = r"C:\Users\Andy\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
+	rscript_path = r"C:\Program Files\R\R-3.1.2\bin\rscript.exe"  # TODO universal?
 
 	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)  # add bind
 	#Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
