@@ -99,7 +99,7 @@ def gen_pts_nears(inNearTable_withZ, out_directory):
 
 def xy_to_pts(xy_txt, output_gdb, output_name):
 	"""converts text file to feature class"""
-	sp_ref = r"Coordinate Systems\Projected Coordinate Systems\Utm\Nad 1983\NAD 1983 UTM Zone 10N.prj"
+	sp_ref = r"Coordinate Systems\Projected Coordinate Systems\Utm\Nad 1983\NAD 1983 UTM Zone 10N.prj" # this might be a hard REF!!!!
 	arcpy.MakeXYEventLayer_management(xy_txt, 'Field1', 'Field2', 'outlyr', sp_ref)
 	arcpy.FeatureClassToFeatureClass_conversion('outlyr', output_gdb, output_name)
 
@@ -147,14 +147,15 @@ def make_points(thalweg_points, banks_as_points, output):
 	shutil.rmtree(dirpath)
 
 
-"""
-#Tester files
-thalweg_pts = r"U:\HDEM_v5r1_120914\Steamboat\steamboat_con.gdb\Steamboat_xarea"
-banks_as_pts = r"U:\HDEM_v5r1_120914\Channel_pts_5m_GME_no_dups.shp"
-output = r"U:\HDEM_v5r1_120914\Steamboat\steamboat_con.gdb"
 
-make_points(thalweg_pts, banks_as_pts, output, "Steamboat_Conveyance_Parabolas")
-"""
+#Tester files
+thalweg_pts = r"U:\HDEM_v5r3\suisun_transfer.gdb\suisun_centerlines_25m_no_nulls"
+banks_as_pts = r"U:\HDEM_v5r3\Suisun_wateredge_densify.shp"
+output = r"U:\HDEM_v5r3\suisun_transfer.gdb\Suisun_channels_parabolas"
+
+make_points(thalweg_pts, banks_as_pts, output)
+
+
 #TODO number of samples to search table?
 #TODO fix subprocess to make R independent of libraries/user paths.
 

@@ -4,12 +4,12 @@
 
 #need to change number of digits so XY coordinates don't get cut off
 options(scipen=100, digits=18)
-#library('plyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
-#library('dplyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
-#library('foreign', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('plyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('dplyr', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('foreign', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
 
 #where did this package come from? not needed to run Near180.R
-#library('lazyeval', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
+library('lazyeval', lib.loc = "C:/Users/ambell.AD3/Documents/R/win-library/3.1")
 
 # change arc's angles  with 0 = due east
 neg_angle<-function(angle){
@@ -27,8 +27,8 @@ nearest <- function(df){
 nearest_opposite <- function(df){
   first<-nearest(df)
   first_angle <- first[1, "NEAR_ANGLE"]
-  limit1 <- neg_angle(first_angle+157.5)
-  limit2 <- neg_angle(first_angle+202.5)
+  limit1 <- neg_angle(first_angle+135) #changed from 157.5
+  limit2 <- neg_angle(first_angle+225) # changed from 202.5
   search_180 <- filter(df, if(limit1>limit2){NEAR_ANGLE > limit1 | NEAR_ANGLE < limit2} else{NEAR_ANGLE < limit2 & NEAR_ANGLE > limit1})
   second <-nearest(search_180)
   return(second)
@@ -43,6 +43,8 @@ near_file<-args[2]
 out_location<-args[3]
 bind<-args[4]
 near_table<-read.dbf(near_file, as.is = FALSE)
+print(args)
+
 
 
 ### use ddply to apply function(s) by IN_FID groups

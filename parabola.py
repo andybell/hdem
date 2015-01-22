@@ -175,3 +175,8 @@ def gen_pts(thalweg, bank):
 
 	return new_points
 
+
+def width_depth(width_field):
+	"""Calculates thalweg depth field from the cross section width between the channel edges. See tech memo #1"""
+	depth = -1 * 0.8516 * width_field ** 0.411
+	return depth
