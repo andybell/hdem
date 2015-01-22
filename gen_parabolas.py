@@ -32,7 +32,7 @@ def near180_subprocess(dirpath, bind):
 
 	# TODO make script not dependent on hard paths to r sys path or add a user config file?
 
-	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)
+	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)  # add bind
 	# Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
 	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind])
 
