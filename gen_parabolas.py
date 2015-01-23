@@ -213,6 +213,7 @@ def calc_xsection_area(feature_with_xyz):
 			row[0] = parabola.parabola_area((row[1], row[2], 0), (row[5], row[6], row[7])) + parabola.parabola_area((row[3], row[4], 0), (row[5], row[6], row[7]))
 			cursor.updateRow(row)
 
-
+"""
 in_feature = r"U:\HDEM_v5r3\Moke_xarea\Moke_pts_w_rivermile.shp"
 calc_xsection_area(in_feature)
+"""
