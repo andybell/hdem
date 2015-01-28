@@ -42,7 +42,7 @@ def join_z_neartable(near_dbf, target_features, depth_field):
 	addfields(near_dbf, new_fields)
 
 	#join on thalweg_pts unique IDs
-	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID")
+	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID") # TODO: add check to make sure there is a field called OBJECTID
 
 	#Calculate fields
 	arcpy.CalculateField_management(near_dbf, "THALWEG_Z", '!' + depth_field + '!', "PYTHON_9.3")
@@ -99,7 +99,7 @@ def gen_pts_nears(inNearTable_withZ, out_directory):
 
 def xy_to_pts(xy_txt, output_gdb, output_name):
 	"""converts text file to feature class"""
-	sp_ref = r"Coordinate Systems\Projected Coordinate Systems\Utm\Nad 1983\NAD 1983 UTM Zone 10N.prj" # this might be a hard REF!!!!
+	sp_ref = r"Coordinate Systems\Projected Coordinate Systems\Utm\Nad 1983\NAD 1983 UTM Zone 10N.prj"
 	arcpy.MakeXYEventLayer_management(xy_txt, 'Field1', 'Field2', 'outlyr', sp_ref)
 	arcpy.FeatureClassToFeatureClass_conversion('outlyr', output_gdb, output_name)
 
@@ -147,14 +147,12 @@ def make_points(thalweg_points, banks_as_points, output):
 	shutil.rmtree(dirpath)
 
 
-"""
 #Tester files
-thalweg_pts = r"U:\HDEM_v5r3\suisun_transfer.gdb\suisun_centerlines_25m_no_nulls"
-banks_as_pts = r"U:\HDEM_v5r3\Suisun_wateredge_densify.shp"
-output = r"U:\HDEM_v5r3\suisun_transfer.gdb\Suisun_channels_parabolas"
+thalweg_pts = r"C:\Users\Andy\Documents\Historical_Delta\Moke_xarea\Moke_AREA_Near\Moke_AREA.gdb\Moke_stationpts_spline_test_objectid"
+banks_as_pts = r"C:\Users\Andy\Documents\Historical_Delta\Moke_xarea\Channel_pts_5m_GME_no_dups.shp"
+output = r"C:\Users\Andy\Documents\Historical_Delta\Moke_xarea\Moke_AREA_Near\Moke_AREA.gdb\Moke_pts_x_take_4"
 
 make_points(thalweg_pts, banks_as_pts, output)
-"""
 
 #TODO number of samples to search table?
 #TODO fix subprocess to make R independent of libraries/user paths.
@@ -213,7 +211,3 @@ def calc_xsection_area(feature_with_xyz):
 			row[0] = parabola.parabola_area((row[1], row[2], 0), (row[5], row[6], row[7])) + parabola.parabola_area((row[3], row[4], 0), (row[5], row[6], row[7]))
 			cursor.updateRow(row)
 
-"""
-in_feature = r"U:\HDEM_v5r3\Moke_xarea\Moke_pts_w_rivermile.shp"
-calc_xsection_area(in_feature)
-"""
