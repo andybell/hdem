@@ -20,7 +20,7 @@ class Toolbox(object):
 		self.alias = "Historical DEM Toolbox"
 
 		# List of tool classes associated with this toolbox
-		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII, Parabolas]
+		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII]
 
 
 class Tool(object):
