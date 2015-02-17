@@ -138,7 +138,7 @@ class TidalDatumConversion(object):
 		try:
 			info_dict = arcpy.GetInstallInfo()
 			version = info_dict['Version']
-			checked_versions = ['10.2.1', '10.2.2'] # TODO: add 10.3 to list of checked version.
+			checked_versions = ['10.2.1', '10.2.2', '10.3']
 			if version in checked_versions:
 				pass
 			else:
@@ -275,23 +275,24 @@ class TIN_Display(object):
 		#  default symbology for the tin output parameter
 		tin_output.symbology = os.path.join(os.path.dirname(__file__), 'TIN_symbology.lyr')
 
-
 		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", datatype="GPGroupLayer",
 		                            parameterType="Required", direction="Input")
 
 		height_field = arcpy.Parameter(displayName="Elevation Field (z)", name="height_field", datatype="GPString",
 		                               parameterType="Required")
 
+		hard_clip = arcpy.Parameter(displayName="Boundary", name="hard_clip", datatype="GPFeatureLayer",
+		                            parameterType="Optional")
+
+		hard_clip.filter.list = ["Polygon"]
 
 		#TODO: add projection parameter????
 
-		parameters = [tin_group, height_field, tin_output]
+		parameters = [tin_group, height_field, tin_output, hard_clip]
 		return parameters
 
 	def isLicensed(self):
 		"""Set whether tool is licensed to execute."""
-
-		#TODO check that tool is run in arcmap ONLY!!!
 
 		"""The tool will only execute  if 3D analyst extension is available"""
 		try:
@@ -321,6 +322,8 @@ class TIN_Display(object):
 
 		#TODO: run check that parameter value for height exists for each feature in the group
 
+		return
+
 		#TODO: run check that features in group only contain Points or Polylines
 
 		return
@@ -330,21 +333,22 @@ class TIN_Display(object):
 		tin_in_group = parameters[0].valueAsText
 		z_field = parameters[1].valueAsText
 		output = parameters[2].valueAsText
+		hard_clip = parameters[3].valueAsText
 
 
 		base = os.path.basename(output)
 		arcpy.AddMessage(base)
 
-		#projection info
+		# projection info
 		proj = "PROJCS['NAD_1983_UTM_Zone_10N',GEOGCS['GCS_North_American_1983',DATUM['D_North_American_1983',SPHEROID['GRS_1980',6378137.0,298.257222101]],PRIMEM['Greenwich',0.0],UNIT['Degree',0.0174532925199433]],PROJECTION['Transverse_Mercator'],PARAMETER['False_Easting',500000.0],PARAMETER['False_Northing',0.0],PARAMETER['Central_Meridian',-123.0],PARAMETER['Scale_Factor',0.9996],PARAMETER['Latitude_Of_Origin',0.0],UNIT['Meter',1.0]]"
 
-		#Get display extent from layout view (not sure if there is a better way since data view extent
+		# Get display extent from layout view (not sure if there is a better way since data view extent
 		# depends on the size of arcmap window)
 		imxd = arcpy.mapping.MapDocument("Current")  # set current mxd
 		df = arcpy.mapping.ListDataFrames(imxd)[0]  # set first dataframe in current map document
 		arcpy.env.extent = df.extent  # set's the env extent to match the display extent
 
-		#Data dictionary to store tin inputs and feature type
+		# Data dictionary to store tin inputs and feature type
 		tinputs = {}
 
 		for layer in arcpy.mapping.ListLayers(imxd):  # needed to figure out TOC groups
@@ -361,7 +365,17 @@ class TIN_Display(object):
 		for feature in tinputs:
 			feature_str = tin_in_group + "/" + feature + " " + z_field + " " + tinputs[feature] + " " + "<None>"
 			Tin_input_strings.append(feature_str)
-		Tin_input_str = ";".join(Tin_input_strings)  # joins all individual strings together separated by semicolon
+
+		# hard clip option
+		# if hard clip polygon selected then append to tin_input_strings?
+		# hard clip format : "Boundary_buffer300 <None> Hard_Clip <None>"
+
+		# if there is a value for hard clip, then append the feature to the tin input string
+		if hard_clip != "":
+			Tin_input_strings.append(hard_clip + " " + "<None>" + " " + "Hard_Clip" + " " + "<None>"
+
+		# joins all strings together (semicolon separated)
+		Tin_input_str=";".join(Tin_input_strings) # joins all individual strings together separated by semicolon
 
 		#Create TIN
 		arcpy.CreateTin_3d(output, proj, Tin_input_str, "DELAUNAY")
@@ -526,3 +540,110 @@ class Parabolas(object):
 		return
 
 	#TODO run parabola from txb interface (gen_parabolas.py)
+
+
+    class TIN2ASCII_Tiles(object):
+	def __init__(self):
+		"""Define the tool (tool name is the name of the class)."""
+		self.label = "TIN2ASCII_tiles"
+		self.description = "Converts a list of TIN Tiles to a bunch of ASCII files and zips them up"
+		self.canRunInBackground = False
+
+	def getParameterInfo(self):
+		"""Define parameter definitions"""
+
+		list_tiles = arcpy.Parameter()
+
+		tin = arcpy.Parameter(displayName="TIN", name="tin", datatype="DETin",
+								 parameterType="Required", direction="Input")
+
+		output_folder = arcpy.Parameter(displayName="Output Folder", name="output_folder",
+		                               datatype="DEFolder", parameterType="Required", direction="Input")
+
+		zip_ascii = arcpy.Parameter(displayName="Zip Files?", name="zip_ascii",
+		                            datatype="GPBoolean", parameterType="Optional")
+
+		params = [tin, output_folder, zip_ascii]
+
+		return params
+
+	def isLicensed(self):
+		"""Set whether tool is licensed to execute."""
+		try:
+			if arcpy.CheckExtension("3D") == "Available":
+				arcpy.CheckOutExtension("3D")
+			else:
+				raise LicenseError
+
+		except LicenseError:
+			return False
+
+		return True
+
+	def updateParameters(self, parameters):
+		"""Modify the values and properties of parameters before internal
+		validation is performed.  This method is called whenever a parameter
+		has been changed."""
+		return
+
+	def updateMessages(self, parameters):
+		"""Modify the messages created by internal validation for each tool
+		parameter.  This method is called after internal validation."""
+		return
+
+	def execute(self, parameters, messages):
+		"""The source code of the tool."""
+
+		# Parameters
+		tin = parameters[0].valueAsText
+		output_folder = parameters[1].valueAsText
+		zip_ascii = parameters[2].valueAsText
+
+
+		# Raster size settings
+		sampling = "CELLSIZE 2"
+		ntiles = "5 5"  # tile dimensions
+
+		# Calculation of total number of tiles desired
+		spl = ntiles.split()
+		total_tiles = int(float(spl[0])) * int(float(spl[1]))
+
+		# Create folder for output folder
+		arcpy.AddMessage("Creating an export folder in %s" % output_folder)
+		try:
+			os.makedirs(output_folder + "\\raster_tiles")
+			r_tiles = os.path.join(output_folder, "raster_tiles")
+			os.makedirs(output_folder + "\\ascii_tiles")
+			a_tiles = os.path.join(output_folder, "ascii_tiles")
+		except:
+			arcpy.AddError("Can't make folders..... try saving in a different location.")
+
+		# Get TIN basename
+		base = os.path.basename(tin)
+		arcpy.AddMessage("Saving %s as Raster......" % base)
+		TinAsRast = os.path.join(output_folder, base + '.TIF')
+
+		# TIN to raster
+		arcpy.TinRaster_3d(tin, TinAsRast, 'FLOAT', 'LINEAR', sampling)
+
+		# Split raster into chunks
+		arcpy.AddMessage("Breaking %s into %s raster tiles...." % (base, total_tiles))
+		arcpy.SplitRaster_management(TinAsRast, r_tiles, base + '_', 'NUMBER_OF_TILES', 'TIFF', 'BILINEAR', ntiles,
+		                             '#', '10', 'METERS')
+
+		# Get list of split tiles
+		rastertiles_list = glob.glob(r_tiles + '/*.TIF')
+
+		for raster in rastertiles_list:
+			arcpy.AddMessage("Converting %s to ASCII....." % raster)
+			rbase = os.path.basename(raster)
+			rbaseName, rbaseExt = os.path.splitext(rbase)
+			ascii_name = os.path.join(a_tiles, rbaseName + '.txt')
+			arcpy.RasterToASCII_conversion(raster, ascii_name)
+
+		#zips files using make_zip.py and calculates amount of compression
+		if zip_ascii == 'true':
+			arcpy.AddMessage("Zipping ASCII files...")
+			zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
+			make_zip.zip_folder(a_tiles, zipped_output)
+		return
