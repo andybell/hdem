@@ -362,6 +362,7 @@ class TIN_Display(object):
 						tinputs[subLayer.name] = "Hard_Line"
 		# build Tin input format ("Group_Name/file_name z_field Type <None>;")
 		Tin_input_strings = []
+
 		for feature in tinputs:
 			feature_str = tin_in_group + "/" + feature + " " + z_field + " " + tinputs[feature] + " " + "<None>"
 			Tin_input_strings.append(feature_str)
@@ -372,10 +373,10 @@ class TIN_Display(object):
 
 		# if there is a value for hard clip, then append the feature to the tin input string
 		if hard_clip != "":
-			Tin_input_strings.append(hard_clip + " " + "<None>" + " " + "Hard_Clip" + " " + "<None>"
+			Tin_input_strings.append(hard_clip + " " + "<None>" + " " + "Hard_Clip" + " " + "<None>")
 
 		# joins all strings together (semicolon separated)
-		Tin_input_str=";".join(Tin_input_strings) # joins all individual strings together separated by semicolon
+		Tin_input_str = ";".join(Tin_input_strings) # joins all individual strings together separated by semicolon
 
 		#Create TIN
 		arcpy.CreateTin_3d(output, proj, Tin_input_str, "DELAUNAY")
