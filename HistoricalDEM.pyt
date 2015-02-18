@@ -9,6 +9,8 @@ import arcpy
 import os
 import glob
 import make_zip  # imports make_zip.py as module
+import shutil
+
 
 
 class Toolbox(object):
@@ -72,7 +74,6 @@ class DeleteConversionFields(object):
 		fields.filter.type = "ValueList"
 		fields.filter.list = ['Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source', 'WS_MHW_m']
 
-
 		parameters = [fcList, fields]
 		return parameters
 
@@ -96,7 +97,7 @@ class DeleteConversionFields(object):
 		param2 = parameters[1].value.exportToString()
 		fields_to_remove = param2.split(';')  # the fields that the user selected to delete from the features
 
-		# interate over feature list and deletes all of the field that are were selected
+		# iterate over feature list and deletes all of the field that are were selected
 		for feature in fcList:
 			arcpy.AddMessage(feature)  # adds feature name to output
 			fieldList = arcpy.ListFields(feature)  # list of all fields in each feature
@@ -157,7 +158,6 @@ class TidalDatumConversion(object):
 
 		return True
 
-
 	def updateParameters(self, parameters):
 		"""Modify the values and properties of parameters before internal
 		validation is performed.  This method is called whenever a parameter
@@ -169,9 +169,9 @@ class TidalDatumConversion(object):
 		"""Modify the messages created by internal validation for each tool
 		parameter.  This method is called after internal validation."""
 
-		#add message if a feature class has a field in the reserved list of fieldnames
+		# add message if a feature class has a field in the reserved list of fieldnames
 
-		#check fieldnames for reserved names
+		# check fieldnames for reserved names
 		def check_fieldnames(fc):
 			fieldList = arcpy.ListFields(fc)
 			reserved = ['Tidal_Range_m', 'NAVD88_m', 'Z', 'Z_MEAN', 'WS_MLLW_m', 'Tidal_Datum_Source']
@@ -212,9 +212,9 @@ class TidalDatumConversion(object):
 			arcpy.AddMessage(feature)
 			fc_type = arcpy.Describe(feature).shapeType
 
-			#MLLW calculations
+			# MLLW calculations
 			if fieldExists(feature, "MLLW_m"):
-				#Add surface information by input type. Anything except points/lines will error.
+				# Add surface information by input type. Anything except points/lines will error.
 				if fc_type == 'Point':
 					arcpy.AddSurfaceInformation_3d(feature, mllw_surface, "Z", "LINEAR")
 					arcpy.AlterField_management(feature, "Z", "WS_MLLW_m", "WS_MLLW_m")  # changes field name to WS_mllw_m
@@ -226,15 +226,15 @@ class TidalDatumConversion(object):
 
 				arcpy.AddMessage("Calculating NAVD88 Elevation: subtracting MLLW bed elevation from MLLW water surface")
 
-				#Add field with raster name for documenting source of conversion surface
+				# Add field with raster name for documenting source of conversion surface
 				arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
 				arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mllw_surface + '"', "PYTHON_9.3")
 
-				#add field to calculate NAVD88 from sounding/line value and mllw_m
+				# add field to calculate NAVD88 from sounding/line value and mllw_m
 				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MLLW_M! + !MLLW_m!", "PYTHON_9.3")
 
-			#MHW calculations
+			# MHW calculations
 			elif fieldExists(feature, "MHW_m"):
 				#TODO is there a better way to do this since the add/alter field is repetitive
 				if fc_type == 'Point':
@@ -248,11 +248,11 @@ class TidalDatumConversion(object):
 
 				arcpy.AddMessage("Calculating NAVD88 Elevation: adding value from MHW surface")
 
-				#Add field with raster name for conversion surface
+				# Add field with raster name for conversion surface
 				arcpy.AddField_management(feature, "Tidal_Datum_Source", "TEXT")
 				arcpy.CalculateField_management(feature, "Tidal_Datum_Source", '"' + mhw_surface + '"', "PYTHON_9.3")
 
-				#add field to calculate NAVD88 from sounding and mhw_m
+				# add field to calculate NAVD88 from sounding and mhw_m
 				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MHW_m!", "PYTHON_9.3")
 
@@ -271,7 +271,7 @@ class TIN_Display(object):
 		tin_output = arcpy.Parameter(displayName="TIN Output", name="tin", datatype="DETin",
 								 parameterType="Required", direction="Output")
 
-		#  default symbology for the tin output parameter
+		# default symbology for the tin output parameter
 		tin_output.symbology = os.path.join(os.path.dirname(__file__), 'TIN_symbology_2.lyr')
 
 		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", datatype="GPGroupLayer",
@@ -319,11 +319,11 @@ class TIN_Display(object):
 		"""Modify the messages created by internal validation for each tool
 		parameter.  This method is called after internal validation."""
 
-		#TODO: run check that parameter value for height exists for each feature in the group
+		# TODO: run check that parameter value for height exists for each feature in the group
 
 		return
 
-		#TODO: run check that features in group only contain Points or Polylines
+		# TODO: run check that features in group only contain Points or Polylines
 
 		return
 
@@ -402,7 +402,13 @@ class TIN2ASCII(object):
 		zip_ascii = arcpy.Parameter(displayName="Zip Files?", name="zip_ascii",
 		                            datatype="GPBoolean", parameterType="Optional")
 
-		params = [tin, output_folder, zip_ascii]
+		rm_files = arcpy.Parameter(displayName="Interim files to Remove?", name="rm_files", datatype="GPString",
+		                           parameterType="Optional", multiValue=True)
+
+		rm_files.filter.type = "ValueList"
+		rm_files.filter.list = ['Raster', 'Raster_Tiles', 'ASCII_Tiles']
+
+		params = [tin, output_folder, zip_ascii, rm_files]
 
 		return params
 
@@ -437,7 +443,8 @@ class TIN2ASCII(object):
 		tin = parameters[0].valueAsText
 		output_folder = parameters[1].valueAsText
 		zip_ascii = parameters[2].valueAsText
-
+		rm_string = parameters[3].value.exportToString()
+		rm_list = rm_string.split(';')  # the file types that the user selected to delete
 
 		# Raster size settings
 		sampling = "CELLSIZE 2"
@@ -454,38 +461,66 @@ class TIN2ASCII(object):
 			r_tiles = os.path.join(output_folder, "raster_tiles")
 			os.makedirs(output_folder + "\\ascii_tiles")
 			a_tiles = os.path.join(output_folder, "ascii_tiles")
-		except:
+		except Exception as e:
 			arcpy.AddError("Can't make folders..... try saving in a different location.")
+			arcpy.AddError(e)
 
-		# Get TIN basename
-		base = os.path.basename(tin)
-		arcpy.AddMessage("Saving %s as Raster......" % base)
-		TinAsRast = os.path.join(output_folder, base + '.TIF')
+		try:
+			# Get TIN basename
+			base = os.path.basename(tin)
+			arcpy.AddMessage("Saving %s as Raster......" % base)
+			TinAsRast = os.path.join(output_folder, base + '.TIF')
 
-		# TIN to raster
-		arcpy.TinRaster_3d(tin, TinAsRast, 'FLOAT', 'LINEAR', sampling)
+			# TIN to raster
+			arcpy.TinRaster_3d(tin, TinAsRast, 'FLOAT', 'LINEAR', sampling)
+		except Exception as e:
+			arcpy.AddError("Unable to convert TIN to .TiF")
+			arcpy.AddError(e)
 
-		# Split raster into chunks
-		arcpy.AddMessage("Breaking %s into %s raster tiles...." % (base, total_tiles))
-		arcpy.SplitRaster_management(TinAsRast, r_tiles, base + '_', 'NUMBER_OF_TILES', 'TIFF', 'BILINEAR', ntiles,
-		                             '#', '10', 'METERS')
+		try:
+			# Split raster into chunks
+			arcpy.AddMessage("Breaking %s into %s raster tiles...." % (base, total_tiles))
+			arcpy.SplitRaster_management(TinAsRast, r_tiles, base + '_', 'NUMBER_OF_TILES', 'TIFF', 'BILINEAR', ntiles,
+			                             '#', '10', 'METERS')
 
-		# Get list of split tiles
-		rastertiles_list = glob.glob(r_tiles + '/*.TIF')
+			# Get list of split tiles
+			rastertiles_list = glob.glob(r_tiles + '/*.TIF')
 
-		for raster in rastertiles_list:
-			arcpy.AddMessage("Converting %s to ASCII....." % raster)
-			rbase = os.path.basename(raster)
-			rbaseName, rbaseExt = os.path.splitext(rbase)
-			ascii_name = os.path.join(a_tiles, rbaseName + '.txt')
-			arcpy.RasterToASCII_conversion(raster, ascii_name)
+			for raster in rastertiles_list:
+				arcpy.AddMessage("Converting %s to ASCII....." % raster)
+				rbase = os.path.basename(raster)
+				rbaseName, rbaseExt = os.path.splitext(rbase)
+				ascii_name = os.path.join(a_tiles, rbaseName + '.txt')
+				arcpy.RasterToASCII_conversion(raster, ascii_name)
+		except Exception as e:
+			arcpy.AddError("Unable to split raster into tiles.")
+			arcpy.AddError(e)
 
-		#zips files using make_zip.py and calculates amount of compression
-		if zip_ascii == 'true':
-			arcpy.AddMessage("Zipping ASCII files...")
-			zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
-			make_zip.zip_folder(a_tiles, zipped_output)
+		try:
+			# zips files using make_zip.py
+			if zip_ascii == 'true':
+				arcpy.AddMessage("Zipping ASCII files...")
+				zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
+				make_zip.zip_folder(a_tiles, zipped_output)
+				arcpy.AddMessage("All zipped up....")
 
-		# add code to remove temporary files if selected
+			# add code to remove temporary files if selected
+			arcpy.AddMessage("Removing Interim Files.....")
+			if 'Raster' in rm_list:
+				arcpy.AddMessage("Deleting full raster")
+				arcpy.Delete_management(TinAsRast) # unable to use os.remove since arc has .tif open
+			if 'Raster_Tiles' in rm_list:
+				arcpy.AddMessage("Deleting raster tiles")
+				shutil.rmtree(r_tiles)
+			if "ASCII_Tiles" in rm_list:
+				arcpy.AddMessage("Deleting ASCII tiles")
+				shutil.rmtree(a_tiles)
+
+		except Exception as e:
+			# print e.message
+			arcpy.AddError("Unable to zip or delete files")
+			arcpy.AddError(e)
+
+		arcpy.GetMessages()
 
 		return
