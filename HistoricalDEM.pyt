@@ -485,4 +485,7 @@ class TIN2ASCII(object):
 			arcpy.AddMessage("Zipping ASCII files...")
 			zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
 			make_zip.zip_folder(a_tiles, zipped_output)
+
+		# add code to remove temporary files if selected
+
 		return
