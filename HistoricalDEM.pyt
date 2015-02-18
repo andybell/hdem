@@ -272,7 +272,7 @@ class TIN_Display(object):
 								 parameterType="Required", direction="Output")
 
 		#  default symbology for the tin output parameter
-		tin_output.symbology = os.path.join(os.path.dirname(__file__), 'TIN_symbology.lyr')
+		tin_output.symbology = os.path.join(os.path.dirname(__file__), 'TIN_symbology_2.lyr')
 
 		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", datatype="GPGroupLayer",
 		                            parameterType="Required", direction="Input")
