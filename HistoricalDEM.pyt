@@ -127,7 +127,7 @@ class TidalDatumConversion(object):
 		                               datatype="GPRasterLayer", parameterType="Required")
 
 		mhw_surface = arcpy.Parameter(displayName="MHW Surface Raster", name="mhw_surface",
-		                               datatype="GPRasterLayer", parameterType="Required")
+		                              datatype="GPRasterLayer", parameterType="Required")
 
 		params = [inputs, mllw_surface, mhw_surface]
 		return params
@@ -186,12 +186,12 @@ class TidalDatumConversion(object):
 			fcList = fcs.split(";")  # list of features to modify
 
 			for feature in fcList:
-				if check_fieldnames(feature) == False:
+				if check_fieldnames(feature) is False:
 					parameters[0].setErrorMessage("Reserved fields already exist for %s. Please use "
 					                              "DeleteConversionFields tool first" %feature)
 		return
 
-	def execute(self, parameters, messages):
+	def execute(self, parameters):
 		"""The source code of the tool."""
 
 		param1 = parameters[0].value.exportToString()
@@ -388,7 +388,6 @@ class TIN2ASCII(object):
 		"""Define the tool (tool name is the name of the class)."""
 		self.label = "TIN2ASCII"
 		self.description = "Converts a TIN to a bunch of ASCII files and zips them up"
-		self.canRunInBackground = False
 
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
@@ -508,7 +507,7 @@ class TIN2ASCII(object):
 			arcpy.AddMessage("Removing Interim Files.....")
 			if 'Raster' in rm_list:
 				arcpy.AddMessage("Deleting full raster")
-				arcpy.Delete_management(TinAsRast) # unable to use os.remove since arc has .tif open
+				arcpy.Delete_management(TinAsRast)  # unable to use os.remove since arc has .tif open
 			if 'Raster_Tiles' in rm_list:
 				arcpy.AddMessage("Deleting raster tiles")
 				shutil.rmtree(r_tiles)
