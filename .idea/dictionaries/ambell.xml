@@ -5,9 +5,17 @@
       <w>arcpy</w>
       <w>bilinear</w>
       <w>cellsize</w>
+      <w>geodatabase</w>
+      <w>geoprocessing</w>
+      <w>hdem</w>
+      <w>mbell</w>
+      <w>mllw</w>
+      <w>navd</w>
       <w>ntiles</w>
       <w>rastertiles</w>
       <w>rbase</w>
+      <w>symbology</w>
+      <w>tbx's</w>
       <w>thalweg</w>
     </words>
   </dictionary>
