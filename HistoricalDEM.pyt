@@ -24,38 +24,6 @@ class Toolbox(object):
 		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII]
 
 
-class Tool(object):
-	def __init__(self):
-		"""Define the tool (tool name is the name of the class)."""
-		self.label = "Tool"
-		self.description = ""
-		self.canRunInBackground = False
-
-	def getParameterInfo(self):
-		"""Define parameter definitions"""
-		params = None
-		return params
-
-	def isLicensed(self):
-		"""Set whether tool is licensed to execute."""
-		return True
-
-	def updateParameters(self, parameters):
-		"""Modify the values and properties of parameters before internal
-		validation is performed.  This method is called whenever a parameter
-		has been changed."""
-		return
-
-	def updateMessages(self, parameters):
-		"""Modify the messages created by internal validation for each tool
-		parameter.  This method is called after internal validation."""
-		return
-
-	def execute(self, parameters, messages):
-		"""The source code of the tool."""
-		return
-
-
 class DeleteConversionFields(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
@@ -76,7 +44,6 @@ class DeleteConversionFields(object):
 
 		parameters = [fcList, fields]
 		return parameters
-
 
 	def updateParameters(self, parameters):
 		"""Modify the values and properties of parameters before internal
@@ -162,7 +129,6 @@ class TidalDatumConversion(object):
 		"""Modify the values and properties of parameters before internal
 		validation is performed.  This method is called whenever a parameter
 		has been changed."""
-
 		return
 
 	def updateMessages(self, parameters):
@@ -170,7 +136,6 @@ class TidalDatumConversion(object):
 		parameter.  This method is called after internal validation."""
 
 		# add message if a feature class has a field in the reserved list of fieldnames
-
 		# check fieldnames for reserved names
 		def check_fieldnames(fc):
 			fieldList = arcpy.ListFields(fc)
@@ -193,7 +158,6 @@ class TidalDatumConversion(object):
 
 	def execute(self, parameters):
 		"""The source code of the tool."""
-
 		param1 = parameters[0].value.exportToString()
 		fcList = param1.split(";")  # list of features to modify
 		mllw_surface = parameters[1].valueAsText.replace('\\', '\\\\')
@@ -236,7 +200,7 @@ class TidalDatumConversion(object):
 
 			# MHW calculations
 			elif fieldExists(feature, "MHW_m"):
-				#TODO is there a better way to do this since the add/alter field is repetitive
+				# TODO is there a better way to do this since the add/alter field is repetitive
 				if fc_type == 'Point':
 					arcpy.AddSurfaceInformation_3d(feature, mhw_surface, "Z", "LINEAR")
 					arcpy.AlterField_management(feature, "Z", "WS_MHW_m", "WS_MHW_m")  # changes z to WS_MHW_m
@@ -255,7 +219,6 @@ class TidalDatumConversion(object):
 				# add field to calculate NAVD88 from sounding and mhw_m
 				arcpy.AddField_management(feature, "NAVD88_m", "DOUBLE")
 				arcpy.CalculateField_management(feature, "NAVD88_m", "!WS_MHW_m! + !MHW_m!", "PYTHON_9.3")
-
 		return
 
 
@@ -285,7 +248,7 @@ class TIN_Display(object):
 
 		hard_clip.filter.list = ["Polygon"]
 
-		#TODO: add projection parameter????
+		# TODO: add projection parameter????
 
 		parameters = [tin_group, height_field, tin_output, hard_clip]
 		return parameters
@@ -320,11 +283,7 @@ class TIN_Display(object):
 		parameter.  This method is called after internal validation."""
 
 		# TODO: run check that parameter value for height exists for each feature in the group
-
-		return
-
 		# TODO: run check that features in group only contain Points or Polylines
-
 		return
 
 	def execute(self, parameters, messages):
@@ -334,7 +293,6 @@ class TIN_Display(object):
 		output = parameters[2].valueAsText
 		hard_clip = parameters[3].valueAsText
 		arcpy.AddMessage("Hard clip: %s" % hard_clip)
-
 
 		base = os.path.basename(output)
 		arcpy.AddMessage(base)
@@ -367,10 +325,6 @@ class TIN_Display(object):
 			feature_str = tin_in_group + "/" + feature + " " + z_field + " " + tinputs[feature] + " " + "<None>"
 			Tin_input_strings.append(feature_str)
 
-		# hard clip option
-		# if hard clip polygon selected then append to tin_input_strings?
-		# hard clip format : "Boundary_buffer300 <None> Hard_Clip <None>"
-
 		# if there is a value for hard clip, then append the feature to the tin input string
 		if hard_clip is not None:
 			Tin_input_strings.append(hard_clip + " " + "<None>" + " " + "Hard_Clip" + " " + "<None>")
@@ -378,7 +332,7 @@ class TIN_Display(object):
 		# joins all strings together (semicolon separated)
 		Tin_input_str = ";".join(Tin_input_strings) # joins all individual strings together separated by semicolon
 
-		#Create TIN
+		# Create TIN
 		arcpy.CreateTin_3d(output, proj, Tin_input_str, "DELAUNAY")
 		return
 
@@ -391,7 +345,6 @@ class TIN2ASCII(object):
 
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
-
 		tin = arcpy.Parameter(displayName="TIN", name="tin", datatype="DETin",
 								 parameterType="Required", direction="Input")
 
@@ -408,7 +361,6 @@ class TIN2ASCII(object):
 		rm_files.filter.list = ['Raster', 'Raster_Tiles', 'ASCII_Tiles']
 
 		params = [tin, output_folder, zip_ascii, rm_files]
-
 		return params
 
 	def isLicensed(self):
@@ -418,10 +370,8 @@ class TIN2ASCII(object):
 				arcpy.CheckOutExtension("3D")
 			else:
 				raise LicenseError
-
 		except LicenseError:
 			return False
-
 		return True
 
 	def updateParameters(self, parameters):
@@ -437,7 +387,6 @@ class TIN2ASCII(object):
 
 	def execute(self, parameters, messages):
 		"""The source code of the tool."""
-
 		# Parameters
 		tin = parameters[0].valueAsText
 		output_folder = parameters[1].valueAsText
@@ -521,5 +470,4 @@ class TIN2ASCII(object):
 			arcpy.AddError(e)
 
 		arcpy.GetMessages()
-
 		return
