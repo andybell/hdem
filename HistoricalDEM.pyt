@@ -333,6 +333,7 @@ class TIN_Display(object):
 		z_field = parameters[1].valueAsText
 		output = parameters[2].valueAsText
 		hard_clip = parameters[3].valueAsText
+		arcpy.AddMessage("Hard clip: %s" % hard_clip)
 
 
 		base = os.path.basename(output)
@@ -371,7 +372,7 @@ class TIN_Display(object):
 		# hard clip format : "Boundary_buffer300 <None> Hard_Clip <None>"
 
 		# if there is a value for hard clip, then append the feature to the tin input string
-		if hard_clip != "":
+		if hard_clip is not None:
 			Tin_input_strings.append(hard_clip + " " + "<None>" + " " + "Hard_Clip" + " " + "<None>")
 
 		# joins all strings together (semicolon separated)
