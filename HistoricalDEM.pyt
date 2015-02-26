@@ -88,7 +88,7 @@ class TidalDatumConversion(object):
 		"""Define parameter definitions"""
 
 		inputs = arcpy.Parameter(displayName="Input Features", name="inputs", datatype="GPFeatureLayer",
-								 parameterType="Required", multiValue=True)
+		                         parameterType="Required", multiValue=True)
 
 		mllw_surface = arcpy.Parameter(displayName="MLLW Surface Raster", name="mllw_surface",
 		                               datatype="GPRasterLayer", parameterType="Required")
