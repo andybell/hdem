@@ -156,7 +156,7 @@ class TidalDatumConversion(object):
 					                              "DeleteConversionFields tool first" %feature)
 		return
 
-	def execute(self, parameters):
+	def execute(self, parameters, messages):
 		"""The source code of the tool."""
 		param1 = parameters[0].value.exportToString()
 		fcList = param1.split(";")  # list of features to modify
