@@ -479,6 +479,7 @@ class TIN2ASCII(object):
 			rbaseName, rbaseExt = os.path.splitext(rbase)
 			ascii_name = os.path.join(a_tiles, rbaseName + '.txt')
 			arcpy.RasterToASCII_conversion(raster, ascii_name)
+			arcpy.RasterToASCII_conversion(raster, ascii_name)
 
 		#zips files using make_zip.py and calculates amount of compression
 		if zip_ascii == 'true':
