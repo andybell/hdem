@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .idea
+.pyc
+.pyt.xml
+.xml
