@@ -431,15 +431,49 @@ class PARABOLA(object):
 		output_gdb = arcpy.Parameter(displayName="Parabola Output", name="output_gdb", datatype="GPFeatureLayer",
 								 parameterType="Required", multiValue=False, direction="Output")
 
-		params = [thalweg_pts, bank_pts, output_gdb]
+		thalweg_fid = arcpy.Parameter(displayName="Thalweg unique FID", name="thalweg_fid", datatype="GPstring",
+								 parameterType="Required", multiValue=False)
+
+		thalweg_z = arcpy.Parameter(displayName="Depth Field", name="thalweg_z", datatype="GPstring",
+								 parameterType="Required", multiValue=False)
+
+		params = [thalweg_pts, thalweg_fid, thalweg_z, bank_pts, output_gdb]
 		return params
+
+	def updateParameters(self, parameters):
+		if parameters[0].value and parameters[0].altered:
+			desc = arcpy.Describe(parameters[0].value)
+			fields = desc.fields
+			z_list = []
+			fid_list = []
+			for f in fields:
+				if f.type in ["Short", "Long", "Float", "Single", "Double", "Integer","OID", "GUID"]:
+					z_list.append(f.name)
+				if f.type in ["OID", "GUID"]:
+					fid_list.append(f.name)
+
+			z_filter = parameters[2].filter
+			z_filter.list = z_list
+
+			fid_filter = parameters[1].filter
+			fid_filter.list = fid_list
+
+		return
 
 	def execute(self, parameters, messages):
 		"""The source code of the tool."""
 		# Parameters
 		thalweg = parameters[0].valueAsText
-		banks = parameters[1].valueAsText
-		output = parameters[2].valueAsText
+		banks = parameters[3].valueAsText
+		output = parameters[4].valueAsText
+		thalweg_fid = parameters[1].valueAsText
+		thalweg_z = parameters[2].valueAsText
 
-		gen_parabolas.make_points(thalweg, banks, output)
+		arcpy.AddMessage("Making points!")
+		gen_parabolas.make_points(thalweg, thalweg_fid, thalweg_z, banks, output)
+
 		return
+
+
+# tool to set the config files?
+

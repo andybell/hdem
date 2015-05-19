@@ -39,14 +39,14 @@ def near180_subprocess(dirpath, bind):
 	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind, rlib])
 
 
-def join_z_neartable(near_dbf, target_features, depth_field):
+def join_z_neartable(near_dbf, target_features, depth_field, objectid_field):
 	"""Joins depth field to the near table"""
 	# Add field for join (THALWEG_Z and BANK_Z as doubles)
 	new_fields = ["THALWEG_Z", "BANK_Z"]
 	addfields(near_dbf, new_fields)
 
 	# join on thalweg_pts unique IDs
-	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, "OBJECTID") # TODO: add check to make sure there is a field called OBJECTID
+	arcpy.JoinField_management(near_dbf, "IN_FID", target_features, objectid_field)
 
 	# Calculate fields
 	arcpy.CalculateField_management(near_dbf, "THALWEG_Z", '!' + depth_field + '!', "PYTHON_9.3")
@@ -106,19 +106,22 @@ def xy_to_pts(xy_txt, output_gdb, output_name):
 	sp_ref = r"Coordinate Systems\Projected Coordinate Systems\Utm\Nad 1983\NAD 1983 UTM Zone 10N.prj"
 	arcpy.MakeXYEventLayer_management(xy_txt, 'Field1', 'Field2', 'outlyr', sp_ref)
 	arcpy.FeatureClassToFeatureClass_conversion('outlyr', output_gdb, output_name)
+	arcpy.Delete_management('outlyr')
 
 
-def alt_fields(feature):
+def alt_fields(feature, z_field):
 	"""changes the field names"""
 	arcpy.AlterField_management(feature, 'Field1', 'X', 'X')
 	arcpy.AlterField_management(feature, 'Field2', 'Y', 'Y')
-	arcpy.AlterField_management(feature, 'Field3', 'MLLW_m', 'MLLW_m')
+	arcpy.AlterField_management(feature, 'Field3', z_field, z_field)
 
 
-def make_points(thalweg_points, banks_as_points, output):
+def make_points(thalweg_points, thalweg_fid, thalweg_z, banks_as_points, output):
 	"""
 	make_points function that batches all the steps, input is features for near table, output is location for parabola pts
 	:param thalweg_points: points that are on the thalweg of the channel. Must have a value for depth.
+	:param thalweg_fid: OBJECTID field in thalweg_points
+	:param thalweg_z: depth field in thalweg_points	(likely MLLW_m)
 	:param banks_as_points: channel lines represented as points (pts on each bank every 5m)
 	:param output: location for the output file for the geodatabase
 	:return: parabola points generated as cross sections
@@ -132,7 +135,7 @@ def make_points(thalweg_points, banks_as_points, output):
 	near180_subprocess(dirpath, "APPEND")
 
 	print "Joining thalweg depths...."
-	join_z_neartable(os.path.join(dirpath, "both_banks.dbf"), thalweg_points, "MLLW_m") # depth field is hard coded
+	join_z_neartable(os.path.join(dirpath, "both_banks.dbf"), thalweg_points, thalweg_fid, thalweg_z)
 
 	print "Generating parabola POINTS!!!"
 	gen_pts_nears(os.path.join(dirpath, "both_banks.dbf"), dirpath)
@@ -142,9 +145,9 @@ def make_points(thalweg_points, banks_as_points, output):
 
 	xy_to_pts(os.path.join(dirpath, "parabola_points.txt"), pathname[0], pathname[1])
 	print "Changing field names"
-	alt_fields(output)
+	alt_fields(output, thalweg_z)
 	print "Removing duplicate points"
-	arcpy.DeleteIdentical_management(output, ["X", "Y", "MLLW_m"])
+	arcpy.DeleteIdentical_management(output, ["X", "Y", thalweg_z])
 
 	print "Removing Temporary Files"
 	# remove the temporary directory
