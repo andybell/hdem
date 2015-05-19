@@ -39,7 +39,7 @@ def near180_subprocess(dirpath, bind):
 	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind, rlib])
 
 
-def join_z_neartable(near_dbf, target_features, depth_field, objectid_field):
+def join_z_neartable(near_dbf, target_features, objectid_field, depth_field):
 	"""Joins depth field to the near table"""
 	# Add field for join (THALWEG_Z and BANK_Z as doubles)
 	new_fields = ["THALWEG_Z", "BANK_Z"]
@@ -80,7 +80,7 @@ def gen_pts_nears(inNearTable_withZ, out_directory):
 	del cursor
 
 	# export to csv/txt and then add points via arc xy to points tool
-	out_txt = os.path.join(out_directory, "parabola_points.txt")  # TODO: need separate files for near + opposite?
+	out_txt = os.path.join(out_directory, "parabola_points.txt")
 	txtfile = open(out_txt, 'w')
 	writer = csv.writer(txtfile)
 

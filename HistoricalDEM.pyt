@@ -16,17 +16,17 @@ class Toolbox(object):
 	def __init__(self):
 		"""Define the toolbox (the name of the toolbox is the name of the
 		.pyt file)."""
-		self.label = "HistoricalDEM"
+		self.label = "Historical DEM"
 		self.alias = "Historical DEM Toolbox"
 
 		# List of tool classes associated with this toolbox
-		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII, PARABOLA]
+		self.tools = [DeleteConversionFields, TidalDatumConversion, TINDisplay, TIN2ASCII, PARABOLA]
 
 
 class DeleteConversionFields(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
-		self.label = "DeleteConversionFields"
+		self.label = "Delete Conversion Fields"
 		self.description = "Tool deletes conversion fields from all the features. Uses a reserved " \
 		                   "list ['Tidal_Range_m', 'NAVD88_m', 'WS_MLLW_m', 'Tidal_Datum_Source'"
 		self.canRunInBackground = False
@@ -66,7 +66,7 @@ class DeleteConversionFields(object):
 class TidalDatumConversion(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
-		self.label = "TidalDatumConversion"
+		self.label = "Tidal Datum Conversion"
 		self.description = "Converts feature elevation to NAVD88 using a raster surface of MLLW and MHW. Each input " \
 		                   "needs to have a field named either 'MLLW_m' or 'MHW_m'. The tool will add the appropriate " \
 		                   "values to the attribute table including the elevation in NAVD88"
@@ -204,10 +204,10 @@ class TidalDatumConversion(object):
 		return
 
 
-class TIN_Display(object):
+class TINDisplay(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
-		self.label = "TIN_Display"
+		self.label = "TIN Display"
 		self.description = "Create a TIN from all the layers in a group for the current map extent"
 		self.canRunInBackground = False
 
@@ -322,7 +322,7 @@ class TIN_Display(object):
 class TIN2ASCII(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
-		self.label = "TIN2ASCII"
+		self.label = "TIN to ASCII"
 		self.description = "Tool strings together a couple of steps to make exporting the TIN streamlined. The first " \
 		                   "step is that the tool converts a TIN to a 2 meter resolution GeoTiff raster. Then, the tool" \
 		                   " splits the raster into 25 equal rasters and converts the geotiffs into ASCIIs. Optional: " \
@@ -422,19 +422,19 @@ class PARABOLA(object):
 
 	def getParameterInfo(self):
 		"""Define parameter definitions"""
-		thalweg_pts = arcpy.Parameter(displayName="Thalweg", name="thalweg_pts", datatype="GPFeatureLayer",
+		thalweg_pts = arcpy.Parameter(displayName="Thalweg Station Points", name="thalweg_pts", datatype="GPFeatureLayer",
 								 parameterType="Required", multiValue=False)
 
-		bank_pts = arcpy.Parameter(displayName="Points on banks", name="banks_pts", datatype="GPFeatureLayer",
+		bank_pts = arcpy.Parameter(displayName="Banks (regularly spaced points)", name="banks_pts", datatype="GPFeatureLayer",
 								 parameterType="Required", multiValue=False)
 
-		output_gdb = arcpy.Parameter(displayName="Parabola Output", name="output_gdb", datatype="GPFeatureLayer",
+		output_gdb = arcpy.Parameter(displayName="Output Location", name="output_gdb", datatype="GPFeatureLayer",
 								 parameterType="Required", multiValue=False, direction="Output")
 
-		thalweg_fid = arcpy.Parameter(displayName="Thalweg unique FID", name="thalweg_fid", datatype="GPstring",
+		thalweg_fid = arcpy.Parameter(displayName="Thalweg - ID field", name="thalweg_fid", datatype="GPstring",
 								 parameterType="Required", multiValue=False)
 
-		thalweg_z = arcpy.Parameter(displayName="Depth Field", name="thalweg_z", datatype="GPstring",
+		thalweg_z = arcpy.Parameter(displayName="Thalweg - Depth Field", name="thalweg_z", datatype="GPstring",
 								 parameterType="Required", multiValue=False)
 
 		params = [thalweg_pts, thalweg_fid, thalweg_z, bank_pts, output_gdb]
@@ -447,7 +447,7 @@ class PARABOLA(object):
 			z_list = []
 			fid_list = []
 			for f in fields:
-				if f.type in ["Short", "Long", "Float", "Single", "Double", "Integer","OID", "GUID"]:
+				if f.type in ["Short", "Long", "Float", "Single", "Double", "Integer"]:
 					z_list.append(f.name)
 				if f.type in ["OID", "GUID"]:
 					fid_list.append(f.name)
@@ -473,7 +473,3 @@ class PARABOLA(object):
 		gen_parabolas.make_points(thalweg, thalweg_fid, thalweg_z, banks, output)
 
 		return
-
-
-# tool to set the config files?
-
