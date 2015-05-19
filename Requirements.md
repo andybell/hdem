@@ -10,3 +10,7 @@
 	- tempfile
 	- shutil
 	- glob
+- R packages:
+	- plyr
+	- dplyr
+	- foreign

@@ -9,6 +9,7 @@ import arcpy
 import os
 import glob
 import make_zip  # imports make_zip.py as module
+import gen_parabolas  # imports gen_parabolas.py as module
 
 
 class Toolbox(object):
@@ -19,7 +20,7 @@ class Toolbox(object):
 		self.alias = "Historical DEM Toolbox"
 
 		# List of tool classes associated with this toolbox
-		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII]
+		self.tools = [DeleteConversionFields, TidalDatumConversion, TIN_Display, TIN2ASCII, PARABOLA]
 
 
 class DeleteConversionFields(object):
@@ -216,7 +217,7 @@ class TIN_Display(object):
 								 parameterType="Required", direction="Output")
 
 		#  default symbology for the tin output parameter
-		tin_output.symbology = os.path.join(os.path.dirname(__file__), 'TIN_symbology_2.lyr')
+		tin_output.symbology = os.path.join(os.path.dirname(__file__), 'TIN.lyr')
 
 		tin_group = arcpy.Parameter(displayName="TIN Group", name="tin_group", datatype="GPGroupLayer",
 		                            parameterType="Required", direction="Input")
@@ -322,7 +323,11 @@ class TIN2ASCII(object):
 	def __init__(self):
 		"""Define the tool (tool name is the name of the class)."""
 		self.label = "TIN2ASCII"
-		self.description = "Converts a TIN to a bunch of ASCII files and zips them up"
+		self.description = "Tool strings together a couple of steps to make exporting the TIN streamlined. The first " \
+		                   "step is that the tool converts a TIN to a 2 meter resolution GeoTiff raster. Then, the tool" \
+		                   " splits the raster into 25 equal rasters and converts the geotiffs into ASCIIs. Optional: " \
+		                   "the tool can zip/compress the outputs." \
+
 		self.canRunInBackground = False
 
 	def getParameterInfo(self):
@@ -405,4 +410,36 @@ class TIN2ASCII(object):
 			arcpy.AddMessage("Zipping ASCII files...")
 			zipped_output = os.path.join(output_folder, base + "_ascii_tiles.zip")
 			make_zip.zip_folder(a_tiles, zipped_output)
+		return
+
+
+class PARABOLA(object):
+	def __init__(self):
+		"""Define the tool (tool name is the name of the class)."""
+		self.label = "Parabolas"
+		self.description = "Generates parabola points along a cross section"
+		self.canRunInBackground = False
+
+	def getParameterInfo(self):
+		"""Define parameter definitions"""
+		thalweg_pts = arcpy.Parameter(displayName="Thalweg", name="thalweg_pts", datatype="GPFeatureLayer",
+								 parameterType="Required", multiValue=False)
+
+		bank_pts = arcpy.Parameter(displayName="Points on banks", name="banks_pts", datatype="GPFeatureLayer",
+								 parameterType="Required", multiValue=False)
+
+		output_gdb = arcpy.Parameter(displayName="Parabola Output", name="output_gdb", datatype="GPFeatureLayer",
+								 parameterType="Required", multiValue=False, direction="Output")
+
+		params = [thalweg_pts, bank_pts, output_gdb]
+		return params
+
+	def execute(self, parameters, messages):
+		"""The source code of the tool."""
+		# Parameters
+		thalweg = parameters[0].valueAsText
+		banks = parameters[1].valueAsText
+		output = parameters[2].valueAsText
+
+		gen_parabolas.make_points(thalweg, banks, output)
 		return

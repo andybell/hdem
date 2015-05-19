@@ -7,6 +7,7 @@ import os
 import subprocess
 import tempfile
 import shutil
+import config  # imports configuration settings
 
 
 def addfields(target_table, name_list):
@@ -27,12 +28,15 @@ def near180_subprocess(dirpath, bind):
 	"""bind can either be 'APPEND' or 'MERGE'"""
 	# location of R output dbf file
 	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
-	near180 = r"C:\Users\Andy\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
-	rscript_path = r"C:\Program Files\R\R-3.1.2\bin\rscript.exe"  # TODO universal?
+	# near180 = r"C:\Users\Andy\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
+	near180 = os.path.join(os.path.dirname(__file__), 'Near180.R')
+	# rscript_path = r"C:\Program Files\R\R-3.1.2\bin\rscript.exe"  # TODO universal?
+	rscript_path = config.rscript_path  # location of the R executable
+	rlib = config.r_lib_loc  # location of the R library
 
-	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath)  # add bind
+	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath, bind, rlib)  # add bind
 	# Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
-	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind])
+	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind, rlib])
 
 
 def join_z_neartable(near_dbf, target_features, depth_field):
@@ -128,7 +132,7 @@ def make_points(thalweg_points, banks_as_points, output):
 	near180_subprocess(dirpath, "APPEND")
 
 	print "Joining thalweg depths...."
-	join_z_neartable(os.path.join(dirpath, "both_banks.dbf"), thalweg_points, "MLLW_m")
+	join_z_neartable(os.path.join(dirpath, "both_banks.dbf"), thalweg_points, "MLLW_m") # depth field is hard coded
 
 	print "Generating parabola POINTS!!!"
 	gen_pts_nears(os.path.join(dirpath, "both_banks.dbf"), dirpath)
@@ -145,11 +149,3 @@ def make_points(thalweg_points, banks_as_points, output):
 	print "Removing Temporary Files"
 	# remove the temporary directory
 	shutil.rmtree(dirpath)
-
-
-# Tester files
-thalweg_pts = r"C:\Users\Andy\Documents\Historical_Delta\Moke_xarea\Moke_AREA_Near\Moke_AREA.gdb\Moke_stationpts_spline_test_objectid"
-banks_as_pts = r"C:\Users\Andy\Documents\Historical_Delta\Moke_xarea\Channel_pts_5m_GME_no_dups.shp"
-output = r"C:\Users\Andy\Documents\Historical_Delta\Moke_xarea\Moke_AREA_Near\Moke_AREA.gdb\testermay"
-
-make_points(thalweg_pts, banks_as_pts, output)
