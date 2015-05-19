@@ -1,7 +1,7 @@
-.Rproj.user
-.Rhistory
-.RData
-.idea
-.pyc
-.pyt.xml
-.xml
+*.Rproj.user
+*.Rhistory
+*.RData
+*.idea
+*.pyc
+*.pyt.xml
+*.xml
