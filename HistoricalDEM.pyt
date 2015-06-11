@@ -52,7 +52,7 @@ class DeleteConversionFields(object):
 		param2 = parameters[1].value.exportToString()
 		fields_to_remove = param2.split(';')  # the fields that the user selected to delete from the features
 
-		# interate over feature list and deletes all of the field that are were selected
+		# iterate over feature list and deletes all of the field that are were selected
 		for feature in fcList:
 			arcpy.AddMessage(feature)  # adds feature name to output
 			fieldList = arcpy.ListFields(feature)  # list of all fields in each feature
