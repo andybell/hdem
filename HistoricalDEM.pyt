@@ -93,7 +93,7 @@ class TidalDatumConversion(object):
 		try:
 			info_dict = arcpy.GetInstallInfo()
 			version = info_dict['Version']
-			checked_versions = ['10.2.1', '10.2.2', '10.3']
+			checked_versions = ['10.2.1', '10.2.2', '10.3', '10.3.1']
 			if version in checked_versions:
 				pass
 			else:
