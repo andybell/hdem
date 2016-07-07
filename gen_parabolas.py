@@ -18,7 +18,6 @@ def addfields(target_table, name_list):
 
 def nearTable(thalweg_pts, channel_pts, target_dbf):
 	"""Creates a near table to find the all near points on the bank from the thalweg including loc and angle"""
-	# target_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
 	arcpy.GenerateNearTable_analysis(thalweg_pts, channel_pts, target_dbf, "#",
 	                                 "LOCATION", "ANGLE", "ALL", 200)
 
@@ -28,13 +27,10 @@ def near180_subprocess(dirpath, bind):
 	"""bind can either be 'APPEND' or 'MERGE'"""
 	# location of R output dbf file
 	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
-	# near180 = r"C:\Users\Andy\Documents\hdem\R_HDEM\Near180.R"  # TODO change to be universal?
 	near180 = os.path.join(os.path.dirname(__file__), 'Near180.R')
-	# rscript_path = r"C:\Program Files\R\R-3.1.2\bin\rscript.exe"  # TODO universal?
 	rscript_path = config.rscript_path  # location of the R executable
 	rlib = config.r_lib_loc  # location of the R library
-
-	print "Calling {} {} --args {} {}".format(rscript_path, near180, input_dbf, dirpath, bind, rlib)  # add bind
+	arcpy.AddMessage("Calling {} {} --args {} {} {} {}".format(rscript_path, near180, input_dbf, dirpath, bind, rlib))
 	# Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
 	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind, rlib])
 
