@@ -12,9 +12,14 @@ args <- commandArgs(trailingOnly=TRUE)
 near_file<-args[2]
 out_location<-args[3]
 bind<-args[4]
-library_location <- args[5]
+#library_location <- args[5]
 print(args)
 
+####################################################################################
+
+path <- .libPaths()
+# installs R packages in the first library
+library_location <- path[1]
 ####################################################################################
 
 #set lib.loc file path in config.py
