@@ -21,19 +21,18 @@ def nearTable(thalweg_pts, channel_pts, target_dbf):
 	arcpy.GenerateNearTable_analysis(thalweg_pts, channel_pts, target_dbf, "#",
 	                                 "LOCATION", "ANGLE", "ALL", 200)
 
-
 def near180_subprocess(dirpath, bind):
 	"""subprocess call to R to run Near180.py to find two closest points (one on each bank)"""
 	"""bind can either be 'APPEND' or 'MERGE'"""
 	# location of R output dbf file
-	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf")
+	dirpath = dirpath.replace("\\", "/")
+	input_dbf = os.path.join(dirpath, "Input_Near_Table.dbf").replace("\\", "/")
 	near180 = os.path.join(os.path.dirname(__file__), 'Near180.R')
 	rscript_path = config.rscript_path  # location of the R executable
 	rlib = config.r_lib_loc  # location of the R library
-	arcpy.AddMessage("Calling {} {} --args {} {} {} {}".format(rscript_path, near180, input_dbf, dirpath, bind, rlib))
 	# Subprocess call out to R to run Near180.R functions to reduce near table to two closest records
+	arcpy.AddMessage([rscript_path, near180, "--args", input_dbf, dirpath, bind, rlib])
 	subprocess.call([rscript_path, near180, "--args", input_dbf, dirpath, bind, rlib])
-
 
 def join_z_neartable(near_dbf, target_features, objectid_field, depth_field):
 	"""Joins depth field to the near table"""

@@ -1,6 +1,6 @@
 ### Requirements
 
-- ArcMap (10.2.1, 10.2.2, 10.3)
+- ArcMap (10.2.1, 10.2.2, 10.3, 10.3.1)
 	- 3D Analyst
 - Python 2.7 (should use ArcGIS's version)
 - R
@@ -8,3 +8,4 @@
 	- plyr
 	- dplyr
 	- foreign
+	- lazyeval

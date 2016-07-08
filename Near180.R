@@ -12,20 +12,17 @@ args <- commandArgs(trailingOnly=TRUE)
 near_file<-args[2]
 out_location<-args[3]
 bind<-args[4]
-#library_location <- args[5]
+library_location <- args[5]
 print(args)
 
-####################################################################################
 
-path <- .libPaths()
-# installs R packages in the first library
-library_location <- path[1]
 ####################################################################################
 
 #set lib.loc file path in config.py
 library('plyr', lib.loc = library_location)
 library('dplyr', lib.loc = library_location)
 library('foreign', lib.loc = library_location)
+library('lazyeval', lib.loc = library_location)
 
 # change arc's angles  with 0 = due east
 neg_angle<-function(angle){
@@ -57,6 +54,12 @@ near_table<-read.dbf(near_file, as.is = FALSE)
 
 # use ddply to apply function(s) by IN_FID groups
 nearest_point<-ddply(near_table, "IN_FID", nearest)
+print("Nearest Finished")
+print("Nearest Finished")
+print("Nearest Finished")
+print("Nearest Finished")
+print("Nearest Finished")
+print("Nearest Finished")
 print("Nearest Finished")
 
 opposite_point<-ddply(near_table, "IN_FID", nearest_opposite)

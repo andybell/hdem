@@ -8,5 +8,5 @@ import os
 rscript_path = r"C:\Program Files\R\R-3.2.3\bin\rscript.exe"
 
 # path to R libraries
-r_lib_loc = os.path.join(os.path.dirname(__file__), 'Rlib')
+r_lib_loc = "C:/Users/ambell/Documents/R/win-library/3.3"
 
